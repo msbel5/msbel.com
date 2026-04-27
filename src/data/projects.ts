@@ -275,6 +275,33 @@ export const projects: Project[] = [
     repoUrl: 'https://github.com/msbel5/KOExamApp',
   },
 
+  // ─── 2022 — Huawei tooling ────────────────────────────────────
+
+  {
+    slug: 'parser-test',
+    number: '21',
+    title: 'parserTest — Huawei TIE log parser',
+    tagline: 'Turn unstructured logs into structured ones, by people who hate regex',
+    description:
+      'My first real internal project at Huawei, written for the TIE app. Engineers needed to extract specific fields from messy log streams, but most QA folks would not write regex from scratch. parserTest exposes a UI for building extraction rules — you point at the parts you want, name them, choose the format, and the tool generates the regex behind the scenes. The output is a clean, queryable structured log. Years before "log analysis SaaS" had a name, this was already running for the team.',
+    year: '2022',
+    status: 'archived',
+    tags: ['java', 'log parsing', 'regex', 'ui', 'huawei', 'qa tooling'],
+    repoUrl: 'https://github.com/msbel5/parserTest',
+  },
+  {
+    slug: 'viewer-test',
+    number: '22',
+    title: 'viewerTest — Huawei mobile automation, pre-Appium',
+    tagline: 'Mobile UI test automation before Appium was the answer',
+    description:
+      'A mobile UI test automation framework I built for Huawei before Appium was the standard answer to anything. UI element discovery, gesture replay, assertion DSL — all custom. I tidied the project up and pushed it to GitHub years later as an artefact, but the code itself was running in production tests well before mobile QA tooling consolidated around the current stack.',
+    year: '2022',
+    status: 'archived',
+    tags: ['java', 'mobile automation', 'huawei', 'pre-appium', 'qa'],
+    repoUrl: 'https://github.com/msbel5/viewerTest',
+  },
+
   // ─── 2017 — the burst ─────────────────────────────────────────
 
   {

@@ -35,10 +35,11 @@ const education = [
     thesis: '"Predictive Maintenance for Electrical Motors by Using Machine Learning"',
     thesisDetail:
       'Coursework completed. Thesis written under Prof. Dr. Mustafa Caner Akıner. Defense still pending — the manuscript is on the desk; the date is not. ' +
-      'Method: MPU6050 6-axis gyroscope mounted on a CPU fan, varied weights to simulate vibration profiles, Arduino Mega 2560 for capture. ' +
-      'Compared 35 ML models in Python (R for initial signal analysis), optimized with GridSearch. ' +
-      'Final RMSE: 9.70 time-windows (~7 seconds each) — usable for real predictive maintenance once paired with PLC-grade sensors. ' +
-      'Conference draft: "Estimating Failure Times for Electric Motors by Machine Learning."',
+      'Premise: take an existing paper on motor failure prediction, replicate it with new data and a wider model bench. ' +
+      'Apparatus: an MPU6050 6-axis gyroscope mounted on a CPU fan, varied weights stuck to the blades to simulate vibration profiles, Arduino Mega 2560 for capture. ' +
+      'Pipeline: R for initial signal analysis, Python for the ML stack — 35 model candidates, GridSearch-optimized, ANN baseline at RMSE 308 brought down to 9.70 time-windows (~7 seconds each) usable for real predictive maintenance once paired with PLC-grade sensors. ' +
+      'Conference draft: "Estimating Failure Times for Electric Motors by Machine Learning." ' +
+      'Thesis proposal first submitted Oct 2020, revised Aug 2023 with new references, defense still pending.',
   },
   {
     degree: 'B.Sc. Mechanical Engineering',
@@ -46,7 +47,7 @@ const education = [
     period: '2010 — 2016',
     thesis: '"Position Control of Linear Motors"',
     thesisDetail:
-      'Solid modeling + Fortran-based control simulation. Six years of coursework that took me through CAD/CAM, fluid dynamics, finite element analysis, and the long, slow craft of mechanical thinking. The skill that survived: load paths and tolerances — the same instinct now applied to software systems.',
+      'Supervisor: Yrd.Doç.Dr. Yener Taşkın. Hardware-in-the-loop control: LabVIEW driving a National Instruments PCI-6289 DAQ card, Arduino producing dual- and triple-channel PWM signals, and a stepper-style position-control loop wrapping the linear motor. The .vi files survived to this day — lineermotorpwmv4 (Arduino dual-signal), lineermotorpwmv5.2 (PCI-6289), stepper konum kontrolü.vi. NI Turkey\'s distributor (Enovas) visited the lab during the project. Six years of coursework around it — CAD/CAM, fluid dynamics, finite element analysis, the long slow craft of mechanical thinking. The skill that survived: load paths and tolerances, the same instinct now applied to software systems.',
   },
 ];
 
@@ -199,9 +200,23 @@ const stack = {
           and ended up in mechanical engineering at <em>Istanbul
           University</em>. I told myself I'd pick up software on the
           side — CAD, control programs, drawing tools, whatever the
-          curriculum allowed. The bachelor's took six years instead of
-          four; the bachelor thesis was on the position control of linear
-          motors, written in <em>Solid</em> and <em>Fortran</em>.
+          curriculum allowed.
+        </p>
+        <p>
+          The bachelor's took six years instead of four. The thesis was
+          on <em>position control of linear motors</em> under
+          <em>Yrd.Doç.Dr. Yener Taşkın</em> — and despite the department,
+          it was not just paperwork. <em>LabVIEW</em> driving a
+          <em>National Instruments PCI-6289 DAQ card</em>; an
+          <em>Arduino</em> generating dual- and triple-channel PWM
+          signals; a stepper-style position-control loop wrapping the
+          linear motor. NI Turkey's distributor (Enovas) actually visited
+          the lab during the project. The .vi files — <em>lineermotorpwmv4
+          arduino üçlü sinyal.vi</em>, <em>lineermotorpwmv5.2 pci 6289.vi</em>,
+          <em>stepper konum kontrolü.vi</em> — still sit in my Drive,
+          dated February 2017. I left the department fluent in load paths,
+          tolerances, control loops, and the slow physics-first way of
+          thinking that has stayed with me since.
         </p>
 
         <h3 class="bio-h">2018-now — the master's, and an ML thesis on the desk</h3>
@@ -211,22 +226,35 @@ const stack = {
           still pending — manuscript on the desk, date not yet. The
           thesis I'm still proud of:
           <strong>"Predictive Maintenance for Electrical Motors by Using
-          Machine Learning."</strong> An MPU6050 gyroscope strapped to a
-          CPU fan, weights stuck on the blades to simulate failure
-          profiles, an Arduino Mega 2560 capturing vibration coordinates,
-          R for the first signal pass, Python for the rest. I tested 35
-          models, settled on a GridSearch-optimized one, and got the RMSE
+          Machine Learning."</strong>
+        </p>
+        <p>
+          The premise was honest: take an existing paper on motor failure
+          prediction and replicate it with new data and a wider model
+          bench. An <em>MPU6050</em> gyroscope strapped to a CPU fan,
+          weights stuck on the blades to simulate failure profiles, an
+          <em>Arduino Mega 2560</em> capturing vibration coordinates. R
+          for the first signal pass, Python for the rest. The early ANN
+          baseline produced an RMSE of 308; I worked through 35 candidate
+          models, GridSearch-optimized the winner, and brought the RMSE
           down to 9.7 time-windows — about 7 seconds. With proper PLC
           sensors that window collapses to milliseconds. The conference
-          draft was titled
-          <em>"Estimating Failure Times for Electric Motors by Machine
-          Learning."</em>
+          draft was titled <em>"Estimating Failure Times for Electric
+          Motors by Machine Learning."</em>
+        </p>
+        <p>
+          The thesis proposal was first submitted October 27, 2020. Code
+          and dataset were ready by July 2021. The proposal was revised
+          again in August 2023 with new references. The supervisor signed,
+          the manuscript is in good shape, the defense itself still has
+          not been scheduled. (One of the three or four open loops in my
+          life that I keep meaning to close.)
         </p>
         <p>
           A second project that year went the other direction:
           <em>image-processing-based fault detection on assembly
           lines</em> — defect classification from camera frames, a problem
-          I'd revisit five years later in a very different shape (a QA
+          I would revisit five years later in a very different shape (a QA
           agent that watches the page).
         </p>
 
@@ -428,6 +456,10 @@ const stack = {
         <li>
           <span class="aside-mono mono">42 repos</span>
           <span><a href="https://github.com/msbel5" class="subtle" target="_blank" rel="noopener">github.com/msbel5</a> — a chronological archive going back to 2017. Some are graveyards, some are foundations. None were deleted.</span>
+        </li>
+        <li>
+          <span class="aside-mono mono">17,180 h</span>
+          <span>Lifetime gaming hours per the GOG Galaxy export — about 715 days. Heaviest libraries: Pathfinder (Kingmaker + Wrath, ~680h combined), the three Baldur's Gates (~671h), Fallout 4 / 76 (~1115h), UnderRail (~445h), Witcher 3 (~283h), RimWorld (~286h), Civ V (~280h), Pillars of Eternity, Divinity: Original Sin I+II, Avowed, Outer Worlds 2, Kingdom Come: Deliverance. The reading list of the RPG I am trying to build.</span>
         </li>
         <li>
           <span class="aside-mono mono">native</span>
