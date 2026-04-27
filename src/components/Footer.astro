@@ -1,17 +1,21 @@
 ---
 const year = new Date().getFullYear();
+const path = Astro.url.pathname;
+const showQuote = path === '/' || path === '/about' || path === '/about/';
 ---
 
-<footer class="site-footer">
+<footer class={`site-footer${showQuote ? '' : ' compact'}`}>
   <div class="container">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <p class="quote">
-          "There's a bluebird in my heart that<br />
-          wants to get out."
-        </p>
-        <p class="quote-attr">— Charles Bukowski</p>
-      </div>
+    <div class={`footer-grid${showQuote ? '' : ' no-quote'}`}>
+      {showQuote && (
+        <div class="footer-brand">
+          <p class="quote">
+            "There's a bluebird in my heart that<br />
+            wants to get out."
+          </p>
+          <p class="quote-attr">— Charles Bukowski</p>
+        </div>
+      )}
 
       <div class="footer-meta">
         <div class="footer-line">
@@ -54,8 +58,13 @@ const year = new Date().getFullYear();
     align-items: start;
   }
 
+  .footer-grid.no-quote {
+    grid-template-columns: 1fr 0.8fr;
+  }
+
   @media (max-width: 768px) {
-    .footer-grid {
+    .footer-grid,
+    .footer-grid.no-quote {
       grid-template-columns: 1fr;
       gap: 2rem;
     }
