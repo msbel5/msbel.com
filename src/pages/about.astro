@@ -153,6 +153,45 @@ const stack = {
           discipline in different costumes.
         </p>
 
+        <h3 class="bio-h">2017 — teaching myself to ship</h3>
+        <p>
+          I bought <em>msbel.com</em> early. The first repo on
+          <a href="https://github.com/msbel5" class="subtle" target="_blank" rel="noopener">github.com/msbel5</a>
+          is from September 2017 — <em>FirstMVCBlog</em>, an ASP.NET MVC
+          blog engine. On October 27, 2017, I pushed nine repos in a
+          single day. <em>HtmlJavascriptExample</em> is one of them: a
+          single-page HTML site driven by jQuery + AJAX, no framework, no
+          build step. The README from the time reads <em>"expandable so
+          data can be fetched with ajax methods. Simple solution for
+          serverless static pages."</em> Nine years later, this site
+          you're reading is the same idea — just with more discipline.
+        </p>
+
+        <h3 class="bio-h">2018 — KOExamApp, the first thing I deployed</h3>
+        <p>
+          A job-interview project that I shipped to
+          <em>koexamapp.msbel.com</em>. Teachers could build quizzes from
+          articles automatically fetched via the <em>Wired.com</em> RSS
+          feed; students took the exam on a single page, and after
+          submitting, jQuery would dynamically colour the correct and
+          incorrect answers without a full reload. A single-page app
+          before SPAs were a buzzword. BLL / DAL / UI architecture, rich
+          text editor, real auth. The <em>msbel.com</em> domain has been
+          serving subdomains since I was 26.
+        </p>
+
+        <h3 class="bio-h">2019 — Mahzenler ve Evrenler</h3>
+        <p>
+          The most literal Turkish translation of <em>Dungeons &
+          Dragons</em> you can write. <em>MvE</em> — "dungeons and
+          universes" — was my first serious RPG attempt: a multi-project
+          C# solution, naive in retrospect, the seed of every RPG I have
+          since tried to build. (Six years later they made the D&D movie.
+          The opportunity for a faithful Turkish-language D&D project
+          shipped in 2019 and I had no channel to ship it widely. Lesson
+          logged.)
+        </p>
+
         <h3 class="bio-h">2010 — into mechanical, by accident</h3>
         <p>
           I missed the cutoff for computer engineering on the first
@@ -200,16 +239,65 @@ const stack = {
           honest. I came out of it knowing how to ship at scale.
         </p>
 
+        <h3 class="bio-h">2023-10 — CodeBERT, and "I'm so sorry"</h3>
+        <p>
+          I built <em>CodeGlimmer</em> in October 2023 — a Java app that
+          generated code documentation by combining OpenAI GPT-3 with
+          HuggingFace CodeBERT. Around the same time I was running a
+          local CodeBERT-tokenized GPT-2 chatbot in IntelliJ; without
+          fine-tuning, it would generate the phrase <em>"I'm so sorry!
+          I'm so sorry! I'm so sorry!"</em> on an infinite loop. Someone
+          screenshotted it; the screenshot turned into an Instagram story
+          captioned <em>"why is the first thing an AI says always im so
+          sorry?"</em> It is one of my favourite artefacts from the
+          early-LLM era — a chatbot, fed someone else's tokenizer, with
+          no training, apologising forever.
+        </p>
+
+        <h3 class="bio-h">2024-01 — dAIlog, agentic before agentic</h3>
+        <p>
+          In January 2024 I built <em>dAIlog</em>: a C# / Python hybrid,
+          an ASP.NET API in front of a Python AutoGen service running
+          <em>seven agents</em> — Coder, Data_analyst, Engineer,
+          Scientist, Planner, Critic, Executor — coordinated by a
+          ModifiedUserProxyAgent in a GroupChat. A single user prompt
+          would trigger Planner → Engineer (writes code) → Scientist
+          (no code, classifies and reads) → Critic (doublechecks claims
+          and source URLs) → Executor (runs the code) → loop until
+          termination. It ran on gpt-3.5-turbo and gpt-4. It worked.
+        </p>
+        <p>
+          I posted a story on January 25, 2024:
+          <em>"hikayeler olmasa, gpt 3.5'a yeni basmışken, Claude code,
+          openclaw yokken, AI'lar kod analizi yapıyor, agentslar henüz
+          makaleyken, 2023'te benim tek cümle ile kod yazıp çalıştıran
+          framework yazdığımı inandıramam."</em> ("If it weren't for
+          stories — back when GPT-3.5 was new, no Claude Code, no
+          OpenClaw, when AIs were doing code analysis and 'agents' was
+          still just papers — I couldn't convince anyone in 2023 I'd
+          written a framework that runs code from a single sentence.")
+        </p>
+        <p>
+          I proposed dAIlog as an internal product. It went nowhere.
+          Six months later <em>"agentic"</em> was the word everyone was
+          using. Devin launched. Cursor exploded. Claude Code shipped.
+          I had a working version of the same primitive sitting in a
+          private repo from January. I kept the code. I kept the lesson.
+        </p>
+
         <h3 class="bio-h">2023-now — Testinium, and building at night</h3>
         <p>
           At <em>Testinium</em> I designed a Python end-to-end framework
           from scratch — Gauge-style DSL, Postman-like API surface, fully
-          parallel. It runs Saudi fintech tests on production. In 2024 I
-          built <em>dAIlog</em>, a multi-agent ChatGPT framework on top of
-          AutoGen — a working agentic system at a time most people were
-          still treating LLMs as auto-complete. A single prompt could write
-          code through it. I proposed it as a product to my employers.
-          They passed. I kept building.
+          parallel. It runs Saudi fintech tests on production. The
+          private automation work in this period —
+          <em>a101ikwebautomation</em>, <em>OrderAutomation</em>,
+          <em>ozlukWebAutomation</em>, <em>hadiAutomation</em>,
+          <em>comisAutomation</em>, the Iyzico nopCommerce plugin — did
+          more to sharpen my instincts than any greenfield project. The
+          discipline of writing automation that has to actually run,
+          every day, against real e-commerce sites, is a different kind
+          of teacher.
         </p>
 
         <p>
@@ -314,8 +402,28 @@ const stack = {
           <span>Eight years of theatre — high school + university stages. Same discipline as engineering, just different costumes.</span>
         </li>
         <li>
+          <span class="aside-mono mono">2017-09</span>
+          <span>First repo on GitHub: <em>FirstMVCBlog</em>. Followed by nine repos in a single day on October 27, 2017. <em>msbel.com</em> was already mine and serving subdomains.</span>
+        </li>
+        <li>
+          <span class="aside-mono mono">2018</span>
+          <span><em>KOExamApp</em> deployed on <em>koexamapp.msbel.com</em> — an interview project. Single-page jQuery / AJAX exam app pulling articles from the Wired.com RSS feed. SPAs before the term was a buzzword.</span>
+        </li>
+        <li>
+          <span class="aside-mono mono">2019</span>
+          <span><em>Mahzenler ve Evrenler</em> — a literal Turkish translation of <em>Dungeons & Dragons</em>, written as a multi-project C# solution. Six years before the D&D movie.</span>
+        </li>
+        <li>
+          <span class="aside-mono mono">2023-10</span>
+          <span>The "I'm so sorry!" infinite loop — a CodeBERT-tokenized GPT-2 chatbot, untrained, apologising forever. Screenshot survived as someone else's Instagram story.</span>
+        </li>
+        <li>
           <span class="aside-mono mono">2024-01</span>
-          <span><em>dAIlog</em> — a multi-agent AutoGen framework. Built when most engineers still treated LLMs as autocomplete. Proposed as a product. Passed on. I kept the code.</span>
+          <span><em>dAIlog</em> — multi-agent AutoGen framework with seven agents (Coder, Data_analyst, Engineer, Scientist, Planner, Critic, Executor). Built when most engineers still treated LLMs as autocomplete. Proposed as a product. Passed on. I kept the code.</span>
+        </li>
+        <li>
+          <span class="aside-mono mono">2026-04</span>
+          <span><em>ExampleBank Test Automation</em> — last week's private QA repo. AI Snapshot + Locator/Test Autogen flow with auto-generated Step Catalog. The direct ancestor of Pegasus.</span>
         </li>
         <li>
           <span class="aside-mono mono">42 repos</span>

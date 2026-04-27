@@ -127,15 +127,15 @@ export const projects: Project[] = [
   {
     slug: 'dailog',
     number: '08',
-    title: 'dAIlog — Multi-agent ChatGPT framework',
-    tagline: 'Built on AutoGen, January 2024 — before Claude even existed publicly',
+    title: 'dAIlog — Multi-agent framework, Jan 2024',
+    tagline: 'GPT-3.5 was new. Claude Code did not exist. OpenClaw did not exist. I had seven agents talking to each other.',
     description:
-      'A C# / Python hybrid: ASP.NET API on top of an AutoGen-based Python agent service. Multi-agent conversations driven by a single user prompt — code-writing, planning, debate. Built when the rest of the world was still treating LLMs as autocomplete.',
+      'A C# / Python hybrid: ASP.NET API on top of an AutoGen-based Python service running seven agents — Coder, Data_analyst, Engineer, Scientist, Planner, Critic, Executor — coordinated by a ModifiedUserProxyAgent. Built and posted publicly in January 2024, when the word "agentic" was still mostly papers.',
     longDescription:
-      'I proposed dAIlog as an internal product in early 2024. It was a working agentic system: a user prompt would spin up a multi-agent conversation, agents would debate, decompose, and write code. The C# layer handled auth, persistence, and routing; the Python service ran AutoGen with a configurable agent roster. The proposal didn\'t go anywhere internally. I kept the code, kept the lesson.',
+      'The Python service spun up a real GroupChat: a user prompt would trigger Planner → Engineer (writes code) → Scientist (no code, classifies/reads) → Critic (doublechecks claims and source URLs) → Executor (runs the code) → loop until termination. Each agent had a real system prompt; the whole thing ran on gpt-3.5-turbo and gpt-4 with autogen.config_list_from_json. The C# layer handled auth, history persistence, and the chat UI. I proposed it as an internal product. It went nowhere internally. Six months later the same primitive was the entire industry.',
     year: '2024',
     status: 'archived',
-    tags: ['c#', 'python', 'autogen', 'multi-agent', 'asp.net'],
+    tags: ['c#', 'python', 'autogen', 'multi-agent', 'gpt-3.5', 'gpt-4', 'asp.net'],
     repoUrl: 'https://github.com/msbel5/dAIlog',
   },
   {
@@ -222,24 +222,80 @@ export const projects: Project[] = [
     slug: 'mve',
     number: '15',
     title: 'MvE — Mahzenler ve Evrenler',
-    tagline: 'My first RPG attempt, 2019. The seed of everything since.',
+    tagline: 'A direct Turkish translation of "Dungeons and Dragons". 2019. Six years before the movie.',
     description:
-      '"Dungeons and Universes" — a multi-project C# solution (BLL, DAL, UI, UnitTests, Tester). The architecture is naive in retrospect, but the ambition is the same one Ember now carries. Every RPG I\'ve tried to build since has been an answer to questions this codebase asked.',
+      '"Mahzenler ve Evrenler" is the most literal Turkish translation of "Dungeons & Dragons" you can write. A multi-project C# solution (BLL, DAL, UI, UnitTests, Tester). The architecture is naive in retrospect, but the ambition is the same one Ember now carries — a real RPG, faithful to the source, built in Turkish first. Every RPG I have tried to build since has been an answer to a question this codebase asked. (And six years later they made the movie. The opportunity for a faithful Turkish-language D&D project shipped in 2019; I did not have the channel to ship it widely. Lesson logged.)',
     year: '2019',
     status: 'archived',
-    tags: ['c#', 'rpg', 'first attempt', 'archive'],
+    tags: ['c#', 'rpg', 'd&d', 'first attempt', 'turkish'],
     repoUrl: 'https://github.com/msbel5/MvE',
+  },
+
+  // ─── 2026-04 — last week's QA work ───────────────────────────
+
+  {
+    slug: 'example-bank-test-automation',
+    number: '16',
+    title: 'ExampleBank Test Automation',
+    tagline: 'AI Snapshot + Locator/Test Autogen — direct Pegasus ancestor',
+    description:
+      'Gauge-based test automation for an "Example Bank" web app, with the same AI Snapshot + Locator/Test Autogen flow that Pegasus now uses. README contains a full Step Catalog auto-generated from @Step annotations, and "golden rules" for the autogen pipeline (locator JSONs, double-quoted parameters, no improvised steps). Last week\'s private repo — the bridge between masterAutomation and Pegasus.',
+    year: '2026',
+    status: 'archived',
+    tags: ['java', 'gauge', 'ai-autogen', 'qa', 'private'],
+  },
+
+  // ─── 2023-10 — the CodeBERT month ──────────────────────────────
+
+  {
+    slug: 'code-glimmer',
+    number: '17',
+    title: 'CodeGlimmer',
+    tagline: 'AI-powered code description generator — GPT-3 + CodeBERT, Oct 2023',
+    description:
+      'A Java app that parses code (classes, methods, fields, annotations) and generates human-readable descriptions using OpenAI GPT-3 and HuggingFace CodeBERT. Customizable description templates, integrates with Java codebases. The first repo where I integrated CodeBERT seriously — and the project that produced the famous "I\'m so sorry! I\'m so sorry!" infinite-loop screenshot a friend turned into an Instagram story. (A GPT2-style chatbot fed through CodeBERT\'s tokenizer without fine-tuning will, in fact, just say "I\'m so sorry" forever.)',
+    year: '2023',
+    status: 'archived',
+    tags: ['java', 'codebert', 'openai', 'huggingface', 'documentation'],
+    repoUrl: 'https://github.com/msbel5/CodeGlimmer',
+  },
+
+  // ─── 2018 — first deployed app ───────────────────────────────
+
+  {
+    slug: 'koexamapp',
+    number: '18',
+    title: 'KOExamApp',
+    tagline: 'My first publicly-deployed app: an interactive quiz built on Wired.com RSS',
+    description:
+      'Hosted at koexamapp.msbel.com (msbel.com was already live in 2018, this used a subdomain). Teachers create quizzes from articles auto-fetched via Wired.com RSS, or write their own. Students take exams on a single page; jQuery dynamically updates the page after submission to show correct/incorrect answers in colour — no full reload, an SPA five years before Astro existed. Built as a job interview project. BLL/DAL/UI architecture, rich text editor, full auth.',
+    year: '2018',
+    status: 'archived',
+    tags: ['c#', 'asp.net', 'jquery', 'spa', 'rss', 'first deployed'],
+    repoUrl: 'https://github.com/msbel5/KOExamApp',
   },
 
   // ─── 2017 — the burst ─────────────────────────────────────────
 
   {
+    slug: 'html-javascript-example',
+    number: '19',
+    title: 'HtmlJavascriptExample',
+    tagline: 'A pre-React, pre-Vue, pre-Astro single-page site. October 2017.',
+    description:
+      'A single HTML page that serves multiple "pages" via JavaScript and AJAX — no framework, no build step. README from the time: "expandable so data can be fetched with ajax methods. Simple solution for serverless static pages." Nine years later, this site you\'re reading is the same idea, just with more discipline.',
+    year: '2017',
+    status: 'archived',
+    tags: ['html', 'javascript', 'ajax', 'spa', 'no-framework'],
+    repoUrl: 'https://github.com/msbel5/HtmlJavascriptExample',
+  },
+  {
     slug: 'first-mvc-blog',
-    number: '16',
+    number: '20',
     title: 'FirstMVCBlog',
     tagline: 'My first ASP.NET MVC project — September 2017',
     description:
-      'A blog engine written while learning MVC. Crude, earnest, working. Followed by a burst — nine repos in a single day on October 27, 2017, including TruvaTour, TourAutomation, EntityFrameworkExampleApp, UtilityBillsApplication, HtmlJavascriptExample. The shape of someone teaching himself to ship.',
+      'A blog engine written while learning MVC. Crude, earnest, working. Followed by a burst — nine repos in a single day on October 27, 2017, including TruvaTour, TourAutomation, EntityFrameworkExampleApp, UtilityBillsApplication, CSharpDesignPatternExample. The shape of someone teaching himself to ship.',
     year: '2017',
     status: 'archived',
     tags: ['c#', 'asp.net mvc', 'first repo', 'archive'],
