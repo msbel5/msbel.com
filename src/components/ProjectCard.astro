@@ -2,7 +2,7 @@
 interface Props {
   number: string;
   title: string;
-  status?: 'live' | 'idle' | 'offline' | 'wip';
+  status?: 'live' | 'idle' | 'offline' | 'wip' | 'archived';
   year?: string;
   description: string;
   tags?: string[];
@@ -28,6 +28,15 @@ const statusLabels = {
   idle: 'idle',
   offline: 'offline',
   wip: 'in progress',
+  archived: 'archived',
+};
+
+const statusDotClass = {
+  live: 'live',
+  idle: 'idle',
+  offline: 'offline',
+  wip: 'idle',
+  archived: 'offline',
 };
 ---
 
@@ -37,7 +46,7 @@ const statusLabels = {
       <span class="project-number mono">{number}</span>
       <span class="project-year mono">{year}</span>
       <span class="project-status">
-        <span class={`status-dot ${status === 'wip' ? 'idle' : status}`}></span>
+        <span class={`status-dot ${statusDotClass[status]}`}></span>
         <span class="status-label mono">{statusLabels[status]}</span>
       </span>
     </div>

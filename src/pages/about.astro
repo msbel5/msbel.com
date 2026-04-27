@@ -8,9 +8,10 @@ const experience = [
     company: 'Testinium',
     period: '2023 — present',
     notes: [
-      'Authored a Python end-to-end test framework from scratch — Gauge-style DSL, Postman-style API testing surface, parallel execution via pytest-xdist',
-      'Designed Saudi Arabian fintech project test infrastructure with GitLab CI/CD, Appium for mobile, and screenshot diff regression',
-      'Mentored mid-level QA engineers; ran weekly automation-craft sessions',
+      'Authoring a Python end-to-end test framework from scratch — Gauge-style DSL, Postman-like API testing surface, parallel execution via pytest-xdist',
+      'Designing test infrastructure for a Saudi Arabian fintech project — GitLab CI/CD, Appium for mobile, screenshot diff regression, contract testing',
+      'Building Pegasus, an in-house AI test generation agent that authors production-ready Selenium/Gauge specs from snapshot-based discovery',
+      'Mentoring mid-level QA engineers; running weekly automation-craft sessions',
     ],
   },
   {
@@ -18,9 +19,10 @@ const experience = [
     company: 'Huawei Technologies',
     period: '2018 — 2023',
     notes: [
-      'Five years on telecom-grade systems — performance, integration, regression at scale',
+      'Five years on telecom-grade systems — performance, integration, and regression at scale',
       'Built internal test tooling adopted across multiple teams',
       'Worked across Linux, embedded, and cloud surfaces — comfortable with whatever the stack demands',
+      'Developed automation pipelines that ran nightly across hundreds of test devices',
     ],
   },
 ];
@@ -29,84 +31,212 @@ const education = [
   {
     degree: 'M.Sc. Mechatronics Engineering',
     school: 'Marmara University',
-    period: 'coursework complete · thesis in progress',
+    period: '2018 — present (defense pending)',
+    thesis: '"Predictive Maintenance for Electrical Motors by Using Machine Learning"',
+    thesisDetail:
+      'Coursework completed. Thesis written under Prof. Dr. Mustafa Caner Akıner. Defense still pending — the manuscript is on the desk; the date is not. ' +
+      'Method: MPU6050 6-axis gyroscope mounted on a CPU fan, varied weights to simulate vibration profiles, Arduino Mega 2560 for capture. ' +
+      'Compared 35 ML models in Python (R for initial signal analysis), optimized with GridSearch. ' +
+      'Final RMSE: 9.70 time-windows (~7 seconds each) — usable for real predictive maintenance once paired with PLC-grade sensors. ' +
+      'Conference draft: "Estimating Failure Times for Electric Motors by Machine Learning."',
   },
   {
     degree: 'B.Sc. Mechanical Engineering',
     school: 'Istanbul University',
-    period: '2016',
+    period: '2010 — 2016',
+    thesis: '"Position Control of Linear Motors"',
+    thesisDetail:
+      'Solid modeling + Fortran-based control simulation. Six years of coursework that took me through CAD/CAM, fluid dynamics, finite element analysis, and the long, slow craft of mechanical thinking. The skill that survived: load paths and tolerances — the same instinct now applied to software systems.',
   },
 ];
 
 const stack = {
-  'Languages': ['Python', 'Java', 'C#', 'TypeScript', 'C++', 'C'],
-  'Test automation': ['Selenium', 'Appium', 'Gauge', 'pytest', 'Playwright', 'Postman'],
-  'AI / ML': ['PyTorch', 'scikit-learn', 'LightGBM', 'XGBoost', 'CryptoBERT', 'Claude API', 'OpenAI API'],
-  'Backend': ['FastAPI', 'ASP.NET Core', 'Node.js', 'PostgreSQL', 'SQLite'],
-  'Infrastructure': ['Docker', 'systemd', 'Cloudflare Tunnel', 'GitLab CI/CD', 'Raspberry Pi 5'],
-  'Hardware adjacent': ['CAD/CAM', 'NDT inspection', 'mould design', 'GPIO/serial integration'],
+  Languages: ['Python', 'Java', 'C#', 'TypeScript', 'C++', 'C', 'Fortran (academic)'],
+  'Test automation': [
+    'Selenium', 'Appium', 'Gauge', 'pytest', 'Karate', 'Playwright',
+    'Postman', 'screenshot-diff regression',
+  ],
+  'AI / ML': [
+    'PyTorch', 'scikit-learn', 'LightGBM', 'XGBoost', 'CryptoBERT',
+    'AutoGen (multi-agent, since 2024)', 'Claude API', 'OpenAI API',
+  ],
+  Backend: [
+    'FastAPI', 'ASP.NET Core', 'Node.js', 'PostgreSQL', 'SQLite',
+    'Redis', 'JWT / OAuth',
+  ],
+  Infrastructure: [
+    'Docker', 'systemd', 'Cloudflare Tunnel', 'Cloudflare Pages',
+    'GitLab CI/CD', 'Raspberry Pi 5', 'Linux daily-driven',
+  ],
+  'Game / engine': ['Unity (C#)', 'Godot', 'GameMaker (childhood)'],
+  'Hardware-adjacent': [
+    'Arduino', 'MPU6050 IMU', 'CAD/CAM', 'NDT inspection',
+    'mould design', 'GPIO/serial integration',
+  ],
 };
 ---
 
 <Base
   title="About — Muhammet Sıddık Bel"
-  description="Senior test automation engineer in Istanbul. Mechanical engineer by training, builder by night."
+  description="Engineer of two crafts. Mechanical by training, software by obsession. Senior test automation specialist in Istanbul, building the Bluebird fleet at night."
 >
   <Header current="about" />
 
+  <!-- ───── Hero ───── -->
   <section class="page-hero">
     <div class="container">
       <p class="section-eyebrow">about</p>
       <h1 class="page-title">Engineer of two crafts.</h1>
       <p class="page-sub">
-        Born 1991 in Diyarbakır, raised on Back to the Future, trained as a
-        mechanical engineer, working as a senior test automation
-        specialist, building an AI suite called Alcyone after hours. Multi-disciplinary
-        by accident, durable by intent.
+        Born 1991 in Diyarbakır, raised on <em>Back to the Future</em> and a
+        DOS prompt, trained as a mechanical engineer, working as a senior
+        test automation specialist, building an AI suite called
+        <em>Alcyone</em> after hours. Multi-disciplinary by accident,
+        durable by intent.
       </p>
     </div>
   </section>
 
+  <!-- ───── Backstory ───── -->
   <section class="bio-section">
     <div class="container">
       <p class="section-eyebrow">backstory</p>
       <div class="bio-text">
+        <h3 class="bio-h">1998 — the bird arrives</h3>
         <p>
-          I grew up wanting to be a scientist. Watching <em>Back to the Future</em>
-          at seven made the idea of building a craft — physical or digital —
-          feel inevitable. The image stuck: a bluebird-shaped vessel, an AI
-          mind aboard. The vessel got a name decades later (it's
-          <em>Bluebird</em>), and the AI is <em>Alcyone</em>, after the
-          brightest star in the Pleiades.
+          I was seven when I watched <em>Back to the Future</em>. The image
+          stuck and never left: a craft you could build, an instrument that
+          could think, a path you could earn. The image had a name decades
+          later — the <em>Bluebird</em>, a vessel; <em>Alcyone</em>, the AI
+          aboard, after the brightest star in the Pleiades. <em>Halcyon</em>
+          is the English word for a kingfisher (a blue bird) and also for a
+          calm and peaceful time. The same image, three names, all blue.
+        </p>
+
+        <h3 class="bio-h">1999 — Atari, then waiting</h3>
+        <p>
+          We had an Atari clone — NES-class hardware that arrived in our
+          part of the world about a decade after it was current. Most of
+          the technology I grew up around was like this: cycles late, but
+          arriving. You learned patience and you learned to build with what
+          you had.
+        </p>
+
+        <h3 class="bio-h">2001 — DOS, the first frontier</h3>
+        <p>
+          We finally got a computer. There was no Windows on it. For the
+          first months I lived in DOS — <code>dir</code>, <code>format</code>,
+          <code>cd</code>, <code>mkdir</code>, <code>cp</code>,
+          <code>rm</code>. Typing commands into a black screen and watching
+          something happen.
         </p>
         <p>
-          The mechanical engineering degree at Istanbul University taught me
-          how to think in load paths and tolerances. The mechatronics
-          master's at Marmara made software inevitable. Five years at
-          Huawei taught me to ship at telecom scale; the last two at
-          Testinium let me design from scratch — a Python automation
-          framework now running fintech tests in Saudi Arabia.
+          I had been wanting to be a scientist. Sitting in front of that
+          DOS prompt I came to a different conclusion: physical-world
+          science was old territory by then, but the digital frontier was
+          empty. <em>This</em> was the new world; here you could still
+          discover. From that day forward I wanted to be a computer
+          engineer. Windows 98 came soon after, then XP in 2002. My father
+          bought <em>Chip</em> magazine every month; I worked through the
+          tutorials by following the screenshots, copying the steps even
+          when I didn't yet read the words.
+        </p>
+
+        <h3 class="bio-h">High school — first game, first stage</h3>
+        <p>
+          Tenth grade: I built my first game in <em>GameMaker</em> and
+          submitted it to TÜBİTAK's national project competition. Around
+          the same time I started doing theatre — what would become eight
+          years of stage work spanning high school and university.
+          Engineering teaches you to think under load; theatre teaches you
+          to deliver under pressure. They turn out to be the same
+          discipline in different costumes.
+        </p>
+
+        <h3 class="bio-h">2010 — into mechanical, by accident</h3>
+        <p>
+          I missed the cutoff for computer engineering on the first
+          university entrance exam. Repeated the year, missed it again,
+          and ended up in mechanical engineering at <em>Istanbul
+          University</em>. I told myself I'd pick up software on the
+          side — CAD, control programs, drawing tools, whatever the
+          curriculum allowed. The bachelor's took six years instead of
+          four; the bachelor thesis was on the position control of linear
+          motors, written in <em>Solid</em> and <em>Fortran</em>.
+        </p>
+
+        <h3 class="bio-h">2018-now — the master's, and an ML thesis on the desk</h3>
+        <p>
+          The mechatronics master's at <em>Marmara University</em> made
+          software inevitable. Coursework done, thesis written, defense
+          still pending — manuscript on the desk, date not yet. The
+          thesis I'm still proud of:
+          <strong>"Predictive Maintenance for Electrical Motors by Using
+          Machine Learning."</strong> An MPU6050 gyroscope strapped to a
+          CPU fan, weights stuck on the blades to simulate failure
+          profiles, an Arduino Mega 2560 capturing vibration coordinates,
+          R for the first signal pass, Python for the rest. I tested 35
+          models, settled on a GridSearch-optimized one, and got the RMSE
+          down to 9.7 time-windows — about 7 seconds. With proper PLC
+          sensors that window collapses to milliseconds. The conference
+          draft was titled
+          <em>"Estimating Failure Times for Electric Motors by Machine
+          Learning."</em>
         </p>
         <p>
-          Outside work I build. <a href="/projects/alcyone" class="subtle">Alcyone</a>
-          is a 9-layer scientific trading bot on a Pi 5.
-          <a href="/projects/pegasus" class="subtle">Pegasus</a> is an AI
-          QA agent that wrote a production-ready Selenium spec for the
+          A second project that year went the other direction:
+          <em>image-processing-based fault detection on assembly
+          lines</em> — defect classification from camera frames, a problem
+          I'd revisit five years later in a very different shape (a QA
+          agent that watches the page).
+        </p>
+
+        <h3 class="bio-h">2018-2023 — Huawei</h3>
+        <p>
+          Five years at <em>Huawei Technologies</em> on telecom-grade
+          systems. Performance testing under load. Cross-platform
+          regression. The lesson: when the system is large and old and
+          honest, the test framework has to be larger and older and more
+          honest. I came out of it knowing how to ship at scale.
+        </p>
+
+        <h3 class="bio-h">2023-now — Testinium, and building at night</h3>
+        <p>
+          At <em>Testinium</em> I designed a Python end-to-end framework
+          from scratch — Gauge-style DSL, Postman-like API surface, fully
+          parallel. It runs Saudi fintech tests on production. In 2024 I
+          built <em>dAIlog</em>, a multi-agent ChatGPT framework on top of
+          AutoGen — a working agentic system at a time most people were
+          still treating LLMs as auto-complete. A single prompt could write
+          code through it. I proposed it as a product to my employers.
+          They passed. I kept building.
+        </p>
+
+        <p>
+          The fleet now: <a href="/projects/alcyone" class="subtle">Alcyone</a>
+          is a 9-layer scientific trading bot on a Pi 5, running 24/7.
+          <a href="/projects/pegasus" class="subtle">Pegasus</a> is the AI
+          QA agent — it wrote a production-ready Selenium spec for the
           Pegasus Airlines booking flow in two hours, end to end.
           <a href="/projects/ember" class="subtle">Ember</a> is the
           counter-experiment: an RPG written by hand in Unity, because
           the AI-generated version proved unplayable. The lesson there is
           worth its own essay — and probably will be.
         </p>
+
+        <h3 class="bio-h">2026 — Estonia, and a flag worth flying</h3>
         <p>
-          E-Residency to Estonia is in flight. Once the card lands,
-          <em>Halcyon Labs OÜ</em> follows — a one-person umbrella for the
-          fleet, headquartered in Tallinn, captained from Istanbul.
+          E-Residency to Estonia is in flight. €150 paid, card pickup in
+          Ankara, 4-8 weeks. Once it lands, an OÜ follows — a one-person
+          umbrella for the fleet. Tallinn on paper, Istanbul in the
+          captain's chair. I am thirty-five and I am late on nothing that
+          matters.
         </p>
       </div>
     </div>
   </section>
 
+  <!-- ───── Experience ───── -->
   <section class="experience-section">
     <div class="container">
       <p class="section-eyebrow">experience</p>
@@ -129,6 +259,7 @@ const stack = {
     </div>
   </section>
 
+  <!-- ───── Education ───── -->
   <section class="education-section">
     <div class="container">
       <p class="section-eyebrow">education</p>
@@ -140,7 +271,13 @@ const stack = {
             </div>
             <div class="edu-body">
               <h3>{edu.degree}</h3>
-              <p>{edu.school}</p>
+              <p class="edu-school">{edu.school}</p>
+              {edu.thesis && (
+                <p class="edu-thesis-title"><em>{edu.thesis}</em></p>
+              )}
+              {edu.thesisDetail && (
+                <p class="edu-thesis-detail">{edu.thesisDetail}</p>
+              )}
             </div>
           </div>
         ))}
@@ -148,6 +285,7 @@ const stack = {
     </div>
   </section>
 
+  <!-- ───── Stack ───── -->
   <section class="stack-section">
     <div class="container">
       <p class="section-eyebrow">stack</p>
@@ -162,6 +300,32 @@ const stack = {
           </div>
         ))}
       </div>
+    </div>
+  </section>
+
+  <!-- ───── Asides ───── -->
+  <section class="asides-section">
+    <div class="container">
+      <p class="section-eyebrow">also</p>
+      <h2 class="aside-heading">Things that don't fit on a CV.</h2>
+      <ul class="asides">
+        <li>
+          <span class="aside-mono mono">2010-2018</span>
+          <span>Eight years of theatre — high school + university stages. Same discipline as engineering, just different costumes.</span>
+        </li>
+        <li>
+          <span class="aside-mono mono">2024-01</span>
+          <span><em>dAIlog</em> — a multi-agent AutoGen framework. Built when most engineers still treated LLMs as autocomplete. Proposed as a product. Passed on. I kept the code.</span>
+        </li>
+        <li>
+          <span class="aside-mono mono">42 repos</span>
+          <span><a href="https://github.com/msbel5" class="subtle" target="_blank" rel="noopener">github.com/msbel5</a> — a chronological archive going back to 2017. Some are graveyards, some are foundations. None were deleted.</span>
+        </li>
+        <li>
+          <span class="aside-mono mono">native</span>
+          <span>Turkish (TR) — fluent English (EN) — comfortable in both technical and literary registers.</span>
+        </li>
+      </ul>
     </div>
   </section>
 </Base>
@@ -185,11 +349,34 @@ const stack = {
     max-width: 56ch;
   }
 
+  .page-sub em {
+    font-family: var(--font-display);
+    font-style: italic;
+    color: var(--text-primary);
+  }
+
+  /* ── Bio ── */
+
+  .bio-h {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 1.5rem;
+    color: var(--accent);
+    margin-top: 3rem;
+    margin-bottom: 1.25rem;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+  }
+
+  .bio-h:first-child {
+    margin-top: 0;
+  }
+
   .bio-text p {
     font-size: 1.0625rem;
     line-height: 1.75;
     color: var(--text-secondary);
-    max-width: 60ch;
+    max-width: 62ch;
     margin-bottom: 1.5rem;
   }
 
@@ -198,6 +385,23 @@ const stack = {
     font-style: italic;
     color: var(--text-primary);
   }
+
+  .bio-text strong {
+    color: var(--text-primary);
+    font-weight: 600;
+  }
+
+  .bio-text code {
+    font-family: var(--font-mono);
+    background: var(--bg-surface);
+    padding: 0.0625em 0.375em;
+    border-radius: 4px;
+    border: 1px solid var(--border);
+    color: var(--accent);
+    font-size: 0.9em;
+  }
+
+  /* ── Experience / Education ── */
 
   .experience-list, .education-list {
     display: flex;
@@ -238,11 +442,32 @@ const stack = {
     margin-bottom: 0.25rem;
   }
 
-  .job-company, .edu-item p {
+  .job-company, .edu-school {
     font-size: 0.9375rem;
     color: var(--accent);
     margin-bottom: 1rem;
     font-family: var(--font-mono);
+  }
+
+  .edu-thesis-title {
+    font-family: var(--font-display);
+    font-size: 1.0625rem;
+    color: var(--text-primary);
+    font-style: italic;
+    margin-bottom: 0.75rem;
+  }
+
+  .edu-thesis-detail {
+    font-size: 0.9375rem;
+    color: var(--text-secondary);
+    line-height: 1.65;
+    max-width: 60ch;
+  }
+
+  .edu-thesis-detail em {
+    font-family: var(--font-display);
+    font-style: italic;
+    color: var(--text-primary);
   }
 
   .job-notes {
@@ -266,6 +491,8 @@ const stack = {
     color: var(--accent);
     font-family: var(--font-mono);
   }
+
+  /* ── Stack ── */
 
   .stack-heading {
     margin-bottom: 3rem;
@@ -299,4 +526,50 @@ const stack = {
   }
 
   .stack-items li:last-child { border-bottom: none; }
+
+  /* ── Asides ── */
+
+  .aside-heading {
+    margin-bottom: 2rem;
+    font-style: italic;
+  }
+
+  .asides {
+    list-style: none;
+    padding: 0;
+  }
+
+  .asides li {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 1.5rem;
+    padding: 1.25rem 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.9375rem;
+    color: var(--text-secondary);
+    line-height: 1.65;
+  }
+
+  .asides li:last-child { border-bottom: none; }
+
+  @media (max-width: 640px) {
+    .asides li {
+      grid-template-columns: 1fr;
+      gap: 0.25rem;
+    }
+  }
+
+  .aside-mono {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    padding-top: 0.125rem;
+  }
+
+  .asides em {
+    font-family: var(--font-display);
+    font-style: italic;
+    color: var(--text-primary);
+  }
 </style>

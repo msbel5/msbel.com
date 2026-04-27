@@ -6,7 +6,7 @@ export interface Project {
   description: string;
   longDescription?: string;
   year: string;
-  status: 'live' | 'idle' | 'offline' | 'wip';
+  status: 'live' | 'idle' | 'offline' | 'wip' | 'archived';
   tags: string[];
   liveUrl?: string;
   notesUrl?: string;
@@ -15,18 +15,20 @@ export interface Project {
 }
 
 export const projects: Project[] = [
+  // ─── 2026 — current fleet ───────────────────────────────────────
+
   {
     slug: 'alcyone',
     number: '01',
     title: 'Alcyone — Crypto Trading Bot',
-    tagline: '24/7 ML-driven trading on a Raspberry Pi',
+    tagline: '24/7 ML-driven trading on a Raspberry Pi 5',
     description:
-      '9-layer signal engine, 46 ML features, CNN-LSTM + stacked ensemble, regime detection. CPCV validation, Boruta feature selection. Runs 24/7 on Pi 5 with $100 testnet balance.',
+      '9-layer signal engine. 46 ML features. CNN-LSTM + a stacked ensemble (LightGBM + XGBoost + RF + ExtraTrees → RidgeClassifier meta). CPCV validation, Boruta feature selection, regime detection. Lives on a Pi 5 with $100 testnet balance, 24/7.',
     longDescription:
-      'A scientific trading bot built on first principles: 9 weighted signal layers (trend, momentum, volatility, volume, sentiment, ML, Ichimoku, candlestick patterns, statistical models). 46 features pass through Boruta selection and CPCV validation before the stacked ensemble (LightGBM + XGBoost + RF + ExtraTrees → RidgeClassifier meta-learner) makes a call. Hosted live on a Pi 5, with a TradingView-style dashboard accessible via Cloudflare Tunnel. Anti-fabrication built in — every metric must trace back to verified data.',
+      'A scientific trading bot built on first principles. Nine weighted signal layers (trend, momentum, volatility, volume, sentiment, ML, Ichimoku, candlestick patterns, statistical models). Forty-six features pass through Boruta selection and CPCV validation before the stacked ensemble makes a call. The Pi 5 hosts the live dashboard via Cloudflare Tunnel — TradingView-style candle chart, regime indicator, real-time per-coin signal breakdown. Anti-fabrication built in: every metric on the dashboard must trace back to verified data, or it gets a "—".',
     year: '2026',
     status: 'live',
-    tags: ['python', 'pytorch', 'binance api', 'pi 5', 'cnn-lstm'],
+    tags: ['python', 'pytorch', 'binance api', 'pi 5', 'cnn-lstm', 'ml-ops'],
     liveUrl: 'https://trading.msbel.com',
     notesUrl: '/projects/alcyone',
     repoUrl: 'https://github.com/msbel5/alcyone-trading-bot',
@@ -38,9 +40,9 @@ export const projects: Project[] = [
     title: 'Pegasus — AI Test Generation Agent',
     tagline: 'E2E tests authored by an LLM that watches the screen',
     description:
-      'Production-ready Selenium/Gauge specs generated from a 28-locator JSON in 2 hours. Snapshot-based discovery, locator auto-extraction, and a step catalog DSL that any QA engineer can extend.',
+      'Production-ready Selenium/Gauge specs generated from a 28-locator JSON in two hours. Snapshot-based discovery, locator auto-extraction, a step catalog DSL any QA engineer can extend. Demonstrated against the Pegasus Airlines booking flow — reached /payment with PNR in 1m41s.',
     longDescription:
-      'Demonstrated against the Pegasus Airlines booking flow on webct.flypgs.com — full happy path from search to /payment with PNR, in 1 minute 41 seconds. Locator JSON drives 14+ derived test cases. The agent operates in three loops: discover (snapshot the page, extract elements), compose (build a Gauge spec from the step catalog), and verify (run, check, iterate). No fragile XPaths — only data-testid and id selectors.',
+      'The agent operates in three loops. <em>Discover</em>: snapshot the page, extract elements, deduplicate. <em>Compose</em>: build a Gauge spec from the step catalog ("Click X", "Enter Y into Z", "Dump page snapshot to W"). <em>Verify</em>: run, check, iterate. No fragile XPaths — only data-testid and id selectors. The Pegasus Airlines demo on webct.flypgs.com produced a happy path that runs in 1 minute 41 seconds, with 7 step snapshots as audit trail. Same locator JSON yields 14+ derived test cases.',
     year: '2026',
     status: 'wip',
     tags: ['selenium', 'gauge', 'java', 'claude api', 'qa automation'],
@@ -51,41 +53,42 @@ export const projects: Project[] = [
   {
     slug: 'ember',
     number: '03',
-    title: 'Ember — AAA RPG in Unity',
-    tagline: 'Morrowind-inspired open world, hand-crafted',
+    title: 'Ember — RPG, by hand',
+    tagline: 'Morrowind in spirit, RimWorld in scope, hand-crafted in Unity',
     description:
-      'After AI-assisted prototypes proved unplayable, this is the deliberate version: written from scratch in Unity, top-down perspective, deep simulation in the spirit of Dwarf Fortress and RimWorld. A long-game labour of love.',
+      'After AI-assisted prototypes proved unplayable, this is the deliberate version. Top-down perspective, deep RPG simulation, written from scratch in Unity. A long-game labour of love.',
     longDescription:
-      'The lesson from the AI-generated prototype was clear: large language models can scaffold a codebase in a day, but they cannot author game feel. Ember is the answer — built by hand, system by system, with each mechanic earned. Top-down perspective for clarity, deep RPG systems in the Morrowind tradition, faction simulation in the Dwarf Fortress / RimWorld vein. Slow, intentional, designed to be played.',
+      'The lesson from the AI-generated prototype was clear: large language models can scaffold a codebase in a day, but they cannot author <em>game feel</em>. Ember is the answer — built by hand, system by system, with each mechanic earned. Top-down perspective for clarity, deep RPG systems in the Morrowind tradition, faction simulation in the Dwarf Fortress / RimWorld vein. Slow, intentional, designed to be played.',
     year: '2026',
     status: 'wip',
     tags: ['unity', 'c#', 'game design', 'rpg', 'simulation'],
     notesUrl: '/projects/ember',
-    repoUrl: 'https://github.com/msbel5/ember-rpg',
+    repoUrl: 'https://github.com/msbel5/ember-crpg-unity',
     featured: true,
   },
   {
-    slug: 'health-monitor',
+    slug: 'pixel-agents',
     number: '04',
-    title: 'HealthMonitor — Personal Health Dashboard',
-    tagline: 'Self-hosted health tracking, no SaaS subscription',
+    title: 'Pixel Agents',
+    tagline: 'A pixel-art office full of AI agents',
     description:
-      '.NET 8 backend, web dashboard, sleep + steps + heart rate aggregation. The "$5/month app you don\'t need to pay for" thesis, applied to personal health.',
-    year: '2025',
+      'A whimsical TypeScript prototype: agents as pixel sprites moving around a virtual office, each role embodied. Started as a visualisation experiment for multi-agent dialog systems before the Ember pivot.',
+    year: '2026',
     status: 'idle',
-    tags: ['.net 8', 'c#', 'sqlite', 'self-hosted'],
-    liveUrl: 'https://health.msbel.com',
-    notesUrl: '/projects/health-monitor',
-    repoUrl: 'https://github.com/msbel5/HealthMonitorApp',
+    tags: ['typescript', 'pixel art', 'multi-agent', 'visualisation'],
+    repoUrl: 'https://github.com/msbel5/pixel-agents-claude',
   },
+
+  // ─── 2026 — infra ─────────────────────────────────────────────
+
   {
     slug: 'pi-tablet-bridge',
     number: '05',
     title: 'Pi-Tablet Bridge',
-    tagline: 'Raspberry Pi as a peripheral I/O bus for Android',
+    tagline: 'Raspberry Pi as an I/O peripheral for an Android tablet',
     description:
-      'Java daemon on Pi exposes GPIO, serial, and sensor data over a local socket. Android tablet becomes the display + control surface. Used during the Alcyone build for live monitoring.',
-    year: '2025',
+      'Java daemon on the Pi exposes GPIO, serial, and sensor data over a local socket. The tablet becomes the display + control surface. Used during the Alcyone build for live monitoring without a monitor.',
+    year: '2026',
     status: 'idle',
     tags: ['java', 'android', 'raspberry pi', 'gpio'],
     repoUrl: 'https://github.com/msbel5/pi-tablet-bridge',
@@ -96,12 +99,151 @@ export const projects: Project[] = [
     title: 'DnD AI — Telegram Dungeon Master',
     tagline: 'Local LLM + Claude orchestration, playable D&D',
     description:
-      'Telegram bot interface, mixed local model (Ollama qwen3) + cloud LLM orchestration. Designed as a research-grade testbed for multi-agent dialog systems before Ember.',
+      'Telegram bot interface, mixed local model (Ollama qwen3) plus cloud LLM orchestration. Designed as a research-grade testbed for multi-agent dialog systems before Ember.',
     year: '2026',
     status: 'wip',
     tags: ['telegram bot', 'ollama', 'claude api', 'multi-agent'],
     liveUrl: 'https://dnd.msbel.com',
     notesUrl: '/projects/dnd-ai',
+  },
+
+  // ─── 2025 — automation work ───────────────────────────────────
+
+  {
+    slug: 'master-automation',
+    number: '07',
+    title: 'masterAutomation',
+    tagline: 'A unified Selenium / Appium harness for web, Android, iOS',
+    description:
+      'Single Java project, three runtime profiles. Locator JSON + step catalog pattern that became the blueprint for Pegasus a year later.',
+    year: '2025',
+    status: 'idle',
+    tags: ['java', 'selenium', 'appium', 'cross-platform'],
+    repoUrl: 'https://github.com/msbel5/masterAutomation',
+  },
+
+  // ─── 2024 — agentic + crypto ──────────────────────────────────
+
+  {
+    slug: 'dailog',
+    number: '08',
+    title: 'dAIlog — Multi-agent ChatGPT framework',
+    tagline: 'Built on AutoGen, January 2024 — before Claude even existed publicly',
+    description:
+      'A C# / Python hybrid: ASP.NET API on top of an AutoGen-based Python agent service. Multi-agent conversations driven by a single user prompt — code-writing, planning, debate. Built when the rest of the world was still treating LLMs as autocomplete.',
+    longDescription:
+      'I proposed dAIlog as an internal product in early 2024. It was a working agentic system: a user prompt would spin up a multi-agent conversation, agents would debate, decompose, and write code. The C# layer handled auth, persistence, and routing; the Python service ran AutoGen with a configurable agent roster. The proposal didn\'t go anywhere internally. I kept the code, kept the lesson.',
+    year: '2024',
+    status: 'archived',
+    tags: ['c#', 'python', 'autogen', 'multi-agent', 'asp.net'],
+    repoUrl: 'https://github.com/msbel5/dAIlog',
+  },
+  {
+    slug: 'quantum-trader',
+    number: '09',
+    title: 'QuantumTrader',
+    tagline: 'C# trading sandbox — predecessor to Alcyone',
+    description:
+      'A WPF/.NET trading simulator. Backtested simple strategies on historical data, plotted PnL curves. The first time I sat with the trading problem long enough to understand why most retail bots lose money.',
+    year: '2024',
+    status: 'archived',
+    tags: ['c#', 'wpf', 'backtesting', '.net'],
+    repoUrl: 'https://github.com/msbel5/QuantumTrader',
+  },
+  {
+    slug: 'traderboy',
+    number: '10',
+    title: 'traderBoy',
+    tagline: 'Python TA-Lib indicator playground',
+    description:
+      'Flask front-end over a TA-Lib indicator engine. A workbench for testing technical indicators side-by-side. The codebase later seeded the Alcyone signal layer architecture.',
+    year: '2024',
+    status: 'archived',
+    tags: ['python', 'flask', 'ta-lib', 'technical analysis'],
+    repoUrl: 'https://github.com/msbel5/traderBoy',
+  },
+  {
+    slug: 'curl-generator',
+    number: '11',
+    title: 'curlgenerator',
+    tagline: 'Generate cURL requests from OpenAPI / Swagger specs',
+    description:
+      'Small C# utility — drop in a Swagger JSON, get a runnable cURL command per endpoint. Useful for QA test bootstrapping and API smoke tests. Built into HealthMonitor.',
+    year: '2024',
+    status: 'idle',
+    tags: ['c#', 'openapi', 'swagger', 'qa tooling'],
+    repoUrl: 'https://github.com/msbel5/curlgenerator',
+  },
+
+  // ─── 2023 — health monitor + QA tools ─────────────────────────
+
+  {
+    slug: 'health-monitor',
+    number: '12',
+    title: 'HealthMonitor',
+    tagline: 'API health dashboard — upload OpenAPI, get continuous monitoring',
+    description:
+      '.NET 8 backend, web dashboard. Upload OpenAPI documents, generate cURL commands, run automated health checks, custom assertions, notifications. Self-hosted alternative to several SaaS offerings. The "$5/month app you don\'t need to pay for" thesis applied to API monitoring.',
+    year: '2023',
+    status: 'idle',
+    tags: ['.net 8', 'c#', 'sqlite', 'self-hosted', 'qa'],
+    liveUrl: 'https://health.msbel.com',
+    notesUrl: '/projects/health-monitor',
+    repoUrl: 'https://github.com/msbel5/HealthMonitorApp',
+  },
+  {
+    slug: 'dungeons-and-you',
+    number: '13',
+    title: 'DungeonsAndYou',
+    tagline: 'AI-powered tabletop RPG, OGL-compliant — the Ember ancestor',
+    description:
+      'A C# / .NET 8 backend for an AI-driven tabletop simulator that respected the Open Game License framework. Three-tier architecture (Data / Services / API), JWT auth, AI-generated storylines via HttpClient. The first serious attempt at the RPG idea Ember now carries.',
+    year: '2023',
+    status: 'archived',
+    tags: ['c#', '.net 8', 'rpg', 'ai-driven', 'jwt'],
+    repoUrl: 'https://github.com/msbel5/DungeonsAndYou',
+  },
+  {
+    slug: 'selenium-example-v2',
+    number: '14',
+    title: 'seleniumExampleV2',
+    tagline: 'Selenium harness using Hepsiburada — second iteration',
+    description:
+      'A more disciplined take on the discovery / locator / test pattern, using Hepsiburada as a real-world target. Surfaced the locator-JSON approach that became standard in everything I built after.',
+    year: '2023',
+    status: 'archived',
+    tags: ['java', 'selenium', 'qa'],
+    repoUrl: 'https://github.com/msbel5/seleniumExamplev2',
+  },
+
+  // ─── 2019 — first RPG attempt ─────────────────────────────────
+
+  {
+    slug: 'mve',
+    number: '15',
+    title: 'MvE — Mahzenler ve Evrenler',
+    tagline: 'My first RPG attempt, 2019. The seed of everything since.',
+    description:
+      '"Dungeons and Universes" — a multi-project C# solution (BLL, DAL, UI, UnitTests, Tester). The architecture is naive in retrospect, but the ambition is the same one Ember now carries. Every RPG I\'ve tried to build since has been an answer to questions this codebase asked.',
+    year: '2019',
+    status: 'archived',
+    tags: ['c#', 'rpg', 'first attempt', 'archive'],
+    repoUrl: 'https://github.com/msbel5/MvE',
+  },
+
+  // ─── 2017 — the burst ─────────────────────────────────────────
+
+  {
+    slug: 'first-mvc-blog',
+    number: '16',
+    title: 'FirstMVCBlog',
+    tagline: 'My first ASP.NET MVC project — September 2017',
+    description:
+      'A blog engine written while learning MVC. Crude, earnest, working. Followed by a burst — nine repos in a single day on October 27, 2017, including TruvaTour, TourAutomation, EntityFrameworkExampleApp, UtilityBillsApplication, HtmlJavascriptExample. The shape of someone teaching himself to ship.',
+    year: '2017',
+    status: 'archived',
+    tags: ['c#', 'asp.net mvc', 'first repo', 'archive'],
+    repoUrl: 'https://github.com/msbel5/FirstMVCBlog',
   },
 ];
 
@@ -109,4 +251,13 @@ export const featuredProjects = projects.filter((p) => p.featured);
 
 export function getProjectBySlug(slug: string): Project | undefined {
   return projects.find((p) => p.slug === slug);
+}
+
+// Returns projects grouped by year, newest first.
+export function projectsByYear(): Record<string, Project[]> {
+  return projects.reduce<Record<string, Project[]>>((acc, p) => {
+    acc[p.year] = acc[p.year] || [];
+    acc[p.year].push(p);
+    return acc;
+  }, {});
 }

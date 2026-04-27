@@ -11,11 +11,19 @@ export function getStaticPaths() {
 }
 
 const { project } = Astro.props;
-const statusLabels = {
+const statusLabels: Record<string, string> = {
   live: 'live',
   idle: 'idle',
   offline: 'offline',
   wip: 'in progress',
+  archived: 'archived',
+};
+const statusDotClass: Record<string, string> = {
+  live: 'live',
+  idle: 'idle',
+  offline: 'offline',
+  wip: 'idle',
+  archived: 'offline',
 };
 ---
 
@@ -33,7 +41,7 @@ const statusLabels = {
         <span class="meta-num">{project.number}</span>
         <span class="meta-year">{project.year}</span>
         <span class="meta-status">
-          <span class={`status-dot ${project.status === 'wip' ? 'idle' : project.status}`}></span>
+          <span class={`status-dot ${statusDotClass[project.status]}`}></span>
           {statusLabels[project.status]}
         </span>
       </div>
