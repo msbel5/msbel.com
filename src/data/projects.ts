@@ -40,9 +40,9 @@ export const projects: Project[] = [
     title: 'Pegasus — AI Test Generation Agent',
     tagline: 'E2E tests authored by an LLM that watches the screen',
     description:
-      'Production-ready Selenium/Gauge specs generated from a 28-locator JSON in two hours. Snapshot-based discovery, locator auto-extraction, a step catalog DSL any QA engineer can extend. Demonstrated against the Pegasus Airlines booking flow — reached /payment with PNR in 1m41s.',
+      'Production-ready Selenium/Gauge specs generated from a 28-locator JSON in two hours. Snapshot-based discovery, locator auto-extraction, a step catalog DSL any QA engineer can extend. Demonstrated against a major airline\'s booking flow — reached /payment with a real reservation number in 1m41s.',
     longDescription:
-      'The agent operates in three loops. <em>Discover</em>: snapshot the page, extract elements, deduplicate. <em>Compose</em>: build a Gauge spec from the step catalog ("Click X", "Enter Y into Z", "Dump page snapshot to W"). <em>Verify</em>: run, check, iterate. No fragile XPaths — only data-testid and id selectors. The Pegasus Airlines demo on webct.flypgs.com produced a happy path that runs in 1 minute 41 seconds, with 7 step snapshots as audit trail. Same locator JSON yields 14+ derived test cases.',
+      'The agent operates in three loops. <em>Discover</em>: snapshot the page, extract elements, deduplicate. <em>Compose</em>: build a Gauge spec from the step catalog ("Click X", "Enter Y into Z", "Dump page snapshot to W"). <em>Verify</em>: run, check, iterate. No fragile XPaths — only data-testid and id selectors. The airline demo produced a happy path that runs in 1 minute 41 seconds, with 7 step snapshots as audit trail. Same locator JSON yields 14+ derived test cases.',
     year: '2026',
     status: 'wip',
     tags: ['selenium', 'gauge', 'java', 'claude api', 'qa automation'],
@@ -207,9 +207,9 @@ export const projects: Project[] = [
     slug: 'selenium-example-v2',
     number: '14',
     title: 'seleniumExampleV2',
-    tagline: 'Selenium harness using Hepsiburada — second iteration',
+    tagline: 'Selenium harness against a real e-commerce site — second iteration',
     description:
-      'A more disciplined take on the discovery / locator / test pattern, using Hepsiburada as a real-world target. Surfaced the locator-JSON approach that became standard in everything I built after.',
+      'A more disciplined take on the discovery / locator / test pattern, using a major Turkish e-commerce site as a real-world target. Surfaced the locator-JSON approach that became standard in everything I built after.',
     year: '2023',
     status: 'archived',
     tags: ['java', 'selenium', 'qa'],
@@ -275,30 +275,30 @@ export const projects: Project[] = [
     repoUrl: 'https://github.com/msbel5/KOExamApp',
   },
 
-  // ─── 2022 — Huawei tooling ────────────────────────────────────
+  // ─── 2022 — internal QA tooling ──────────────────────────────
 
   {
     slug: 'parser-test',
     number: '21',
-    title: 'parserTest — Huawei TIE log parser',
+    title: 'parserTest — UI-driven log parser',
     tagline: 'Turn unstructured logs into structured ones, by people who hate regex',
     description:
-      'My first real internal project at Huawei, written for the TIE app. Engineers needed to extract specific fields from messy log streams, but most QA folks would not write regex from scratch. parserTest exposes a UI for building extraction rules — you point at the parts you want, name them, choose the format, and the tool generates the regex behind the scenes. The output is a clean, queryable structured log. Years before "log analysis SaaS" had a name, this was already running for the team.',
+      'My first real internal project at a previous employer — a UI-driven log extraction tool. Engineers needed to pull specific fields from messy log streams, but most QA folks will not write regex from scratch. parserTest exposes a UI for building extraction rules: you point at the parts you want, name them, choose the format, and the tool generates the regex behind the scenes. The output is a clean, queryable structured log. Years before "log analysis SaaS" had a name, this was already running for the team.',
     year: '2022',
     status: 'archived',
-    tags: ['java', 'log parsing', 'regex', 'ui', 'huawei', 'qa tooling'],
+    tags: ['java', 'log parsing', 'regex', 'ui', 'qa tooling'],
     repoUrl: 'https://github.com/msbel5/parserTest',
   },
   {
     slug: 'viewer-test',
     number: '22',
-    title: 'viewerTest — Huawei mobile automation, pre-Appium',
+    title: 'viewerTest — mobile UI automation, pre-Appium',
     tagline: 'Mobile UI test automation before Appium was the answer',
     description:
-      'A mobile UI test automation framework I built for Huawei before Appium was the standard answer to anything. UI element discovery, gesture replay, assertion DSL — all custom. I tidied the project up and pushed it to GitHub years later as an artefact, but the code itself was running in production tests well before mobile QA tooling consolidated around the current stack.',
+      'A mobile UI test automation framework I built years before Appium was the standard answer to anything. UI element discovery, gesture replay, assertion DSL — all custom. I tidied the project up and pushed it to GitHub years later as an artefact, but the code itself was running in production tests well before mobile QA tooling consolidated around the current stack.',
     year: '2022',
     status: 'archived',
-    tags: ['java', 'mobile automation', 'huawei', 'pre-appium', 'qa'],
+    tags: ['java', 'mobile automation', 'pre-appium', 'qa'],
     repoUrl: 'https://github.com/msbel5/viewerTest',
   },
 

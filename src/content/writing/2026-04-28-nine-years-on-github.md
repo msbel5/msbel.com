@@ -46,10 +46,11 @@ month — has been an answer to questions this codebase asked.
 
 `parking-lot` and `viewerTest` (Java, 2022) mark the transition into
 serious test automation. Then 2023 is a flood of QA tooling:
-`seleniumExample`, `apiExample`, `seleniumExamplev2` (with Hepsiburada
-as a real target), `PostmanToCurl`, `KarateToCurl`, `CodeGlimmer`,
-`HealthMonitorApp`, `JavaFileConcatenator`. Each one a small problem
-solved by writing the tool I needed.
+`seleniumExample`, `apiExample`, `seleniumExamplev2` (a major Turkish
+e-commerce site used as the test target), `PostmanToCurl`,
+`KarateToCurl`, `CodeGlimmer`, `HealthMonitorApp`,
+`JavaFileConcatenator`. Each one a small problem solved by writing the
+tool I needed.
 
 `HealthMonitorApp` (October 2023) is the first thing I built that I
 still use. .NET 8 dashboard, OpenAPI ingestion, automated cURL
