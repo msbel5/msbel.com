@@ -231,6 +231,20 @@ export const projects: Project[] = [
     repoUrl: 'https://github.com/msbel5/MvE',
   },
 
+  // ─── 2020 — academic ML projects (M.Sc.) ──────────────────────
+
+  {
+    slug: 'image-processing-defect-detection',
+    number: '23',
+    title: 'Defect Detection by Image Processing',
+    tagline: 'CNN + VGG16 transfer learning, 40,000 images, 98.3% test accuracy',
+    description:
+      '"Detection of Defects Occurred in Assembly Line by Image Processing" — a parallel master\'s project alongside the predictive-maintenance thesis. Trained on a balanced dataset of 40,000 cement-surface images, 80/20 train/test split, transfer-learning from open-source VGG16, sweeps over learning rate / node count / dataset size. Final test accuracy 98.3%. The framing: prognostics for cement-based household goods — catch surface cracks before they become field failures. The intellectual bridge between the mechanical engineer I trained as and the QA engineer I became.',
+    year: '2020',
+    status: 'archived',
+    tags: ['cnn', 'vgg16', 'transfer learning', 'image processing', 'msc', 'defect detection'],
+  },
+
   // ─── 2026-04 — last week's QA work ───────────────────────────
 
   {

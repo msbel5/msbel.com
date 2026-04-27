@@ -73,6 +73,13 @@ const stack = {
   'Hardware-adjacent': [
     'Arduino', 'MPU6050 IMU', 'CAD/CAM', 'NDT inspection',
     'mould design', 'GPIO/serial integration',
+    'LabVIEW', 'NI PCI-6289 DAQ', 'PWM control loops',
+  ],
+  'Academic / physics': [
+    'MEMS fundamentals', 'soft-lithography failure modes',
+    'thermal oxidation', 'ellipsometry / profilometry',
+    'ergonomics', 'CNN / VGG16 transfer learning',
+    'predictive maintenance', 'GridSearch hyperparameter tuning',
   ],
 };
 ---
@@ -254,11 +261,42 @@ const stack = {
           close.)
         </p>
         <p>
-          A second project that year went the other direction:
-          <em>image-processing-based fault detection on assembly
-          lines</em> — defect classification from camera frames, a problem
-          I would revisit five years later in a very different shape (a QA
-          agent that watches the page).
+          A second project from the master's went the other direction:
+          <em>"Detection of Defects Occurred in Assembly Line by Image
+          Processing"</em> — a CNN / transfer-learning study built on
+          <em>VGG16</em>, a balanced dataset of <strong>40,000 cement
+          surface images</strong> split 80/20, learning rate /
+          node-count / dataset-size sweeps, and a final test accuracy
+          of <strong>98.3%</strong>. The framing was prognostics: the
+          end products of cement-based household goods, the question
+          of catching surface cracks before they become field failures.
+          Five years later I would revisit the same instinct in a very
+          different shape — a QA agent that watches the page.
+        </p>
+
+        <h3 class="bio-h">A note on coursework — physics first</h3>
+        <p>
+          The mechatronics master's was not just the thesis. The
+          coursework forced me to think one layer below software: a MEMS
+          course covering <em>soft-lithography</em> failure modes
+          (sagging at low aspect ratios, sinking at high, the
+          compression force during writing, shrinkage during baking),
+          <em>thermal oxidation</em> of silicon (the electrical demand
+          for high breakdown strength and few unwanted charges, the
+          mechanical demand for uniform thickness without pinholes), and
+          oxide-thickness measurement by <em>profilometry</em>,
+          <em>ellipsometry</em> (polarized laser, refractive index of
+          SiO₂), and the colour-of-light method using
+          <em>2x₀ = kλ/n</em>. We never built a wafer — but we learned
+          how a wafer is built, which is enough physics to know what is
+          and is not bullshit when reading a chip-fab paper twenty years
+          later. Add to that <em>ergonomics</em>, <em>project
+          management</em> (a paper comparing 17 evaluation criteria
+          across the major PM tools), <em>linear motor control theory</em>
+          (the bridge from the bachelor's), and the rest. The pattern:
+          when I write software, I write it like a mechanical engineer
+          who knows what physical thing the bytes are eventually going
+          to move.
         </p>
 
         <h3 class="bio-h">2018-2023 — telecom, at scale</h3>
@@ -459,6 +497,14 @@ const stack = {
         <li>
           <span class="aside-mono mono">42 repos</span>
           <span><a href="https://github.com/msbel5" class="subtle" target="_blank" rel="noopener">github.com/msbel5</a> — a chronological archive going back to 2017. Some are graveyards, some are foundations. None were deleted.</span>
+        </li>
+        <li>
+          <span class="aside-mono mono">2019-2020</span>
+          <span>Coursework I refuse to forget: <em>MEMS</em> (soft-litho, thermal oxidation, ellipsometry), <em>Ergonomics</em>, <em>Project Management Software</em> (a 17-criteria comparison paper), <em>Linear motor control</em>. Never built a silicon wafer, but learned how one is built — enough physics to read a chip-fab paper without getting fooled.</span>
+        </li>
+        <li>
+          <span class="aside-mono mono">98.3%</span>
+          <span>Test accuracy on a parallel master's project: <em>"Detection of Defects Occurred in Assembly Line by Image Processing"</em> — VGG16 transfer-learning over 40,000 cement-surface images, 80/20 split, parameter sweeps. The bridge between the mechanical engineer I trained as and the QA engineer I became.</span>
         </li>
         <li>
           <span class="aside-mono mono">17,180 h</span>
