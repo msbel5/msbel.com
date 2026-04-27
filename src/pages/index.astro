@@ -1,0 +1,261 @@
+---
+import Base from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import { projects } from '../data/projects.ts';
+
+const visible = projects.slice(0, 6);
+---
+
+<Base>
+  <Header current="home" />
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <p class="hero-eyebrow mono">
+        <span class="hero-star">★</span>
+        muhammet sıddık bel · istanbul, tr
+      </p>
+      <h1 class="hero-title">
+        Engineer building <em>quiet, durable</em> systems —
+        a trading bot, a QA agent, a hand-crafted RPG.
+      </h1>
+      <p class="hero-sub">
+        Senior test automation specialist by day. Builder of an AI suite
+        called <a href="/projects/alcyone" class="subtle">Alcyone</a> by
+        night, hosted on a Raspberry Pi 5 named after the brightest star
+        in the Pleiades.
+      </p>
+      <div class="hero-meta mono">
+        <span><span class="status-dot live"></span>Pi up</span>
+        <span class="dim">·</span>
+        <span>{visible.filter(p => p.status === 'live').length} projects live</span>
+        <span class="dim">·</span>
+        <span>last deploy {new Date().toISOString().split('T')[0]}</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Now -->
+  <section class="now">
+    <div class="container">
+      <p class="section-eyebrow">currently</p>
+      <p class="now-text">
+        Running the v4 trading bot 24/7 on testnet — 9 signal layers,
+        46 ML features, no fabrication. Drafting <em>Pegasus</em>, a QA
+        agent that writes its own end-to-end tests by watching the page.
+        E-Residency to Estonia is in flight; <em>Halcyon Labs OÜ</em> follows
+        once the card lands. In the queue: rewriting <em>Ember</em> by hand
+        in Unity, because AI-generated games can't be played.
+      </p>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section class="projects">
+    <div class="container">
+      <p class="section-eyebrow">selected work</p>
+      <h2 class="projects-heading">A small fleet, all flying.</h2>
+
+      <div class="projects-list">
+        {visible.map((project) => (
+          <ProjectCard
+            number={project.number}
+            title={project.title}
+            year={project.year}
+            status={project.status}
+            description={project.description}
+            tags={project.tags}
+            liveUrl={project.liveUrl}
+            notesUrl={project.notesUrl}
+            repoUrl={project.repoUrl}
+          />
+        ))}
+      </div>
+
+      <div class="projects-footer">
+        <a href="/projects" class="subtle">see all projects →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Connect -->
+  <section class="connect">
+    <div class="container">
+      <p class="section-eyebrow">connect</p>
+      <h2 class="connect-heading">
+        If anything here resonates — <em>let's talk</em>.
+      </h2>
+      <p class="connect-text">
+        I'm open to: collaborating on AI agent systems, contracting for
+        test automation infrastructure, or just trading notes on what's
+        actually working in production. Estonia OÜ from late 2026 onwards.
+      </p>
+      <div class="connect-links mono">
+        <a href="mailto:msbel5@gmail.com">msbel5@gmail.com</a>
+        <a href="https://github.com/msbel5" target="_blank" rel="noopener">github / msbel5</a>
+        <a href="https://www.linkedin.com/in/msbel5" target="_blank" rel="noopener">linkedin / msbel5</a>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  /* ── Hero ─────────────────────────────────────────────── */
+
+  .hero {
+    padding-top: 12rem;
+    padding-bottom: 6rem;
+    border-top: none !important;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 20%;
+    right: -10%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, var(--accent-glow), transparent 70%);
+    pointer-events: none;
+    z-index: -1;
+    filter: blur(80px);
+  }
+
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8125rem;
+    color: var(--text-muted);
+    text-transform: lowercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 2rem;
+    padding: 0.375rem 0.875rem;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+  }
+
+  .hero-star {
+    color: var(--accent);
+    animation: twinkle 4s ease-in-out infinite;
+  }
+
+  @keyframes twinkle {
+    0%, 100% { opacity: 0.7; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.2); }
+  }
+
+  .hero-title {
+    font-size: clamp(2.5rem, 6.5vw, 4.5rem);
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+    margin-bottom: 2rem;
+    max-width: 18ch;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    color: var(--accent);
+    font-variation-settings: 'opsz' 144, 'SOFT' 80;
+  }
+
+  .hero-sub {
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    max-width: 56ch;
+    margin-bottom: 2.5rem;
+  }
+
+  .hero-meta {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+    flex-wrap: wrap;
+    font-size: 0.8125rem;
+    color: var(--text-muted);
+  }
+
+  .hero-meta .dim { color: var(--text-faint); }
+
+  /* ── Now ─────────────────────────────────────────────── */
+
+  .now-text {
+    font-family: var(--font-display);
+    font-size: clamp(1.25rem, 2.2vw, 1.5rem);
+    line-height: 1.55;
+    color: var(--text-secondary);
+    max-width: 40ch;
+  }
+
+  .now-text em {
+    font-style: italic;
+    color: var(--text-primary);
+  }
+
+  /* ── Projects ──────────────────────────────────────── */
+
+  .projects-heading {
+    margin-bottom: 3rem;
+    font-style: italic;
+    color: var(--text-primary);
+  }
+
+  .projects-list {
+    margin-bottom: 3rem;
+  }
+
+  .projects-footer {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .projects-footer a {
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+  }
+
+  /* ── Connect ───────────────────────────────────────── */
+
+  .connect-heading {
+    margin-bottom: 1.5rem;
+  }
+
+  .connect-heading em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .connect-text {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    line-height: 1.65;
+    max-width: 56ch;
+    margin-bottom: 2.5rem;
+  }
+
+  .connect-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .connect-links a {
+    color: var(--text-primary);
+    border-bottom: 1px solid var(--border-bright);
+    padding-bottom: 0.125rem;
+    width: max-content;
+    font-size: 0.9375rem;
+    transition: all var(--duration-fast) var(--ease-out);
+  }
+
+  .connect-links a:hover {
+    border-bottom-color: var(--accent);
+    color: var(--accent);
+  }
+</style>

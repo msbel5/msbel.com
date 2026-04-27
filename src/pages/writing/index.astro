@@ -1,0 +1,146 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import Header from '../../components/Header.astro';
+
+const posts = (await getCollection('writing', ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+---
+
+<Base
+  title="Writing — Muhammet Sıddık Bel"
+  description="Notes on building, testing, and shipping. ML, QA, hardware, and the occasional philosophical aside."
+>
+  <Header current="writing" />
+
+  <section class="page-hero">
+    <div class="container">
+      <p class="section-eyebrow">writing</p>
+      <h1 class="page-title">Notes from the build.</h1>
+      <p class="page-sub">
+        Lessons from the Pi, the trading bot, the QA agent, and the long
+        slow path of building a hand-crafted RPG. Honest reports — including
+        the parts that didn't work.
+      </p>
+    </div>
+  </section>
+
+  <section class="posts-section">
+    <div class="container">
+      {posts.length === 0 ? (
+        <p class="empty">No posts yet. The first one is being drafted.</p>
+      ) : (
+        <ul class="posts-list">
+          {posts.map((post) => (
+            <li class="post-item">
+              <a href={`/writing/${post.slug}`}>
+                <time class="post-date mono">
+                  {post.data.pubDate.toISOString().split('T')[0]}
+                </time>
+                <h2 class="post-title">{post.data.title}</h2>
+                <p class="post-description">{post.data.description}</p>
+                {post.data.tags.length > 0 && (
+                  <div class="post-tags mono">
+                    {post.data.tags.map((tag) => <span>{tag}</span>)}
+                  </div>
+                )}
+              </a>
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+  </section>
+</Base>
+
+<style>
+  .page-hero {
+    padding-top: 10rem;
+    padding-bottom: 4rem;
+    border-top: none !important;
+  }
+
+  .page-title {
+    font-style: italic;
+    margin-bottom: 1.25rem;
+  }
+
+  .page-sub {
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+    line-height: 1.65;
+    max-width: 56ch;
+  }
+
+  .empty {
+    color: var(--text-muted);
+    text-align: center;
+    padding: 4rem 0;
+  }
+
+  .posts-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .post-item {
+    border-bottom: 1px solid var(--border);
+  }
+
+  .post-item:last-child {
+    border-bottom: none;
+  }
+
+  .post-item a {
+    display: block;
+    padding: 2rem 0;
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: padding-left var(--duration-base) var(--ease-out);
+  }
+
+  .post-item a:hover {
+    padding-left: 1rem;
+  }
+
+  .post-date {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .post-title {
+    font-family: var(--font-display);
+    font-size: 1.75rem;
+    font-weight: 400;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+    transition: color var(--duration-fast) var(--ease-out);
+  }
+
+  .post-item a:hover .post-title {
+    color: var(--accent);
+  }
+
+  .post-description {
+    color: var(--text-secondary);
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    margin-bottom: 0.75rem;
+    max-width: 60ch;
+  }
+
+  .post-tags {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    font-size: 0.6875rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+</style>

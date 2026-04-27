@@ -1,0 +1,89 @@
+---
+import Base from '../../layouts/Base.astro';
+import Header from '../../components/Header.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+import { projects } from '../../data/projects.ts';
+
+// Group by year
+const byYear = projects.reduce<Record<string, typeof projects>>((acc, p) => {
+  acc[p.year] = acc[p.year] || [];
+  acc[p.year].push(p);
+  return acc;
+}, {});
+const years = Object.keys(byYear).sort().reverse();
+---
+
+<Base
+  title="Projects — Muhammet Sıddık Bel"
+  description="A chronological list of every project in the Bluebird fleet — from Alcyone the trading bot to Ember the hand-crafted RPG."
+>
+  <Header current="projects" />
+
+  <section class="page-hero">
+    <div class="container">
+      <p class="section-eyebrow">archive</p>
+      <h1 class="page-title">Every project, ever.</h1>
+      <p class="page-sub">
+        The fleet, in order. Some are flying, some are docked, some are
+        still on the slipway. None are lost.
+      </p>
+    </div>
+  </section>
+
+  {years.map((year) => (
+    <section class="year-section">
+      <div class="container">
+        <h2 class="year-heading mono">{year}</h2>
+        <div class="projects-list">
+          {byYear[year].map((project) => (
+            <ProjectCard
+              number={project.number}
+              title={project.title}
+              year={project.year}
+              status={project.status}
+              description={project.description}
+              tags={project.tags}
+              liveUrl={project.liveUrl}
+              notesUrl={project.notesUrl}
+              repoUrl={project.repoUrl}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  ))}
+</Base>
+
+<style>
+  .page-hero {
+    padding-top: 10rem;
+    padding-bottom: 4rem;
+    border-top: none !important;
+  }
+
+  .page-title {
+    font-style: italic;
+    margin-bottom: 1.25rem;
+  }
+
+  .page-sub {
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+    max-width: 50ch;
+  }
+
+  .year-section {
+    padding-block: 5rem;
+  }
+
+  .year-heading {
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border);
+  }
+</style>

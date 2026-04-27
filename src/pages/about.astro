@@ -1,0 +1,302 @@
+---
+import Base from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+
+const experience = [
+  {
+    role: 'Senior Test Automation Specialist',
+    company: 'Testinium',
+    period: '2023 — present',
+    notes: [
+      'Authored a Python end-to-end test framework from scratch — Gauge-style DSL, Postman-style API testing surface, parallel execution via pytest-xdist',
+      'Designed Saudi Arabian fintech project test infrastructure with GitLab CI/CD, Appium for mobile, and screenshot diff regression',
+      'Mentored mid-level QA engineers; ran weekly automation-craft sessions',
+    ],
+  },
+  {
+    role: 'Test Automation Engineer',
+    company: 'Huawei Technologies',
+    period: '2018 — 2023',
+    notes: [
+      'Five years on telecom-grade systems — performance, integration, regression at scale',
+      'Built internal test tooling adopted across multiple teams',
+      'Worked across Linux, embedded, and cloud surfaces — comfortable with whatever the stack demands',
+    ],
+  },
+];
+
+const education = [
+  {
+    degree: 'M.Sc. Mechatronics Engineering',
+    school: 'Marmara University',
+    period: 'coursework complete · thesis in progress',
+  },
+  {
+    degree: 'B.Sc. Mechanical Engineering',
+    school: 'Istanbul University',
+    period: '2016',
+  },
+];
+
+const stack = {
+  'Languages': ['Python', 'Java', 'C#', 'TypeScript', 'C++', 'C'],
+  'Test automation': ['Selenium', 'Appium', 'Gauge', 'pytest', 'Playwright', 'Postman'],
+  'AI / ML': ['PyTorch', 'scikit-learn', 'LightGBM', 'XGBoost', 'CryptoBERT', 'Claude API', 'OpenAI API'],
+  'Backend': ['FastAPI', 'ASP.NET Core', 'Node.js', 'PostgreSQL', 'SQLite'],
+  'Infrastructure': ['Docker', 'systemd', 'Cloudflare Tunnel', 'GitLab CI/CD', 'Raspberry Pi 5'],
+  'Hardware adjacent': ['CAD/CAM', 'NDT inspection', 'mould design', 'GPIO/serial integration'],
+};
+---
+
+<Base
+  title="About — Muhammet Sıddık Bel"
+  description="Senior test automation engineer in Istanbul. Mechanical engineer by training, builder by night."
+>
+  <Header current="about" />
+
+  <section class="page-hero">
+    <div class="container">
+      <p class="section-eyebrow">about</p>
+      <h1 class="page-title">Engineer of two crafts.</h1>
+      <p class="page-sub">
+        Born 1991 in Diyarbakır, raised on Back to the Future, trained as a
+        mechanical engineer, working as a senior test automation
+        specialist, building an AI suite called Alcyone after hours. Multi-disciplinary
+        by accident, durable by intent.
+      </p>
+    </div>
+  </section>
+
+  <section class="bio-section">
+    <div class="container">
+      <p class="section-eyebrow">backstory</p>
+      <div class="bio-text">
+        <p>
+          I grew up wanting to be a scientist. Watching <em>Back to the Future</em>
+          at seven made the idea of building a craft — physical or digital —
+          feel inevitable. The image stuck: a bluebird-shaped vessel, an AI
+          mind aboard. The vessel got a name decades later (it's
+          <em>Bluebird</em>), and the AI is <em>Alcyone</em>, after the
+          brightest star in the Pleiades.
+        </p>
+        <p>
+          The mechanical engineering degree at Istanbul University taught me
+          how to think in load paths and tolerances. The mechatronics
+          master's at Marmara made software inevitable. Five years at
+          Huawei taught me to ship at telecom scale; the last two at
+          Testinium let me design from scratch — a Python automation
+          framework now running fintech tests in Saudi Arabia.
+        </p>
+        <p>
+          Outside work I build. <a href="/projects/alcyone" class="subtle">Alcyone</a>
+          is a 9-layer scientific trading bot on a Pi 5.
+          <a href="/projects/pegasus" class="subtle">Pegasus</a> is an AI
+          QA agent that wrote a production-ready Selenium spec for the
+          Pegasus Airlines booking flow in two hours, end to end.
+          <a href="/projects/ember" class="subtle">Ember</a> is the
+          counter-experiment: an RPG written by hand in Unity, because
+          the AI-generated version proved unplayable. The lesson there is
+          worth its own essay — and probably will be.
+        </p>
+        <p>
+          E-Residency to Estonia is in flight. Once the card lands,
+          <em>Halcyon Labs OÜ</em> follows — a one-person umbrella for the
+          fleet, headquartered in Tallinn, captained from Istanbul.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="experience-section">
+    <div class="container">
+      <p class="section-eyebrow">experience</p>
+      <div class="experience-list">
+        {experience.map((job) => (
+          <div class="job">
+            <div class="job-meta mono">
+              <span class="job-period">{job.period}</span>
+            </div>
+            <div class="job-body">
+              <h3 class="job-role">{job.role}</h3>
+              <p class="job-company">{job.company}</p>
+              <ul class="job-notes">
+                {job.notes.map((note) => <li>{note}</li>)}
+              </ul>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="education-section">
+    <div class="container">
+      <p class="section-eyebrow">education</p>
+      <div class="education-list">
+        {education.map((edu) => (
+          <div class="edu-item">
+            <div class="edu-meta mono">
+              <span>{edu.period}</span>
+            </div>
+            <div class="edu-body">
+              <h3>{edu.degree}</h3>
+              <p>{edu.school}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="stack-section">
+    <div class="container">
+      <p class="section-eyebrow">stack</p>
+      <h2 class="stack-heading">Tools the fleet runs on.</h2>
+      <div class="stack-grid">
+        {Object.entries(stack).map(([category, items]) => (
+          <div class="stack-group">
+            <p class="stack-category mono">{category}</p>
+            <ul class="stack-items">
+              {items.map((item) => <li>{item}</li>)}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .page-hero {
+    padding-top: 10rem;
+    padding-bottom: 4rem;
+    border-top: none !important;
+  }
+
+  .page-title {
+    font-style: italic;
+    margin-bottom: 1.25rem;
+  }
+
+  .page-sub {
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+    line-height: 1.65;
+    max-width: 56ch;
+  }
+
+  .bio-text p {
+    font-size: 1.0625rem;
+    line-height: 1.75;
+    color: var(--text-secondary);
+    max-width: 60ch;
+    margin-bottom: 1.5rem;
+  }
+
+  .bio-text em {
+    font-family: var(--font-display);
+    font-style: italic;
+    color: var(--text-primary);
+  }
+
+  .experience-list, .education-list {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  .job, .edu-item {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 2rem;
+    padding-bottom: 2.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .job:last-child, .edu-item:last-child { border-bottom: none; }
+
+  @media (max-width: 640px) {
+    .job, .edu-item {
+      grid-template-columns: 1fr;
+      gap: 0.5rem;
+    }
+  }
+
+  .job-meta, .edu-meta {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    padding-top: 0.375rem;
+  }
+
+  .job-role, .edu-item h3 {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--text-primary);
+    margin-bottom: 0.25rem;
+  }
+
+  .job-company, .edu-item p {
+    font-size: 0.9375rem;
+    color: var(--accent);
+    margin-bottom: 1rem;
+    font-family: var(--font-mono);
+  }
+
+  .job-notes {
+    list-style: none;
+    padding: 0;
+  }
+
+  .job-notes li {
+    position: relative;
+    padding-left: 1.25rem;
+    margin-bottom: 0.625rem;
+    font-size: 0.9375rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  .job-notes li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-family: var(--font-mono);
+  }
+
+  .stack-heading {
+    margin-bottom: 3rem;
+    font-style: italic;
+  }
+
+  .stack-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 2.5rem;
+  }
+
+  .stack-category {
+    font-size: 0.6875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--accent);
+    margin-bottom: 0.75rem;
+  }
+
+  .stack-items {
+    list-style: none;
+    padding: 0;
+  }
+
+  .stack-items li {
+    font-size: 0.9375rem;
+    color: var(--text-secondary);
+    padding: 0.375rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .stack-items li:last-child { border-bottom: none; }
+</style>

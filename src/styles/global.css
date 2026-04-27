@@ -1,0 +1,312 @@
+/* ════════════════════════════════════════════════════════════════
+   msbel.com — Design System
+   Aesthetic: yakushimaruetsuko x brittanychiang x Pi engineer
+   Modern CSS only — View Transitions, scroll-driven animations
+   ════════════════════════════════════════════════════════════════ */
+
+/* ── Variables ──────────────────────────────────────────────── */
+
+:root {
+  /* Background scale — warm off-black */
+  --bg-base: #0d0e10;
+  --bg-surface: #15171a;
+  --bg-elevated: #1a1d21;
+  --bg-overlay: rgba(13, 14, 16, 0.85);
+
+  /* Text scale — cream replaces white */
+  --text-primary: #ebe5d8;
+  --text-secondary: #b8b3a8;
+  --text-muted: #8a8478;
+  --text-faint: #5a564e;
+
+  /* Accent — Bluebird / Alcyone star */
+  --accent: #5b9eff;
+  --accent-hover: #7ab1ff;
+  --accent-muted: #2c4a7a;
+  --accent-glow: rgba(91, 158, 255, 0.15);
+
+  /* Status colors */
+  --status-live: #4ade80;
+  --status-idle: #facc15;
+  --status-offline: #6b7280;
+
+  /* Hairlines */
+  --border: #25272b;
+  --border-bright: #353941;
+
+  /* Type */
+  --font-sans: 'Geist', 'Inter', system-ui, -apple-system, sans-serif;
+  --font-display: 'Fraunces', 'Iowan Old Style', Georgia, serif;
+  --font-mono: 'Geist Mono', 'JetBrains Mono', 'Fira Code', monospace;
+
+  /* Sizing */
+  --container-narrow: 720px;
+  --container-wide: 1080px;
+  --space-section: clamp(6rem, 12vw, 12rem);
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --duration-fast: 150ms;
+  --duration-base: 250ms;
+  --duration-slow: 600ms;
+}
+
+/* ── Reset ──────────────────────────────────────────────────── */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: var(--font-sans);
+  background: var(--bg-base);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  scroll-behavior: smooth;
+  scroll-padding-top: 4rem;
+}
+
+body {
+  min-height: 100dvh;
+  line-height: 1.6;
+  font-size: 16px;
+  font-feature-settings: 'cv11', 'ss01', 'ss03';
+  overflow-x: hidden;
+}
+
+/* ── Typography ─────────────────────────────────────────────── */
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 7vw, 5rem);
+  font-variation-settings: 'opsz' 144, 'SOFT' 50;
+}
+
+h2 {
+  font-size: clamp(1.75rem, 4vw, 2.75rem);
+  font-variation-settings: 'opsz' 96, 'SOFT' 40;
+}
+
+h3 {
+  font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+  font-variation-settings: 'opsz' 36;
+}
+
+p {
+  text-wrap: pretty;
+  max-width: 65ch;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  position: relative;
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+a:hover {
+  color: var(--accent-hover);
+}
+
+a.subtle {
+  color: var(--text-primary);
+  border-bottom: 1px solid var(--border-bright);
+  transition: border-color var(--duration-base) var(--ease-out);
+}
+
+a.subtle:hover {
+  border-bottom-color: var(--accent);
+  color: var(--text-primary);
+}
+
+code, pre, .mono {
+  font-family: var(--font-mono);
+  font-size: 0.875em;
+}
+
+code:not(pre code) {
+  background: var(--bg-surface);
+  padding: 0.125em 0.375em;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+}
+
+/* ── Layout ─────────────────────────────────────────────────── */
+
+.container {
+  width: 100%;
+  max-width: var(--container-narrow);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.container-wide {
+  width: 100%;
+  max-width: var(--container-wide);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+section {
+  padding-block: var(--space-section);
+}
+
+section + section {
+  border-top: 1px solid var(--border);
+}
+
+/* ── Section heading ────────────────────────────────────────── */
+
+.section-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.section-eyebrow::before {
+  content: '';
+  display: inline-block;
+  width: 1.5rem;
+  height: 1px;
+  background: var(--text-muted);
+}
+
+/* ── Status indicator ───────────────────────────────────────── */
+
+.status-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 0.5rem;
+  position: relative;
+}
+
+.status-dot.live {
+  background: var(--status-live);
+  box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.5);
+  animation: pulse-live 2s ease-out infinite;
+}
+
+.status-dot.idle {
+  background: var(--status-idle);
+}
+
+.status-dot.offline {
+  background: var(--status-offline);
+}
+
+@keyframes pulse-live {
+  0% { box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.6); }
+  100% { box-shadow: 0 0 0 8px rgba(74, 222, 128, 0); }
+}
+
+/* ── Entrance animation (uses @starting-style for native CSS) ── */
+
+@supports (animation-timeline: scroll()) {
+  .reveal {
+    animation: reveal-up linear both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 30%;
+  }
+}
+
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ── Reduced motion ─────────────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ── Selection ──────────────────────────────────────────────── */
+
+::selection {
+  background: var(--accent);
+  color: var(--bg-base);
+}
+
+/* ── Scrollbar ──────────────────────────────────────────────── */
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-base);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-bright);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-faint);
+}
+
+/* ── View Transitions API ───────────────────────────────────── */
+
+@view-transition {
+  navigation: auto;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 250ms;
+}
+
+/* ── Utility classes ────────────────────────────────────────── */
+
+.text-muted { color: var(--text-muted); }
+.text-secondary { color: var(--text-secondary); }
+.mono { font-family: var(--font-mono); }
+.serif { font-family: var(--font-display); }
+
+.flex { display: flex; }
+.grid { display: grid; }
+.gap-1 { gap: 0.5rem; }
+.gap-2 { gap: 1rem; }
+.gap-3 { gap: 1.5rem; }
+
+/* ── Print ──────────────────────────────────────────────────── */
+
+@media print {
+  body { background: white; color: black; }
+  a { color: black; text-decoration: underline; }
+}

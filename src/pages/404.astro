@@ -1,0 +1,73 @@
+---
+import Base from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+---
+
+<Base title="Lost at sea — msbel.com" description="404 — page not found">
+  <Header />
+  <section class="lost">
+    <div class="container">
+      <p class="num mono">404</p>
+      <h1 class="lost-title">Lost at sea.</h1>
+      <p class="lost-sub">
+        The Bluebird couldn't find this coordinate. Maybe it got pulled
+        into the gravity well of an old project URL.
+      </p>
+      <div class="lost-actions">
+        <a href="/" class="lost-link">← back to homeport</a>
+        <a href="/projects" class="lost-link">browse the fleet</a>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .lost {
+    min-height: 70dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 8rem;
+    border-top: none !important;
+  }
+
+  .num {
+    font-size: 0.875rem;
+    color: var(--accent);
+    margin-bottom: 1rem;
+    letter-spacing: 0.2em;
+  }
+
+  .lost-title {
+    font-style: italic;
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    margin-bottom: 1rem;
+  }
+
+  .lost-sub {
+    font-size: 1.0625rem;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+    max-width: 50ch;
+  }
+
+  .lost-actions {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .lost-link {
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    color: var(--text-primary);
+    border-bottom: 1px solid var(--border-bright);
+    padding-bottom: 0.125rem;
+    transition: all var(--duration-fast) var(--ease-out);
+  }
+
+  .lost-link:hover {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+  }
+</style>

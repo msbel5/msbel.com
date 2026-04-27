@@ -1,0 +1,130 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <p class="quote">
+          "There's a bluebird in my heart that<br />
+          wants to get out."
+        </p>
+        <p class="quote-attr">— Charles Bukowski</p>
+      </div>
+
+      <div class="footer-meta">
+        <div class="footer-line">
+          <span class="dim">built on</span>
+          <a href="https://github.com/msbel5/alcyone-trading-bot" class="subtle">a Raspberry Pi 5 named Alcyone</a>
+        </div>
+        <div class="footer-line">
+          <span class="dim">last deployed</span>
+          <span class="mono">{new Date().toISOString().split('T')[0]}</span>
+        </div>
+        <div class="footer-line">
+          <span class="dim">© {year}</span>
+          <span>Muhammet Sıddık Bel · Istanbul, TR</span>
+        </div>
+      </div>
+
+      <nav class="footer-nav">
+        <a href="https://github.com/msbel5" target="_blank" rel="noopener">github</a>
+        <a href="https://www.linkedin.com/in/msbel5" target="_blank" rel="noopener">linkedin</a>
+        <a href="mailto:msbel5@gmail.com">email</a>
+        <a href="/rss.xml">rss</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    margin-top: 4rem;
+    padding-block: 4rem 3rem;
+    border-top: 1px solid var(--border);
+    background: var(--bg-base);
+    font-size: 0.875rem;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 0.8fr;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  @media (max-width: 768px) {
+    .footer-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+  }
+
+  .quote {
+    font-family: var(--font-display);
+    font-size: 1.125rem;
+    font-style: italic;
+    color: var(--text-secondary);
+    line-height: 1.4;
+    margin-bottom: 0.5rem;
+    max-width: 100%;
+  }
+
+  .quote-attr {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--text-muted);
+  }
+
+  .footer-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    color: var(--text-muted);
+  }
+
+  .footer-line {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .footer-line .dim {
+    color: var(--text-faint);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    min-width: 5rem;
+  }
+
+  .footer-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: flex-end;
+  }
+
+  @media (max-width: 768px) {
+    .footer-nav {
+      align-items: flex-start;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+  }
+
+  .footer-nav a {
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    border-bottom: 1px solid transparent;
+    transition: all var(--duration-fast) var(--ease-out);
+  }
+
+  .footer-nav a:hover {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+  }
+</style>
