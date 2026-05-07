@@ -28,7 +28,7 @@ const statusDotClass: Record<string, string> = {
 ---
 
 <Base
-  title={`${project.title} — M.S. Bel`}
+  title={`${project.title} — msbel`}
   description={project.tagline}
 >
   <Header current="projects" />
@@ -69,9 +69,15 @@ const statusDotClass: Record<string, string> = {
         {project.tags.map((tag) => <span class="tag mono">{tag}</span>)}
       </div>
 
+      {project.heroImage && (
+        <figure class="hero-figure">
+          <img src={project.heroImage} alt={project.heroImageAlt ?? project.tagline} loading="lazy" />
+        </figure>
+      )}
+
       <div class="content">
         {project.longDescription ? (
-          <p class="long-description">{project.longDescription}</p>
+          <p class="long-description" set:html={project.longDescription}></p>
         ) : (
           <p class="long-description">{project.description}</p>
         )}
@@ -217,5 +223,21 @@ const statusDotClass: Record<string, string> = {
     margin-bottom: 3rem;
     padding-left: 1.5rem;
     border-left: 2px solid var(--accent);
+  }
+
+  .hero-figure {
+    margin: 0 0 3rem;
+    padding: 1.5rem;
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+  }
+
+  .hero-figure img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 480px;
+    object-fit: contain;
   }
 </style>

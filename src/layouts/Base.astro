@@ -9,8 +9,8 @@ interface Props {
 }
 
 const {
-  title = 'M.S. Bel — Engineer & Builder | Muhammet Sıddık Bel',
-  description = 'Muhammet Sıddık Bel (M.S. Bel) — senior test automation specialist in Istanbul, building the Alcyone trading bot, Pegasus QA agent, and Ember RPG. Mechanical engineer turned AI builder.',
+  title = 'msbel — Engineer & Builder',
+  description = 'msbel — senior test automation engineer in Istanbul. Building Alcyone (a self-hosted multi-agent AI on a Raspberry Pi 5), Thalamus (an OpenClaw community plugin on ClawHub and npm), a 9-layer testnet trading bot, an AI QA agent, and a hand-crafted RPG in Unity.',
   image = '/og-image.png',
 } = Astro.props;
 
@@ -28,15 +28,15 @@ const personSchema = {
   familyName: 'Bel',
   url: 'https://msbel.com',
   image: 'https://msbel.com/og-image.png',
-  jobTitle: 'Senior Test Automation Specialist',
+  jobTitle: 'Senior Test Automation Engineer',
   description:
-    'Senior test automation specialist and AI agent builder based in Istanbul. Mechanical engineer by training, software engineer by obsession. Builds Alcyone (24/7 ML trading bot on Pi 5), Pegasus (AI QA test generation agent), and Ember (hand-crafted RPG in Unity).',
+    'Senior test automation engineer and AI agent builder based in Istanbul. Mechanical engineer by training, software engineer by obsession. Builds Alcyone (a self-hosted multi-agent AI on a Raspberry Pi 5), Thalamus (an OpenClaw community plugin), a 9-layer testnet trading bot, an AI QA agent, and a hand-crafted RPG in Unity.',
   knowsAbout: [
     'Test automation', 'AI agents', 'Machine learning',
     'Selenium', 'Appium', 'Gauge framework', 'PyTorch',
-    'Multi-agent systems', 'AutoGen', 'Claude API',
-    'Trading bots', 'Reinforcement learning',
-    'Mechanical engineering', 'Mechatronics',
+    'Multi-agent systems', 'OpenClaw', 'AutoGen', 'Claude API',
+    'Vector retrieval', 'FAISS', 'Qwen3',
+    'Trading bots', 'Mechanical engineering', 'Mechatronics',
     'LabVIEW', 'Arduino', 'Raspberry Pi',
   ],
   alumniOf: [
@@ -65,10 +65,10 @@ const personSchema = {
 const websiteSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
-  name: 'M.S. Bel — Engineer & Builder',
-  alternateName: 'msbel.com',
+  name: 'msbel',
+  alternateName: ['msbel.com', 'M.S. Bel'],
   url: 'https://msbel.com',
-  description: 'Personal site of Muhammet Sıddık Bel.',
+  description: 'Personal site of msbel — engineer and builder, Istanbul.',
   author: { '@type': 'Person', name: 'Muhammet Sıddık Bel' },
   inLanguage: 'en-US',
 };
@@ -84,7 +84,7 @@ const websiteSchema = {
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta name="author" content="Muhammet Sıddık Bel" />
-    <meta name="keywords" content="Muhammet Sıddık Bel, M.S. Bel, msbel, msbel5, test automation engineer, AI agent builder, Istanbul, Alcyone trading bot, Pegasus QA agent, Ember RPG, Marmara University, Istanbul University, mechatronics, mechanical engineer, Selenium, Gauge, PyTorch, Raspberry Pi" />
+    <meta name="keywords" content="msbel, msbel5, M.S. Bel, test automation engineer, AI agent builder, Istanbul, OpenClaw, Thalamus, Alcyone, Raspberry Pi 5, Selenium, Gauge, PyTorch, multi-agent systems, vector retrieval, e-Residency Estonia" />
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
     <link rel="canonical" href={canonicalURL} />
 

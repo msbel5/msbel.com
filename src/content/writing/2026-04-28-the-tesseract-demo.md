@@ -66,7 +66,7 @@ years from now, will need a reminder that the date on the file in
 the corner of the screen is real.
 
 The Python file is still on disk. The agent loop, ported and
-modernised, became the bones of the
-[Pegasus](/projects/pegasus) QA agent. The repo is at
+modernised, became the basis of my
+[QA Automation](/projects/qa-automation) work. The repo is at
 [github.com/msbel5/dAIlog](https://github.com/msbel5/dAIlog) for
 anyone who wants to look. SpongeBob has been retired with honour.

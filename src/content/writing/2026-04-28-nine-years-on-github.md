@@ -140,4 +140,3 @@ Reading nine years in one afternoon, the things that surprised me:
    to make graphs look green. If a repo is archived, it's archived
    honestly.
 
-The fleet sails on.

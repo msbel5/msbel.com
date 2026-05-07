@@ -15,41 +15,26 @@ const visible = projects.slice(0, 6);
     <div class="container">
       <p class="hero-eyebrow mono">
         <span class="hero-star">★</span>
-        <span class="visually-hidden">Muhammet Sıddık Bel — </span>
-        m.s. bel · istanbul, tr
+        msbel · istanbul, tr
       </p>
       <h1 class="hero-title">
         Engineer building quiet, durable systems.
-        A trading bot, a QA agent, a hand-crafted RPG.
+        A self-hosted AI, a trading bot, a QA agent, a hand-crafted RPG.
       </h1>
       <p class="visually-hidden">
-        Muhammet Sıddık Bel (M.S. Bel) — senior test automation
-        specialist based in Istanbul, Turkey. Mechanical engineer
-        trained at Istanbul University; mechatronics master's at
-        Marmara University. Builds Alcyone (24/7 ML trading bot on
-        Raspberry Pi 5), Pegasus (AI test generation agent), and
-        Ember (hand-crafted RPG in Unity). GitHub: msbel5.
+        msbel — senior test automation engineer in Istanbul, Turkey.
+        Mechanical engineer trained at Istanbul University; mechatronics
+        master's at Marmara University. Builds Alcyone (a self-hosted
+        multi-agent AI on a Raspberry Pi 5), Thalamus (an OpenClaw
+        community plugin on ClawHub and npm), a 9-layer testnet trading
+        bot on the same Pi, an AI QA agent, and a hand-crafted RPG in
+        Unity. GitHub: msbel5.
       </p>
       <p class="hero-sub">
-        Senior test automation specialist by day. Builder of an AI suite
-        called <a href="/projects/alcyone" class="subtle">Alcyone</a> by
-        night, hosted on a Raspberry Pi 5 named after the brightest star
-        in the Pleiades.
+        Senior test automation engineer by day. Builder of a self-hosted
+        AI called <a href="/projects/alcyone" class="subtle">Alcyone</a>
+        on a Raspberry Pi 5 in Istanbul.
       </p>
-      <div class="hero-meta mono">
-        {(() => {
-          const liveCount = visible.filter(p => p.status === 'live').length;
-          return (
-            <>
-              <span><span class="status-dot live"></span>Pi up</span>
-              <span class="dim">·</span>
-              <span>{liveCount} {liveCount === 1 ? 'project' : 'projects'} live</span>
-              <span class="dim">·</span>
-              <span>last deploy {new Date().toISOString().split('T')[0]}</span>
-            </>
-          );
-        })()}
-      </div>
     </div>
   </section>
 
@@ -58,12 +43,12 @@ const visible = projects.slice(0, 6);
     <div class="container">
       <p class="section-eyebrow">currently</p>
       <p class="now-text">
-        Running the v4 trading bot 24/7 on testnet. Nine signal layers,
-        46 ML features, no fabrication. Drafting <em>Pegasus</em>, a QA
-        agent that writes its own end-to-end tests by watching the page.
-        E-Residency to Estonia is in flight; an OÜ follows once the card
-        lands. In the queue: rewriting <em>Ember</em> by hand in Unity,
-        because AI-generated games can't be played.
+        Running the trading bot 24/7 on testnet. Nine signal layers,
+        46 ML features, no fabrication. Drafting an AI QA agent that
+        writes its own end-to-end tests by watching the page. Estonian
+        e-Residency application is in flight. In the queue: rewriting
+        <em>Ember</em> by hand in Unity, because AI-generated games
+        cannot be played.
       </p>
     </div>
   </section>
@@ -102,9 +87,9 @@ const visible = projects.slice(0, 6);
       <p class="section-eyebrow">connect</p>
       <h2 class="connect-heading"><em>Reach out.</em></h2>
       <p class="connect-text">
-        I'm open to collaborating on AI agent systems, contracting for
-        test automation infrastructure, or trading notes on what's
-        actually working in production. Estonia OÜ from late 2026 onwards.
+        Open to collaborating on AI agent systems, contracting for
+        test automation infrastructure, or trading notes on what is
+        actually working in production.
       </p>
       <div class="connect-links mono">
         <a href="mailto:msbel5@gmail.com">msbel5@gmail.com</a>
