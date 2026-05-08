@@ -1,95 +1,27 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 540" width="1200" height="540" role="img" aria-label="Ember RPG sketch: top-down grid with three NPC pawns from two factions and a faction-relations triangle.">
-  <defs>
-    <style>
-      .title { font-family: 'Fraunces', Georgia, serif; font-style: italic; font-size: 28px; fill: #ece8df; }
-      .heading { font-family: 'Fraunces', Georgia, serif; font-style: italic; font-size: 18px; fill: #ece8df; }
-      .label { font-family: 'Geist Mono', ui-monospace, monospace; font-size: 13px; fill: #c7c4bd; }
-      .small { font-family: 'Geist Mono', ui-monospace, monospace; font-size: 12px; fill: #6c707a; }
-      .accent { fill: #7aa7ff; }
-      .grid-line { stroke: #2a2d33; stroke-width: 1; }
-      .pawn-a { fill: #1f2a3d; stroke: #7aa7ff; stroke-width: 2; }
-      .pawn-b { fill: #2a1f1f; stroke: #d18a8a; stroke-width: 2; }
-      .pawn-n { fill: #1a1d22; stroke: #c7c4bd; stroke-width: 2; }
-      .relation-line { stroke: #6c707a; stroke-width: 1.5; fill: none; stroke-dasharray: 5 4; }
-      .faction-fill { fill: #16181c; stroke: #2a2d33; stroke-width: 1.5; }
-    </style>
-  </defs>
-
-  <g transform="translate(40, 50)">
-    <text class="title">Ember</text>
-    <text class="small" y="26">an RPG, by hand · top-down · faction simulation in the Dwarf Fortress and RimWorld vein</text>
-  </g>
-
-  <!-- Top-down grid (left side) -->
-  <g transform="translate(40, 130)">
-    <text class="heading">top-down view</text>
-    <text class="small" y="22">12×8 tile grid · pixel-art friendly</text>
-
-    <g transform="translate(0, 50)">
-      <rect width="600" height="320" rx="12" class="faction-fill"/>
-      <!-- vertical grid lines -->
-      <line x1="50" y1="0" x2="50" y2="320" class="grid-line"/>
-      <line x1="100" y1="0" x2="100" y2="320" class="grid-line"/>
-      <line x1="150" y1="0" x2="150" y2="320" class="grid-line"/>
-      <line x1="200" y1="0" x2="200" y2="320" class="grid-line"/>
-      <line x1="250" y1="0" x2="250" y2="320" class="grid-line"/>
-      <line x1="300" y1="0" x2="300" y2="320" class="grid-line"/>
-      <line x1="350" y1="0" x2="350" y2="320" class="grid-line"/>
-      <line x1="400" y1="0" x2="400" y2="320" class="grid-line"/>
-      <line x1="450" y1="0" x2="450" y2="320" class="grid-line"/>
-      <line x1="500" y1="0" x2="500" y2="320" class="grid-line"/>
-      <line x1="550" y1="0" x2="550" y2="320" class="grid-line"/>
-      <!-- horizontal grid lines -->
-      <line x1="0" y1="40" x2="600" y2="40" class="grid-line"/>
-      <line x1="0" y1="80" x2="600" y2="80" class="grid-line"/>
-      <line x1="0" y1="120" x2="600" y2="120" class="grid-line"/>
-      <line x1="0" y1="160" x2="600" y2="160" class="grid-line"/>
-      <line x1="0" y1="200" x2="600" y2="200" class="grid-line"/>
-      <line x1="0" y1="240" x2="600" y2="240" class="grid-line"/>
-      <line x1="0" y1="280" x2="600" y2="280" class="grid-line"/>
-
-      <!-- Faction A pawn -->
-      <circle cx="125" cy="100" r="14" class="pawn-a"/>
-      <text class="small accent" text-anchor="middle" x="125" y="135">A</text>
-      <!-- Faction B pawn -->
-      <circle cx="425" cy="220" r="14" class="pawn-b"/>
-      <text class="small" text-anchor="middle" x="425" y="255" fill="#d18a8a">B</text>
-      <!-- Neutral pawn -->
-      <circle cx="275" cy="160" r="14" class="pawn-n"/>
-      <text class="small" text-anchor="middle" x="275" y="195">N</text>
-    </g>
-  </g>
-
-  <!-- Faction relations triangle (right side) -->
-  <g transform="translate(720, 130)">
-    <text class="heading">faction relations</text>
-    <text class="small" y="22">edges = trust · weight changes per event</text>
-
-    <g transform="translate(0, 60)">
-      <!-- Triangle vertices -->
-      <!-- A top -->
-      <circle cx="180" cy="40" r="22" class="pawn-a"/>
-      <text class="label accent" text-anchor="middle" x="180" y="44">A</text>
-      <!-- B bottom-left -->
-      <circle cx="50" cy="240" r="22" class="pawn-b"/>
-      <text class="label" text-anchor="middle" x="50" y="245" fill="#d18a8a">B</text>
-      <!-- N bottom-right -->
-      <circle cx="310" cy="240" r="22" class="pawn-n"/>
-      <text class="label" text-anchor="middle" x="310" y="244">N</text>
-
-      <!-- Edges -->
-      <line x1="160" y1="58" x2="70" y2="220" class="relation-line"/>
-      <line x1="200" y1="58" x2="290" y2="220" class="relation-line"/>
-      <line x1="74" y1="240" x2="286" y2="240" class="relation-line"/>
-
-      <text class="small" text-anchor="middle" x="105" y="155">hostile</text>
-      <text class="small" text-anchor="middle" x="255" y="155">curious</text>
-      <text class="small" text-anchor="middle" x="180" y="265">neutral</text>
-    </g>
-  </g>
-
-  <!-- Footer -->
-  <g transform="translate(40, 500)">
-    <text class="small">first prototype was AI-scaffolded and unplayable · this one is built by hand, system by system</text>
-  </g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 640" width="100%" height="auto" font-family="Geist Mono, ui-monospace, monospace">
+<defs>
+  <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0 L0 0 0 20" stroke="#2a2d33" stroke-width="0.5" fill="none" opacity="0.3"></path></pattern>
+  <radialGradient id="seaglow" cx="78%" cy="22%" r="55%"><stop offset="0%" stop-color="#5cd6c4" stop-opacity="0.10"></stop><stop offset="60%" stop-color="#7aa7ff" stop-opacity="0.04"></stop><stop offset="100%" stop-color="#16181c" stop-opacity="0"></stop></radialGradient>
+  <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#5cd6c4"></path></marker>
+  <marker id="arrowMuted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#8a8f99"></path></marker>
+</defs>
+<rect width="100%" height="100%" fill="#16181c"></rect><rect width="100%" height="100%" fill="url(#grid)"></rect><rect width="100%" height="100%" fill="url(#seaglow)"></rect><text x="40" y="44" fill="#8a8f99" font-size="11" letter-spacing="0.2em">EMBER · A COLONY-COMMAND RPG, BY HAND, IN UNITY/GODOT</text>
+<text x="40" y="76" fill="#ece8df" font-size="22" font-family="Fraunces, Georgia, serif">Godot client. Deterministic Python kernel. Two adapters.</text>
+<text x="80" y="130" fill="#8a8f99" font-size="11" letter-spacing="0.1em">player surface</text>
+<g><rect x="60" y="150" width="300" height="340" rx="10" fill="#16181c" stroke="#353941" stroke-width="1"></rect><text x="76" y="174" fill="#5cd6c4" font-size="13" font-weight="500">Godot 4.6 client</text><text x="76" y="194" fill="#6c707a" font-size="11">title · creation · gameplay · save/load</text></g>
+<g font-size="11" fill="#c7c4bd"><text x="80" y="220">· BackendRuntime autoload</text><text x="80" y="244">· Title screen + character creation</text><text x="80" y="268">· Gameplay shell · top-down</text><text x="80" y="292">· Save/load · semantic desktop</text><text x="80" y="316">· Headless test runner</text></g>
+<path d="M360 320 L520 320" stroke="#5cd6c4" stroke-width="1.25" marker-end="url(#arrow)" fill="none"></path>
+<text x="370" y="310" fill="#5cd6c4" font-size="10">HTTP/JSON · :8741</text>
+<path d="M520 340 L360 340" stroke="#8a8f99" stroke-width="1" stroke-dasharray="3 3" marker-end="url(#arrowMuted)" fill="none"></path>
+<text x="560" y="130" fill="#8a8f99" font-size="11" letter-spacing="0.1em">deterministic kernel</text>
+<g><rect x="540" y="150" width="300" height="340" rx="10" fill="#16181c" stroke="#353941" stroke-width="1"></rect><text x="556" y="174" fill="#ece8df" font-size="13" font-weight="500">FastAPI backend</text><text x="556" y="194" fill="#6c707a" font-size="11">campaign-first routes · canonical slices</text></g>
+<g font-size="11" fill="#c7c4bd"><text x="560" y="220">· actors · effects · jobs</text><text x="560" y="244">· colony pressure · stores</text><text x="560" y="268">· travel · systems closure</text><text x="560" y="292">· deterministic simulation</text><text x="560" y="316">· save/load + projections</text></g>
+<line x1="560" y1="360" x2="820" y2="360" stroke="#2a2d33" stroke-width="1"></line>
+<text x="560" y="382" fill="#5cd6c4" font-size="11">ADAPTERS</text>
+<text x="560" y="406" fill="#ece8df" font-size="13">fantasy_ember</text><text x="560" y="426" fill="#6c707a" font-size="10">DF + GemRB synthesis</text>
+<text x="560" y="452" fill="#ece8df" font-size="13">scifi_frontier</text><text x="560" y="472" fill="#6c707a" font-size="10">space-age colony</text>
+<g><rect x="880" y="150" width="280" height="100" rx="10" fill="#16181c" stroke="#353941" stroke-width="1"></rect><text x="896" y="174" fill="#5cd6c4" font-size="13" font-weight="500">Truth lanes</text><text x="896" y="194" fill="#6c707a" font-size="11">manual godot · pytest · headless · automation</text></g>
+<g><rect x="880" y="270" width="280" height="80" rx="10" fill="#16181c" stroke="#353941" stroke-width="1"></rect><text x="896" y="294" fill="#ece8df" font-size="13" font-weight="500">Lessons from v1</text><text x="896" y="314" fill="#6c707a" font-size="11">AI-built RPG passed checks, was unplayable</text></g>
+<g><rect x="880" y="370" width="280" height="120" rx="10" fill="#16181c" stroke="#353941" stroke-width="1"></rect><text x="896" y="394" fill="#ece8df" font-size="13" font-weight="500">Now: hand-built</text><text x="896" y="414" fill="#6c707a" font-size="11">system by system · each mechanic earned</text></g>
+<text x="894" y="430" fill="#8a8f99" font-size="10">Morrowind in spirit.</text><text x="894" y="446" fill="#8a8f99" font-size="10">RimWorld in scope.</text><text x="894" y="462" fill="#8a8f99" font-size="10">Hand-crafted in Unity.</text>
+<text x="40" y="600" fill="#6c707a" font-size="10" letter-spacing="0.15em">FRP-BACKEND · GODOT-CLIENT · DOCS/PRD/ACTIVE · TOOLS</text></svg>

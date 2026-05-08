@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="kingfisher diving — vertical posture">
+  <g fill="none" stroke="#7aa7ff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    
+    <circle cx="32" cy="14" r="5" fill="#7aa7ff" stroke="none"></circle>
+    
+    <path d="M32 8 L32 2"></path>
+    
+    <path d="M32 19 L26 38 L32 50"></path>
+    <path d="M32 19 L38 38 L32 50"></path>
+    
+    <path d="M32 50 L32 58"></path>
+  </g>
+</svg>
