@@ -1,86 +1,101 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 500" width="1200" height="500" role="img" aria-label="Thalamus packet handoff diagram">
-  <defs>
-    <style>
-      .bg { fill: transparent; }
-      .label { font-family: 'Geist', ui-sans-serif, system-ui, sans-serif; font-size: 18px; fill: #c7c4bd; }
-      .title { font-family: 'Fraunces', Georgia, serif; font-style: italic; font-size: 28px; fill: #ece8df; }
-      .mono { font-family: 'Geist Mono', ui-monospace, monospace; font-size: 15px; fill: #8a8f99; }
-      .accent { fill: #7aa7ff; }
-      .box { fill: #16181c; stroke: #2a2d33; stroke-width: 1.5; rx: 12; }
-      .box-accent { fill: #16181c; stroke: #7aa7ff; stroke-width: 1.5; rx: 12; }
-      .arrow { fill: none; stroke: #6c707a; stroke-width: 2; }
-      .arrow-accent { fill: none; stroke: #7aa7ff; stroke-width: 2; }
-      .small { font-family: 'Geist Mono', ui-monospace, monospace; font-size: 13px; fill: #6c707a; }
-      .key { font-family: 'Geist Mono', ui-monospace, monospace; font-size: 13px; fill: #ece8df; }
-    </style>
-    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
-      <path d="M 0 0 L 10 5 L 0 10 z" fill="#6c707a"/>
-    </marker>
-    <marker id="arrowhead-accent" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
-      <path d="M 0 0 L 10 5 L 0 10 z" fill="#7aa7ff"/>
-    </marker>
-  </defs>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 640" width="100%" height="auto" font-family="Geist Mono, ui-monospace, monospace">
+<defs>
+  <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+    <path d="M20 0 L0 0 0 20" stroke="#2a2d33" stroke-width="0.5" fill="none" opacity="0.3"></path>
+  </pattern>
+  <radialGradient id="seaglow" cx="78%" cy="22%" r="55%">
+    <stop offset="0%" stop-color="#5cd6c4" stop-opacity="0.10"></stop>
+    <stop offset="60%" stop-color="#7aa7ff" stop-opacity="0.04"></stop>
+    <stop offset="100%" stop-color="#16181c" stop-opacity="0"></stop>
+  </radialGradient>
+  <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+    <path d="M0 0 L10 5 L0 10 z" fill="#5cd6c4"></path>
+  </marker>
+  <marker id="arrowMuted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+    <path d="M0 0 L10 5 L0 10 z" fill="#8a8f99"></path>
+  </marker>
+</defs>
+<rect width="100%" height="100%" fill="#16181c"></rect>
+<rect width="100%" height="100%" fill="url(#grid)"></rect>
+<rect width="100%" height="100%" fill="url(#seaglow)"></rect>
 
-  <rect width="1200" height="500" class="bg"/>
+  <text x="40" y="44" fill="#8a8f99" font-size="11" letter-spacing="0.2em">THALAMUS · COGNITIVE ROUTING LAYER FOR MULTI-AGENT CREWS</text>
+  <text x="40" y="76" fill="#ece8df" font-size="22" font-family="Fraunces, Georgia, serif">From paste-the-transcript to a 3-field reference.</text>
 
-  <!-- Sender (Captain) -->
-  <g transform="translate(40, 180)">
-    <rect width="200" height="120" class="box"/>
-    <text x="100" y="48" text-anchor="middle" class="title">Captain</text>
-    <text x="100" y="78" text-anchor="middle" class="mono">spawns sub-agent</text>
-    <text x="100" y="100" text-anchor="middle" class="small">(does NOT paste transcript)</text>
+  
+  <text x="60" y="124" fill="#6c707a" font-size="10" letter-spacing="0.2em">BEFORE · NAIVE</text>
+  <g>
+    <rect x="40" y="140" width="240" height="60" rx="10" fill="#16181c" stroke="#353941" stroke-width="1"></rect>
+    <text x="56" y="164" fill="#ece8df" font-size="13" font-weight="500" letter-spacing="0.05em">Captain</text>
+    <text x="56" y="184" fill="#6c707a" font-size="11">has full transcript</text>
+  </g>
+  <path d="M160 200 L160 250" stroke="#8a8f99" stroke-width="1" stroke-dasharray="3 3" marker-end="url(#arrowMuted)" fill="none"></path>
+  <text x="180" y="228" fill="#6c707a" font-size="10">paste 68 tokens</text>
+
+  <g>
+    <rect x="40" y="260" width="240" height="60" rx="10" fill="#16181c" stroke="#353941" stroke-width="1"></rect>
+    <text x="56" y="284" fill="#ece8df" font-size="13" font-weight="500" letter-spacing="0.05em">Builder</text>
+    <text x="56" y="304" fill="#6c707a" font-size="11">receives full paste</text>
+  </g>
+  <text x="40" y="350" fill="#8a8f99" font-size="11">cost = O(crew × transcript)</text>
+  <text x="40" y="368" fill="#6c707a" font-size="10">spawn context: 68 tokens / handoff</text>
+
+  
+  <line x1="340" y1="100" x2="340" y2="540" stroke="#2a2d33" stroke-width="1"></line>
+
+  
+  <text x="380" y="124" fill="#5cd6c4" font-size="10" letter-spacing="0.2em">AFTER · THALAMUS</text>
+  <g>
+    <rect x="360" y="140" width="240" height="60" rx="10" fill="#16181c" stroke="#353941" stroke-width="1"></rect>
+    <text x="376" y="164" fill="#5cd6c4" font-size="13" font-weight="500" letter-spacing="0.05em">Captain</text>
+    <text x="376" y="184" fill="#6c707a" font-size="11">embeds task → packet</text>
   </g>
 
-  <!-- Packet handoff -->
-  <g transform="translate(290, 180)">
-    <rect width="280" height="120" class="box-accent"/>
-    <text x="140" y="40" text-anchor="middle" class="title accent">Packet</text>
-    <text x="20" y="68" class="key">packet_id</text>
-    <text x="20" y="90" class="key">resolver_key</text>
-    <text x="20" y="112" class="key">inline_vector</text>
+  
+  <g transform="translate(640, 150)">
+    <rect x="0" y="0" width="220" height="40" rx="6" fill="#16181c" stroke="#5cd6c4" stroke-width="1"></rect>
+    <text x="110" y="25" fill="#5cd6c4" font-size="11" text-anchor="middle">{ packet_id, resolver_key, inline_vector }</text>
+    <text x="0" y="-8" fill="#6c707a" font-size="10" letter-spacing="0.15em">3-FIELD REF</text>
   </g>
 
-  <!-- Vector store -->
-  <g transform="translate(620, 80)">
-    <rect width="240" height="320" class="box"/>
-    <text x="120" y="40" text-anchor="middle" class="title">Vector store</text>
-    <text x="120" y="65" text-anchor="middle" class="mono">9 namespaces</text>
-    <g transform="translate(20, 90)">
-      <text class="small" y="0">atoms.code</text>
-      <text class="small" y="22">atoms.audit</text>
-      <text class="small" y="44">atoms.plan</text>
-      <text class="small" y="66">atoms.memory</text>
-      <text class="small" y="88">atoms.audio.raw</text>
-      <text class="small" y="110">atoms.audio.text</text>
-      <text class="small" y="132">atoms.image.raw</text>
-      <text class="small" y="154">atoms.image.text</text>
-      <text class="small" y="176">atoms.crossmodal</text>
-    </g>
-    <text x="120" y="290" text-anchor="middle" class="mono accent">Qwen3-0.6B · CPU · llama.cpp</text>
-    <text x="120" y="308" text-anchor="middle" class="small">FAISS RaBitQ codebook</text>
+  <g>
+    <rect x="360" y="260" width="240" height="60" rx="10" fill="#16181c" stroke="#353941" stroke-width="1"></rect>
+    <text x="376" y="284" fill="#ece8df" font-size="13" font-weight="500" letter-spacing="0.05em">Builder</text>
+    <text x="376" y="304" fill="#6c707a" font-size="11">resolves only what it needs</text>
+  </g>
+  <path d="M480 200 L480 260" stroke="#5cd6c4" stroke-width="1.25" marker-end="url(#arrow)" fill="none"></path>
+  <text x="500" y="234" fill="#5cd6c4" font-size="10">3 fields</text>
+
+  <g>
+    <rect x="360" y="340" width="500" height="80" rx="10" fill="#16181c" stroke="#353941" stroke-width="1"></rect>
+    <text x="376" y="364" fill="#ece8df" font-size="13" font-weight="500" letter-spacing="0.05em">FAISS vector store · 9 namespaces</text>
+    <text x="376" y="384" fill="#6c707a" font-size="11">atoms.code · atoms.audit · atoms.plan · atoms.memory · atoms.audio.* · atoms.image.* · atoms.crossmodal</text>
   </g>
 
-  <!-- Receiver -->
-  <g transform="translate(920, 180)">
-    <rect width="240" height="120" class="box"/>
-    <text x="120" y="48" text-anchor="middle" class="title">Sub-agent</text>
-    <text x="120" y="78" text-anchor="middle" class="mono">resolves only</text>
-    <text x="120" y="98" text-anchor="middle" class="mono">relevant atoms</text>
+  
+  <g>
+    <rect x="880" y="340" width="280" height="80" rx="10" fill="#16181c" stroke="#353941" stroke-width="1"></rect>
+    <text x="896" y="364" fill="#5cd6c4" font-size="13" font-weight="500" letter-spacing="0.05em">Encoder daemon</text>
+    <text x="896" y="384" fill="#6c707a" font-size="11">Qwen3-Embedding-0.6B · 1024d · UNIX socket</text>
+  </g>
+  <path d="M860 380 L880 380" stroke="#5cd6c4" stroke-width="1" marker-end="url(#arrow)" fill="none"></path>
+
+  
+  <g transform="translate(360, 460)">
+    <text x="0" y="0" fill="#6c707a" font-size="10" letter-spacing="0.15em">MEASURED · run_telemetry.jsonl</text>
+    <line x1="0" y1="14" x2="800" y2="14" stroke="#2a2d33" stroke-width="1"></line>
+    <text x="0" y="36" fill="#c7c4bd" font-size="14">68 tokens</text>
+    <text x="0" y="52" fill="#6c707a" font-size="10">paste-naive baseline</text>
+
+    <text x="220" y="36" fill="#ece8df" font-size="14">→</text>
+
+    <text x="280" y="36" fill="#5cd6c4" font-size="14">55 tokens</text>
+    <text x="280" y="52" fill="#6c707a" font-size="10">3-field reference</text>
+
+    <text x="500" y="36" fill="#7aa7ff" font-size="14">−19.1%</text>
+    <text x="500" y="52" fill="#6c707a" font-size="10">protocol-level compression</text>
   </g>
 
-  <!-- Arrows -->
-  <line x1="240" y1="240" x2="285" y2="240" class="arrow" marker-end="url(#arrowhead)"/>
-  <line x1="570" y1="240" x2="615" y2="240" class="arrow-accent" marker-end="url(#arrowhead-accent)"/>
-  <line x1="860" y1="240" x2="915" y2="240" class="arrow" marker-end="url(#arrowhead)"/>
+  <text x="40" y="600" fill="#6c707a" font-size="10" letter-spacing="0.15em">PRODUCTION NOTE · VECTORS ARE NOT FED TO COMMERCIAL LLMS · GPT/CLAUDE/QWEN CANNOT READ RAW VECTORS IN 2026</text>
 
-  <!-- Headline -->
-  <g transform="translate(40, 50)">
-    <text class="title">Thalamus</text>
-    <text class="mono" y="28">3-field reference instead of full transcript paste</text>
-  </g>
-
-  <!-- Footer metric -->
-  <g transform="translate(40, 450)">
-    <text class="small">measured: 19.1% protocol-level token reduction · spawn_context_tokens 68 → 55 · live telemetry on Pi 5</text>
-  </g>
 </svg>

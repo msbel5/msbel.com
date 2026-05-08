@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 640" width="100%" height="auto" font-family="Geist Mono, ui-monospace, monospace">
+<defs>
+  <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0 L0 0 0 20" stroke="#2a2d33" stroke-width="0.5" fill="none" opacity="0.3"></path></pattern>
+  <radialGradient id="seaglow" cx="78%" cy="22%" r="55%"><stop offset="0%" stop-color="#5cd6c4" stop-opacity="0.10"></stop><stop offset="60%" stop-color="#7aa7ff" stop-opacity="0.04"></stop><stop offset="100%" stop-color="#16181c" stop-opacity="0"></stop></radialGradient>
+  <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#5cd6c4"></path></marker>
+  <marker id="arrowMuted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#8a8f99"></path></marker>
+</defs>
+<rect width="100%" height="100%" fill="#16181c"></rect><rect width="100%" height="100%" fill="url(#grid)"></rect><rect width="100%" height="100%" fill="url(#seaglow)"></rect><text x="40" y="44" fill="#8a8f99" font-size="11" letter-spacing="0.2em">PI TABLET BRIDGE · ANDROID TABLET → PI DISPLAY + INPUT</text>
+<text x="40" y="76" fill="#ece8df" font-size="22" font-family="Fraunces, Georgia, serif">An old tablet, repurposed as the Pi&#39;s face.</text>
+<g><rect x="60" y="160" width="340" height="300" rx="10" fill="#16181c" stroke="#353941" stroke-width="1"></rect><text x="76" y="184" fill="#5cd6c4" font-size="13" font-weight="500">Raspberry Pi 5</text><text x="76" y="204" fill="#6c707a" font-size="11">pi-side · python 3.11</text></g>
+<g font-size="11" fill="#c7c4bd"><text x="80" y="230">· grim · screen capture</text><text x="80" y="252">· Pillow · JPEG conversion</text><text x="80" y="274">· bridge_server.py · TCP</text><text x="80" y="296">· ydotool / xdotool · input</text><text x="80" y="318">· auto detect · install · launch</text></g>
+<text x="80" y="380" fill="#6c707a" font-size="10">PORTS</text><text x="80" y="400" fill="#8a8f99" font-size="10">19876 · TCP transport</text><text x="80" y="416" fill="#8a8f99" font-size="10">19877 · UDP discovery</text>
+<g><rect x="800" y="160" width="340" height="300" rx="10" fill="#16181c" stroke="#353941" stroke-width="1"></rect><text x="816" y="184" fill="#5cd6c4" font-size="13" font-weight="500">Android tablet</text><text x="816" y="204" fill="#6c707a" font-size="11">android-app · Java · API 28</text></g>
+<g font-size="11" fill="#c7c4bd"><text x="820" y="230">· Fullscreen frame renderer</text><text x="820" y="252">· latest-frame decode/drop</text><text x="820" y="274">· touch → mouse forward</text><text x="820" y="296">· keyboard dialog → text + keys</text><text x="820" y="318">· ServerSocket :19876</text></g>
+<text x="820" y="380" fill="#6c707a" font-size="10">BUILD</text><text x="820" y="400" fill="#8a8f99" font-size="10">JDK 11 · gradle 6.7.1</text><text x="820" y="416" fill="#8a8f99" font-size="10">app-debug.apk</text>
+<line x1="400" y1="280" x2="800" y2="280" stroke="#5cd6c4" stroke-width="1.5" marker-end="url(#arrow)"></line>
+<text x="600" y="266" fill="#5cd6c4" font-size="11" text-anchor="middle">USB · adb forward (primary)</text>
+<line x1="400" y1="340" x2="800" y2="340" stroke="#8a8f99" stroke-width="1" stroke-dasharray="6 4" marker-end="url(#arrowMuted)"></line>
+<text x="600" y="360" fill="#8a8f99" font-size="11" text-anchor="middle">LAN · UDP discovery (fallback)</text>
+<g transform="translate(450, 400)"><rect x="0" y="0" width="40" height="28" rx="2" stroke="#5cd6c4" fill="#16181c"></rect><rect x="50" y="0" width="40" height="28" rx="2" stroke="#5cd6c4" fill="#16181c" opacity="0.7"></rect><rect x="100" y="0" width="40" height="28" rx="2" stroke="#5cd6c4" fill="#16181c" opacity="0.5"></rect><rect x="150" y="0" width="40" height="28" rx="2" stroke="#5cd6c4" fill="#16181c" opacity="0.35"></rect><rect x="200" y="0" width="40" height="28" rx="2" stroke="#5cd6c4" fill="#16181c" opacity="0.2"></rect><text x="0" y="48" fill="#6c707a" font-size="10">JPEG frames · drop-old · render-latest</text></g>
+<text x="40" y="600" fill="#6c707a" font-size="10" letter-spacing="0.15em">CAMERA · MICROPHONE · SPEAKERS · SENSORS · GUI MGMT — DEFERRED</text></svg>

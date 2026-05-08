@@ -1,26 +1,18 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#0d0e10"/>
-      <stop offset="100%" stop-color="#16181c"/>
+      <stop offset="0%" stop-color="#0d0e10"></stop>
+      <stop offset="100%" stop-color="#16181c"></stop>
     </linearGradient>
     <radialGradient id="glow" cx="80%" cy="30%" r="40%">
-      <stop offset="0%" stop-color="#7aa7ff" stop-opacity="0.25"/>
-      <stop offset="60%" stop-color="#7aa7ff" stop-opacity="0.05"/>
-      <stop offset="100%" stop-color="#7aa7ff" stop-opacity="0"/>
+      <stop offset="0%" stop-color="#7aa7ff" stop-opacity="0.25"></stop>
+      <stop offset="60%" stop-color="#7aa7ff" stop-opacity="0.05"></stop>
+      <stop offset="100%" stop-color="#7aa7ff" stop-opacity="0"></stop>
     </radialGradient>
-    <style>
-      .star { fill: #7aa7ff; }
-      .eyebrow { font-family: 'Geist Mono', ui-monospace, monospace; font-size: 22px; fill: #8a8f99; letter-spacing: 0.05em; }
-      .display { font-family: 'Fraunces', Georgia, serif; fill: #ece8df; font-style: italic; }
-      .title { font-size: 92px; font-weight: 400; }
-      .subtitle { font-size: 34px; fill: #c7c4bd; font-style: normal; font-weight: 300; }
-      .meta { font-family: 'Geist Mono', ui-monospace, monospace; font-size: 20px; fill: #6c707a; }
-      .accent { fill: #7aa7ff; }
-    </style>
+    
   </defs>
-  <rect width="1200" height="630" fill="url(#bg)"/>
-  <rect width="1200" height="630" fill="url(#glow)"/>
+  <rect width="1200" height="630" fill="url(#bg)"></rect>
+  <rect width="1200" height="630" fill="url(#glow)"></rect>
   <g transform="translate(80, 100)">
     <text class="eyebrow"><tspan class="star">★</tspan>  msbel · istanbul, tr</text>
   </g>

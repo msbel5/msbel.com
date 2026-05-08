@@ -1,51 +1,91 @@
 /* ════════════════════════════════════════════════════════════════
    msbel.com — Design System
    Aesthetic: yakushimaruetsuko x brittanychiang x Pi engineer
-   Modern CSS only — View Transitions, scroll-driven animations
+   Dark, single-column, type-driven. Cool blue + turquoise on warm cream.
    ════════════════════════════════════════════════════════════════ */
+
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@300..700&family=Geist+Mono:wght@400..600&family=Fraunces:opsz,wght@9..144,300..700&display=swap');
+
+@font-face {
+  font-family: 'msbel Hybrid';
+  src: url('/fonts/msbel-hybrid.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
 
 /* ── Variables ──────────────────────────────────────────────── */
 
 :root {
-  /* Background scale — warm off-black */
-  --bg-base: #0d0e10;
-  --bg-surface: #15171a;
-  --bg-elevated: #1a1d21;
-  --bg-overlay: rgba(13, 14, 16, 0.85);
+  /* Surface scale — warm off-black */
+  --bg-base:        #0d0e10;
+  --bg-surface:     #16181c;
+  --bg-elevated:    #1a1d21;
+  --bg-overlay:     rgba(13, 14, 16, 0.85);
 
-  /* Text scale — cream replaces white */
-  --text-primary: #ebe5d8;
-  --text-secondary: #b8b3a8;
-  --text-muted: #8a8478;
-  --text-faint: #5a564e;
+  /* Text scale — warm cream */
+  --fg-display:     #ece8df;
+  --fg-body:        #c7c4bd;
+  --fg-muted:       #8a8f99;
+  --fg-faint:       #6c707a;
 
-  /* Accent — Bluebird / Alcyone star */
-  --accent: #5b9eff;
-  --accent-hover: #7ab1ff;
-  --accent-muted: #2c4a7a;
-  --accent-glow: rgba(91, 158, 255, 0.15);
+  /* Backwards-compat aliases (existing components reference these) */
+  --text-primary:   var(--fg-display);
+  --text-secondary: var(--fg-body);
+  --text-muted:     var(--fg-muted);
+  --text-faint:     var(--fg-faint);
+
+  /* Accent — bluebird blue + sea-foam teal */
+  --accent:         #7aa7ff;
+  --accent-hover:   #94baff;
+  --accent-muted:   #2c4a7a;
+  --accent-deep:    #1d4e89;
+
+  --teal:           #5cd6c4;
+  --teal-hover:     #7ee0d2;
+  --teal-deep:      #1f6b62;
+
+  --accent-glow:    rgba(92, 214, 196, 0.14);
+  --accent-glow-2:  rgba(122, 167, 255, 0.10);
 
   /* Status colors */
-  --status-live: #4ade80;
-  --status-idle: #facc15;
+  --status-live:    #4ade80;
+  --status-idle:    #facc15;
   --status-offline: #6b7280;
 
   /* Hairlines */
-  --border: #25272b;
-  --border-bright: #353941;
+  --border:         #2a2d33;
+  --border-bright:  #353941;
 
-  /* Type */
-  --font-sans: 'Geist', 'Inter', system-ui, -apple-system, sans-serif;
-  --font-display: 'Fraunces', 'Iowan Old Style', Georgia, serif;
-  --font-mono: 'Geist Mono', 'JetBrains Mono', 'Fira Code', monospace;
+  /* Type families */
+  --font-sans:      'Geist', 'Inter', system-ui, -apple-system, sans-serif;
+  --font-display:   'msbel Hybrid', 'Fraunces', 'Iowan Old Style', Georgia, serif;
+  --font-mono:      'Geist Mono', 'JetBrains Mono', 'Fira Code', monospace;
 
-  /* Sizing */
-  --container-narrow: 720px;
-  --container-wide: 1080px;
+  /* Spacing scale */
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2rem;
+  --space-5: 2.5rem;
+  --space-6: 3rem;
+  --space-7: 4rem;
+  --space-8: 6rem;
+  --space-9: 9rem;
   --space-section: clamp(6rem, 12vw, 12rem);
 
+  /* Radii */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 12px;
+  --radius-pill: 999px;
+
+  /* Container widths */
+  --container-narrow: 720px;
+  --container-wide:   1080px;
+
   /* Motion */
-  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out:    cubic-bezier(0.16, 1, 0.3, 1);
   --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
   --duration-fast: 150ms;
   --duration-base: 250ms;
@@ -63,7 +103,7 @@
 html {
   font-family: var(--font-sans);
   background: var(--bg-base);
-  color: var(--text-primary);
+  color: var(--fg-display);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
@@ -77,6 +117,7 @@ body {
   font-size: 16px;
   font-feature-settings: 'cv11', 'ss01', 'ss03';
   overflow-x: hidden;
+  color: var(--fg-body);
 }
 
 /* ── Typography ─────────────────────────────────────────────── */
@@ -84,29 +125,27 @@ body {
 h1, h2, h3, h4 {
   font-family: var(--font-display);
   font-weight: 400;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
+  font-style: normal;
+  color: var(--fg-display);
+  line-height: 1.05;
+  letter-spacing: -0.015em;
   text-wrap: balance;
 }
 
-h1 {
-  font-size: clamp(2.5rem, 7vw, 5rem);
-  font-variation-settings: 'opsz' 144, 'SOFT' 50;
-}
-
-h2 {
-  font-size: clamp(1.75rem, 4vw, 2.75rem);
-  font-variation-settings: 'opsz' 96, 'SOFT' 40;
-}
-
-h3 {
-  font-size: clamp(1.25rem, 2.5vw, 1.5rem);
-  font-variation-settings: 'opsz' 36;
-}
+h1 { font-size: clamp(2.5rem, 7vw, 5rem); }
+h2 { font-size: clamp(1.75rem, 4vw, 2.75rem); }
+h3 { font-size: clamp(1.25rem, 2.5vw, 1.5rem); }
 
 p {
   text-wrap: pretty;
   max-width: 65ch;
+  color: var(--fg-body);
+}
+
+em {
+  font-family: var(--font-display);
+  font-style: normal;
+  color: var(--fg-display);
 }
 
 a {
@@ -116,19 +155,17 @@ a {
   transition: color var(--duration-fast) var(--ease-out);
 }
 
-a:hover {
-  color: var(--accent-hover);
-}
+a:hover { color: var(--accent-hover); }
 
 a.subtle {
-  color: var(--text-primary);
+  color: var(--fg-display);
   border-bottom: 1px solid var(--border-bright);
   transition: border-color var(--duration-base) var(--ease-out);
 }
 
 a.subtle:hover {
   border-bottom-color: var(--accent);
-  color: var(--text-primary);
+  color: var(--fg-display);
 }
 
 code, pre, .mono {
@@ -141,7 +178,7 @@ code:not(pre code) {
   padding: 0.125em 0.375em;
   border-radius: 4px;
   border: 1px solid var(--border);
-  color: var(--text-secondary);
+  color: var(--teal);
 }
 
 /* ── Layout ─────────────────────────────────────────────────── */
@@ -176,7 +213,7 @@ section + section {
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.15em;
-  color: var(--text-muted);
+  color: var(--fg-muted);
   margin-bottom: 1rem;
   display: flex;
   align-items: center;
@@ -188,7 +225,7 @@ section + section {
   display: inline-block;
   width: 1.5rem;
   height: 1px;
-  background: var(--text-muted);
+  background: var(--fg-muted);
 }
 
 /* ── Status indicator ───────────────────────────────────────── */
@@ -221,7 +258,7 @@ section + section {
   100% { box-shadow: 0 0 0 8px rgba(74, 222, 128, 0); }
 }
 
-/* ── Entrance animation (uses @starting-style for native CSS) ── */
+/* ── Entrance animation ─────────────────────────────────────── */
 
 @supports (animation-timeline: scroll()) {
   .reveal {
@@ -232,14 +269,8 @@ section + section {
 }
 
 @keyframes reveal-up {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 /* ── Reduced motion ─────────────────────────────────────────── */
@@ -267,24 +298,13 @@ section + section {
   height: 8px;
 }
 
-::-webkit-scrollbar-track {
-  background: var(--bg-base);
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--border-bright);
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--text-faint);
-}
+::-webkit-scrollbar-track { background: var(--bg-base); }
+::-webkit-scrollbar-thumb { background: var(--border-bright); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--fg-faint); }
 
 /* ── View Transitions API ───────────────────────────────────── */
 
-@view-transition {
-  navigation: auto;
-}
+@view-transition { navigation: auto; }
 
 ::view-transition-old(root),
 ::view-transition-new(root) {
@@ -293,8 +313,8 @@ section + section {
 
 /* ── Utility classes ────────────────────────────────────────── */
 
-.text-muted { color: var(--text-muted); }
-.text-secondary { color: var(--text-secondary); }
+.text-muted { color: var(--fg-muted); }
+.text-secondary { color: var(--fg-body); }
 .mono { font-family: var(--font-mono); }
 .serif { font-family: var(--font-display); }
 
@@ -304,7 +324,6 @@ section + section {
 .gap-2 { gap: 1rem; }
 .gap-3 { gap: 1.5rem; }
 
-/* Screen-reader-only content (SEO + a11y) */
 .visually-hidden {
   position: absolute;
   width: 1px;

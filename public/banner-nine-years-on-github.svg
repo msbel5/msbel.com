@@ -1,101 +1,70 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 320" width="1200" height="320" role="img" aria-label="Nine years on GitHub: a horizontal year axis from 2017 to 2026 with commit-density tick marks per year.">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 320" width="1200" height="320" role="img" aria-label="Nine years on GitHub — animated tick-mark sparkline.">
   <defs>
-    <style>
-      .title { font-family: 'Fraunces', Georgia, serif; font-style: italic; font-size: 44px; fill: #ece8df; }
-      .sub { font-family: 'Geist Mono', ui-monospace, monospace; font-size: 14px; fill: #6c707a; letter-spacing: 0.06em; }
-      .year-label { font-family: 'Geist Mono', ui-monospace, monospace; font-size: 12px; fill: #c7c4bd; }
-      .tick { stroke: #7aa7ff; stroke-width: 2; }
-      .tick-faint { stroke: #6c707a; stroke-width: 2; }
-      .axis { stroke: #2a2d33; stroke-width: 1; }
-    </style>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#0d0e10"/>
-      <stop offset="100%" stop-color="#16181c"/>
-    </linearGradient>
+    
   </defs>
-  <rect width="1200" height="320" fill="url(#bg)"/>
 
-  <g transform="translate(56, 80)">
-    <text class="sub">2026.04.28 · WRITING</text>
-    <text class="title" y="58">Nine years on GitHub, in one afternoon</text>
-    <text class="sub" y="100">42 repos · public and private · going back to 2017</text>
+  <rect width="1200" height="320" fill="#0d0e10"></rect>
+
+  <g transform="translate(56,76)" font-family="&#39;Geist Mono&#39;,&#39;Courier New&#39;,monospace">
+    <text y="0" font-size="14" fill="#6c707a" letter-spacing="0.84">2026.04.28 / WRITING</text>
+    <text y="58" font-family="&#39;msbel Hybrid&#39;,Georgia,serif" font-weight="400" font-size="44" fill="#ece8df" letter-spacing="-0.88">Nine years on GitHub, in one afternoon</text>
+    <text y="100" font-size="14" fill="#6c707a" letter-spacing="0.84">42 repos / public and private / going back to 2017</text>
   </g>
 
-  <!-- Axis -->
-  <g transform="translate(56, 240)">
-    <line x1="0" y1="0" x2="1100" y2="0" class="axis"/>
+  <g transform="translate(720,52)">
+    <rect width="424" height="216" rx="12" fill="#16181c" stroke="#2a2d33" stroke-width="1.5"></rect>
+    <g transform="translate(28,170)" font-family="&#39;Geist Mono&#39;,&#39;Courier New&#39;,monospace">
+      <line x1="0" y1="0" x2="368" y2="0" stroke="#2a2d33" stroke-width="1"></line>
 
-    <!-- Year markers + density bars (heuristic) -->
-    <!-- 2017: burst (Oct 27) - tall -->
-    <g transform="translate(60, 0)">
-      <line x1="0" y1="0" x2="0" y2="-8" class="tick"/>
-      <line x1="-4" y1="-12" x2="-4" y2="-32" class="tick"/>
-      <line x1="0" y1="-12" x2="0" y2="-50" class="tick"/>
-      <line x1="4" y1="-12" x2="4" y2="-22" class="tick"/>
-      <text class="year-label" text-anchor="middle" y="22">2017</text>
-    </g>
-    <!-- 2018: light -->
-    <g transform="translate(180, 0)">
-      <line x1="0" y1="0" x2="0" y2="-8" class="tick-faint"/>
-      <line x1="0" y1="-12" x2="0" y2="-22" class="tick-faint"/>
-      <text class="year-label" text-anchor="middle" y="22">2018</text>
-    </g>
-    <!-- 2019: small (MvE) -->
-    <g transform="translate(300, 0)">
-      <line x1="0" y1="0" x2="0" y2="-8" class="tick-faint"/>
-      <line x1="0" y1="-12" x2="0" y2="-26" class="tick-faint"/>
-      <text class="year-label" text-anchor="middle" y="22">2019</text>
-    </g>
-    <!-- 2020 -->
-    <g transform="translate(420, 0)">
-      <line x1="0" y1="0" x2="0" y2="-8" class="tick-faint"/>
-      <text class="year-label" text-anchor="middle" y="22">2020</text>
-    </g>
-    <!-- 2021 -->
-    <g transform="translate(540, 0)">
-      <line x1="0" y1="0" x2="0" y2="-8" class="tick-faint"/>
-      <text class="year-label" text-anchor="middle" y="22">2021</text>
-    </g>
-    <!-- 2022 -->
-    <g transform="translate(660, 0)">
-      <line x1="0" y1="0" x2="0" y2="-8" class="tick-faint"/>
-      <line x1="0" y1="-12" x2="0" y2="-22" class="tick-faint"/>
-      <text class="year-label" text-anchor="middle" y="22">2022</text>
-    </g>
-    <!-- 2023: QA flood -->
-    <g transform="translate(780, 0)">
-      <line x1="-6" y1="0" x2="-6" y2="-8" class="tick"/>
-      <line x1="-2" y1="0" x2="-2" y2="-8" class="tick"/>
-      <line x1="2" y1="0" x2="2" y2="-8" class="tick"/>
-      <line x1="6" y1="0" x2="6" y2="-8" class="tick"/>
-      <line x1="-4" y1="-12" x2="-4" y2="-30" class="tick"/>
-      <line x1="0" y1="-12" x2="0" y2="-44" class="tick"/>
-      <line x1="4" y1="-12" x2="4" y2="-26" class="tick"/>
-      <text class="year-label" text-anchor="middle" y="22">2023</text>
-    </g>
-    <!-- 2024: dAIlog year -->
-    <g transform="translate(900, 0)">
-      <line x1="-2" y1="0" x2="-2" y2="-8" class="tick"/>
-      <line x1="2" y1="0" x2="2" y2="-8" class="tick"/>
-      <line x1="-2" y1="-12" x2="-2" y2="-32" class="tick"/>
-      <line x1="2" y1="-12" x2="2" y2="-22" class="tick"/>
-      <text class="year-label" text-anchor="middle" y="22">2024</text>
-    </g>
-    <!-- 2025 -->
-    <g transform="translate(1020, 0)">
-      <line x1="0" y1="0" x2="0" y2="-8" class="tick-faint"/>
-      <line x1="0" y1="-12" x2="0" y2="-22" class="tick-faint"/>
-      <text class="year-label" text-anchor="middle" y="22">2025</text>
-    </g>
-    <!-- 2026: fleet -->
-    <g transform="translate(1100, 0)">
-      <line x1="-4" y1="0" x2="-4" y2="-8" class="tick"/>
-      <line x1="0" y1="0" x2="0" y2="-8" class="tick"/>
-      <line x1="4" y1="0" x2="4" y2="-8" class="tick"/>
-      <line x1="-4" y1="-12" x2="-4" y2="-40" class="tick"/>
-      <line x1="0" y1="-12" x2="0" y2="-58" class="tick"/>
-      <line x1="4" y1="-12" x2="4" y2="-32" class="tick"/>
-      <text class="year-label" text-anchor="middle" y="22">2026</text>
+      <g transform="translate(20,0)">
+        <line class="tick t-2017a" x1="-6" y1="-2" x2="-6" y2="-30" stroke="#7aa7ff" stroke-width="1.5"></line>
+        <line class="tick t-2017b" x1="-2" y1="-2" x2="-2" y2="-58" stroke="#7aa7ff" stroke-width="1.5"></line>
+        <line class="tick t-2017c" x1="2" y1="-2" x2="2" y2="-44" stroke="#7aa7ff" stroke-width="1.5"></line>
+        <line class="tick t-2017d" x1="6" y1="-2" x2="6" y2="-22" stroke="#7aa7ff" stroke-width="1.5"></line>
+        <text class="yrlbl" x="0" y="14" text-anchor="middle" font-size="11" fill="#ece8df" letter-spacing="0.88">2017</text>
+      </g>
+      <g transform="translate(60,0)">
+        <line class="tick t-2018" x1="0" y1="-2" x2="0" y2="-12" stroke="#6c707a" stroke-width="1.5"></line>
+        <text class="yrlbl" x="0" y="14" text-anchor="middle" font-size="11" fill="#6c707a" letter-spacing="0.88">&#39;18</text>
+      </g>
+      <g transform="translate(100,0)">
+        <line class="tick t-2019a" x1="-2" y1="-2" x2="-2" y2="-18" stroke="#6c707a" stroke-width="1.5"></line>
+        <line class="tick t-2019b" x1="2" y1="-2" x2="2" y2="-10" stroke="#6c707a" stroke-width="1.5"></line>
+        <text class="yrlbl" x="0" y="14" text-anchor="middle" font-size="11" fill="#6c707a" letter-spacing="0.88">&#39;19</text>
+      </g>
+      <g transform="translate(140,0)">
+        <line class="tick t-2020" x1="0" y1="-2" x2="0" y2="-8" stroke="#6c707a" stroke-width="1.5"></line>
+        <text class="yrlbl" x="0" y="14" text-anchor="middle" font-size="11" fill="#6c707a" letter-spacing="0.88">&#39;20</text>
+      </g>
+      <g transform="translate(180,0)">
+        <line class="tick t-2021" x1="0" y1="-2" x2="0" y2="-14" stroke="#6c707a" stroke-width="1.5"></line>
+        <text class="yrlbl" x="0" y="14" text-anchor="middle" font-size="11" fill="#6c707a" letter-spacing="0.88">&#39;21</text>
+      </g>
+      <g transform="translate(220,0)">
+        <line class="tick t-2022a" x1="-2" y1="-2" x2="-2" y2="-20" stroke="#6c707a" stroke-width="1.5"></line>
+        <line class="tick t-2022b" x1="2" y1="-2" x2="2" y2="-12" stroke="#6c707a" stroke-width="1.5"></line>
+        <text class="yrlbl" x="0" y="14" text-anchor="middle" font-size="11" fill="#6c707a" letter-spacing="0.88">&#39;22</text>
+      </g>
+      <g transform="translate(260,0)">
+        <line class="tick t-2023a" x1="-8" y1="-2" x2="-8" y2="-26" stroke="#7aa7ff" stroke-width="1.5"></line>
+        <line class="tick t-2023b" x1="-3" y1="-2" x2="-3" y2="-46" stroke="#7aa7ff" stroke-width="1.5"></line>
+        <line class="tick t-2023c" x1="2" y1="-2" x2="2" y2="-72" stroke="#7aa7ff" stroke-width="1.5"></line>
+        <line class="tick t-2023d" x1="7" y1="-2" x2="7" y2="-38" stroke="#7aa7ff" stroke-width="1.5"></line>
+        <text class="yrlbl" x="0" y="14" text-anchor="middle" font-size="11" fill="#ece8df" letter-spacing="0.88">2023</text>
+      </g>
+      <g transform="translate(300,0)">
+        <line class="tick t-2024a" x1="-2" y1="-2" x2="-2" y2="-22" stroke="#6c707a" stroke-width="1.5"></line>
+        <line class="tick t-2024b" x1="2" y1="-2" x2="2" y2="-14" stroke="#6c707a" stroke-width="1.5"></line>
+        <text class="yrlbl" x="0" y="14" text-anchor="middle" font-size="11" fill="#6c707a" letter-spacing="0.88">&#39;24</text>
+      </g>
+      <g transform="translate(340,0)">
+        <line class="tick t-2025" x1="0" y1="-2" x2="0" y2="-16" stroke="#6c707a" stroke-width="1.5"></line>
+        <text class="yrlbl" x="0" y="14" text-anchor="middle" font-size="11" fill="#6c707a" letter-spacing="0.88">&#39;25</text>
+      </g>
+      <g transform="translate(368,0)">
+        <line class="tick t-2026" x1="0" y1="-2" x2="0" y2="-30" stroke="#7aa7ff" stroke-width="1.5"></line>
+        <text class="yrlbl" x="0" y="14" text-anchor="middle" font-size="11" fill="#6c707a" letter-spacing="0.88">&#39;26</text>
+      </g>
     </g>
   </g>
 </svg>

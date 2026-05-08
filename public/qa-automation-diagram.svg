@@ -1,102 +1,21 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 540" width="1200" height="540" role="img" aria-label="QA Automation: three loops Discover, Compose, Verify, all anchored to a single locator JSON source of truth.">
-  <defs>
-    <style>
-      .title { font-family: 'Fraunces', Georgia, serif; font-style: italic; font-size: 28px; fill: #ece8df; }
-      .heading { font-family: 'Fraunces', Georgia, serif; font-style: italic; font-size: 20px; fill: #ece8df; }
-      .label { font-family: 'Geist Mono', ui-monospace, monospace; font-size: 13px; fill: #c7c4bd; }
-      .step { font-family: 'Geist Mono', ui-monospace, monospace; font-size: 12px; fill: #ece8df; }
-      .small { font-family: 'Geist Mono', ui-monospace, monospace; font-size: 12px; fill: #6c707a; }
-      .accent { fill: #7aa7ff; }
-      .box { fill: #16181c; stroke: #2a2d33; stroke-width: 1.5; }
-      .box-accent { fill: #16181c; stroke: #7aa7ff; stroke-width: 1.5; }
-      .arrow { stroke: #6c707a; stroke-width: 1.5; fill: none; }
-      .spine { stroke: #7aa7ff; stroke-width: 2; fill: none; stroke-dasharray: 4 4; }
-    </style>
-    <marker id="ar" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto">
-      <path d="M 0 0 L 9 4.5 L 0 9 z" fill="#6c707a"/>
-    </marker>
-  </defs>
-
-  <g transform="translate(40, 50)">
-    <text class="title">QA Automation</text>
-    <text class="small" y="26">three loops, one locator JSON, no fragile XPaths</text>
-  </g>
-
-  <!-- Spine: locator JSON -->
-  <line x1="120" y1="130" x2="120" y2="490" class="spine"/>
-  <g transform="translate(40, 260)">
-    <rect x="0" y="-30" width="160" height="60" rx="10" class="box-accent"/>
-    <text class="label accent" text-anchor="middle" x="80" y="-6">locator JSON</text>
-    <text class="small" text-anchor="middle" x="80" y="14">single source of truth</text>
-  </g>
-
-  <!-- Loop 1: Discover -->
-  <g transform="translate(220, 130)">
-    <text class="heading">discover</text>
-    <rect x="0" y="20" width="900" height="70" rx="10" class="box"/>
-    <g transform="translate(20, 60)">
-      <text class="step" y="0">snapshot the page</text>
-      <text class="small" x="0" y="18">Selenium WebDriver → DOM</text>
-    </g>
-    <g transform="translate(280, 60)">
-      <text class="step" y="0">extract elements</text>
-      <text class="small" x="0" y="18">data-testid · id · stable selectors</text>
-    </g>
-    <g transform="translate(580, 60)">
-      <text class="step" y="0">deduplicate</text>
-      <text class="small" x="0" y="18">canonical names → locator JSON</text>
-    </g>
-    <line x1="200" y1="55" x2="270" y2="55" class="arrow" marker-end="url(#ar)"/>
-    <line x1="500" y1="55" x2="570" y2="55" class="arrow" marker-end="url(#ar)"/>
-  </g>
-
-  <!-- Loop 2: Compose -->
-  <g transform="translate(220, 250)">
-    <text class="heading">compose</text>
-    <rect x="0" y="20" width="900" height="70" rx="10" class="box"/>
-    <g transform="translate(20, 60)">
-      <text class="step" y="0">read step catalog</text>
-      <text class="small" x="0" y="18">Click X · Enter Y into Z · Dump page snapshot</text>
-    </g>
-    <g transform="translate(360, 60)">
-      <text class="step" y="0">build Gauge spec</text>
-      <text class="small" x="0" y="18">spec, scenario, steps · plain text</text>
-    </g>
-    <g transform="translate(640, 60)">
-      <text class="step" y="0">link to JSON locators</text>
-      <text class="small" x="0" y="18">named selectors only · no XPaths</text>
-    </g>
-    <line x1="280" y1="55" x2="350" y2="55" class="arrow" marker-end="url(#ar)"/>
-    <line x1="560" y1="55" x2="630" y2="55" class="arrow" marker-end="url(#ar)"/>
-  </g>
-
-  <!-- Loop 3: Verify -->
-  <g transform="translate(220, 370)">
-    <text class="heading">verify</text>
-    <rect x="0" y="20" width="900" height="70" rx="10" class="box"/>
-    <g transform="translate(20, 60)">
-      <text class="step" y="0">run the spec</text>
-      <text class="small" x="0" y="18">Gauge runner · headless or local</text>
-    </g>
-    <g transform="translate(280, 60)">
-      <text class="step" y="0">check the result</text>
-      <text class="small" x="0" y="18">step snapshots → audit trail</text>
-    </g>
-    <g transform="translate(580, 60)">
-      <text class="step" y="0">iterate</text>
-      <text class="small" x="0" y="18">flaky? add data-testid, refine catalog</text>
-    </g>
-    <line x1="200" y1="55" x2="270" y2="55" class="arrow" marker-end="url(#ar)"/>
-    <line x1="450" y1="55" x2="570" y2="55" class="arrow" marker-end="url(#ar)"/>
-  </g>
-
-  <!-- Loop arrows from each loop back to spine -->
-  <line x1="220" y1="170" x2="170" y2="200" class="arrow"/>
-  <line x1="220" y1="290" x2="170" y2="290" class="arrow"/>
-  <line x1="220" y1="410" x2="170" y2="380" class="arrow"/>
-
-  <!-- Footer -->
-  <g transform="translate(40, 510)">
-    <text class="small">happy path runs end to end in under two minutes · same JSON yields more than a dozen derived test cases</text>
-  </g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 640" width="100%" height="auto" font-family="Geist Mono, ui-monospace, monospace">
+<defs>
+  <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0 L0 0 0 20" stroke="#2a2d33" stroke-width="0.5" fill="none" opacity="0.3"></path></pattern>
+  <radialGradient id="seaglow" cx="78%" cy="22%" r="55%"><stop offset="0%" stop-color="#5cd6c4" stop-opacity="0.10"></stop><stop offset="60%" stop-color="#7aa7ff" stop-opacity="0.04"></stop><stop offset="100%" stop-color="#16181c" stop-opacity="0"></stop></radialGradient>
+  <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#5cd6c4"></path></marker>
+  <marker id="arrowMuted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#8a8f99"></path></marker>
+</defs>
+<rect width="100%" height="100%" fill="#16181c"></rect><rect width="100%" height="100%" fill="url(#grid)"></rect><rect width="100%" height="100%" fill="url(#seaglow)"></rect><text x="40" y="44" fill="#8a8f99" font-size="11" letter-spacing="0.2em">QA AUTOMATION · AI-AUTHORED SELENIUM + GAUGE SPECS</text>
+<text x="40" y="76" fill="#ece8df" font-size="22" font-family="Fraunces, Georgia, serif">Three loops. Discover. Compose. Verify.</text>
+<g><rect x="60" y="160" width="300" height="200" rx="10" fill="#16181c" stroke="#353941" stroke-width="1"></rect><text x="76" y="184" fill="#5cd6c4" font-size="13" font-weight="500">Discover</text><text x="76" y="204" fill="#6c707a" font-size="11">snapshot the page · extract elements</text></g>
+<g font-size="11" fill="#c7c4bd"><text x="80" y="230">· Headless Chrome snapshot</text><text x="80" y="254">· Locator extraction · dedupe</text><text x="80" y="278">· Locator JSON catalog</text><text x="80" y="302">· Step DSL extension</text></g>
+<g><rect x="450" y="160" width="300" height="200" rx="10" fill="#16181c" stroke="#353941" stroke-width="1"></rect><text x="466" y="184" fill="#5cd6c4" font-size="13" font-weight="500">Compose</text><text x="466" y="204" fill="#6c707a" font-size="11">Claude builds Gauge spec</text></g>
+<g font-size="11" fill="#c7c4bd"><text x="470" y="230">· Locator JSON in</text><text x="470" y="254">· Step catalog</text><text x="470" y="278">· Spec DSL out</text><text x="470" y="302">· Page-object Java code</text></g>
+<g><rect x="840" y="160" width="300" height="200" rx="10" fill="#16181c" stroke="#353941" stroke-width="1"></rect><text x="856" y="184" fill="#5cd6c4" font-size="13" font-weight="500">Verify</text><text x="856" y="204" fill="#6c707a" font-size="11">run, assert, iterate</text></g>
+<g font-size="11" fill="#c7c4bd"><text x="860" y="230">· Selenium 4 / WebDriver</text><text x="860" y="254">· Gauge runner</text><text x="860" y="278">· Assertion + screenshot</text><text x="860" y="302">· Failure → re-discover</text></g>
+<path d="M360 260 L450 260" stroke="#5cd6c4" stroke-width="1.25" marker-end="url(#arrow)" fill="none"></path>
+<path d="M750 260 L840 260" stroke="#5cd6c4" stroke-width="1.25" marker-end="url(#arrow)" fill="none"></path>
+<path d="M990 360 C 990 440 540 440 540 380" stroke="#8a8f99" stroke-width="1" stroke-dasharray="4 4" marker-end="url(#arrowMuted)" fill="none"></path>
+<text x="700" y="460" fill="#8a8f99" font-size="11">re-discover on assertion failure</text>
+<g><rect x="60" y="420" width="1100" height="80" rx="10" fill="#16181c" stroke="#353941" stroke-width="1"></rect><text x="76" y="444" fill="#ece8df" font-size="13" font-weight="500">Outputs</text><text x="76" y="464" fill="#6c707a" font-size="11">Java page objects · Gauge specs · Selenium fixtures · CI-ready</text></g>
+<text x="40" y="600" fill="#6c707a" font-size="10" letter-spacing="0.15em">SELENIUM · GAUGE · CLAUDE API · JAVA · MAVEN</text></svg>

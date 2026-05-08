@@ -11,7 +11,7 @@ interface Props {
 const {
   title = 'msbel — Engineer & Builder',
   description = 'msbel — senior test automation engineer in Istanbul. Building Alcyone (a self-hosted multi-agent AI on a Raspberry Pi 5), Thalamus (an OpenClaw community plugin on ClawHub and npm), a 9-layer testnet trading bot, an AI QA agent, and a hand-crafted RPG in Unity.',
-  image = '/og-image.png',
+  image = '/og-image.svg',
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
@@ -27,7 +27,7 @@ const personSchema = {
   givenName: 'Muhammet Sıddık',
   familyName: 'Bel',
   url: 'https://msbel.com',
-  image: 'https://msbel.com/og-image.png',
+  image: 'https://msbel.com/og-image.svg',
   jobTitle: 'Senior Test Automation Engineer',
   description:
     'Senior test automation engineer and AI agent builder based in Istanbul. Mechanical engineer by training, software engineer by obsession. Builds Alcyone (a self-hosted multi-agent AI on a Raspberry Pi 5), Thalamus (an OpenClaw community plugin), a 9-layer testnet trading bot, an AI QA agent, and a hand-crafted RPG in Unity.',
@@ -122,13 +122,10 @@ const websiteSchema = {
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
-    <!-- Fonts: Fraunces (display) + Geist Sans + Geist Mono -->
+    <!-- Fonts: msbel Hybrid (self-host) + Geist Sans + Geist Mono + Fraunces (fallback) via global.css -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..700,30..100&family=Geist:wght@300..700&family=Geist+Mono:wght@400..600&display=swap"
-      rel="stylesheet"
-    />
+    <link rel="preload" href="/fonts/msbel-hybrid.otf" as="font" type="font/otf" crossorigin />
 
     <!-- Theme color -->
     <meta name="theme-color" content="#0d0e10" />

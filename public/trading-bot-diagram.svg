@@ -1,91 +1,23 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" width="1200" height="600" role="img" aria-label="Trading bot 9-layer signal stack with regime detection bands and a daily CPCV retrain gated by PBO under 0.5.">
-  <defs>
-    <style>
-      .title { font-family: 'Fraunces', Georgia, serif; font-style: italic; font-size: 28px; fill: #ece8df; }
-      .label { font-family: 'Geist Mono', ui-monospace, monospace; font-size: 14px; fill: #ece8df; }
-      .label-muted { font-family: 'Geist Mono', ui-monospace, monospace; font-size: 13px; fill: #c7c4bd; }
-      .small { font-family: 'Geist Mono', ui-monospace, monospace; font-size: 12px; fill: #6c707a; }
-      .heading { font-family: 'Fraunces', Georgia, serif; font-style: italic; font-size: 18px; fill: #ece8df; }
-      .accent { fill: #7aa7ff; }
-      .layer { fill: #16181c; stroke: #2a2d33; stroke-width: 1.2; }
-      .layer-accent { fill: #16181c; stroke: #7aa7ff; stroke-width: 1.2; }
-      .regime-band { fill: #16181c; stroke: #2a2d33; stroke-width: 1; }
-    </style>
-  </defs>
-
-  <g transform="translate(40, 50)">
-    <text class="title">Trading Bot</text>
-    <text class="small" y="26">nine-layer signal stack · regime-aware · CPCV-gated daily retrain</text>
-  </g>
-
-  <!-- Stack heading -->
-  <g transform="translate(40, 130)">
-    <text class="heading">signal layers</text>
-    <text class="small" y="20">each layer carries a learned weight; the stacked ensemble combines them</text>
-  </g>
-
-  <!-- 9 horizontal layer bars -->
-  <g transform="translate(40, 175)" font-family="Geist Mono">
-    <!-- 1 trend -->
-    <rect width="600" height="30" rx="6" class="layer-accent"/>
-    <text class="label" x="14" y="20">01 · trend</text>
-    <text class="small" x="500" y="20">EMA · MACD · ADX</text>
-    <!-- 2 momentum -->
-    <rect y="38" width="600" height="30" rx="6" class="layer"/>
-    <text class="label" x="14" y="58">02 · momentum</text>
-    <text class="small" x="500" y="58">RSI · ROC · Williams</text>
-    <!-- 3 volatility -->
-    <rect y="76" width="600" height="30" rx="6" class="layer"/>
-    <text class="label" x="14" y="96">03 · volatility</text>
-    <text class="small" x="500" y="96">ATR · Bollinger · Keltner</text>
-    <!-- 4 volume -->
-    <rect y="114" width="600" height="30" rx="6" class="layer"/>
-    <text class="label" x="14" y="134">04 · volume</text>
-    <text class="small" x="500" y="134">OBV · CMF · MFI</text>
-    <!-- 5 sentiment -->
-    <rect y="152" width="600" height="30" rx="6" class="layer"/>
-    <text class="label" x="14" y="172">05 · sentiment</text>
-    <text class="small" x="500" y="172">funding rate · long/short</text>
-    <!-- 6 ML ensemble -->
-    <rect y="190" width="600" height="30" rx="6" class="layer-accent"/>
-    <text class="label" x="14" y="210">06 · ML ensemble</text>
-    <text class="small" x="500" y="210">LGBM · XGB · RF · ET → Ridge</text>
-    <!-- 7 ichimoku -->
-    <rect y="228" width="600" height="30" rx="6" class="layer"/>
-    <text class="label" x="14" y="248">07 · Ichimoku</text>
-    <text class="small" x="500" y="248">cloud breakouts · TK cross</text>
-    <!-- 8 candlesticks -->
-    <rect y="266" width="600" height="30" rx="6" class="layer"/>
-    <text class="label" x="14" y="286">08 · candlesticks</text>
-    <text class="small" x="500" y="286">engulfing · pin bar · doji</text>
-    <!-- 9 stat models -->
-    <rect y="304" width="600" height="30" rx="6" class="layer"/>
-    <text class="label" x="14" y="324">09 · statistical models</text>
-    <text class="small" x="500" y="324">z-score · OU mean reversion</text>
-  </g>
-
-  <!-- Right column: regime bands -->
-  <g transform="translate(720, 130)">
-    <text class="heading">regime detector</text>
-    <text class="small" y="20">re-weights layers per market state</text>
-
-    <rect y="50" width="280" height="64" rx="10" class="regime-band"/>
-    <text class="label" x="18" y="80">trending</text>
-    <text class="small" x="18" y="100">trend, momentum, ML weighted up</text>
-
-    <rect y="124" width="280" height="64" rx="10" class="regime-band"/>
-    <text class="label" x="18" y="154">sideways</text>
-    <text class="small" x="18" y="174">stat-models, Ichimoku weighted up</text>
-
-    <rect y="198" width="280" height="64" rx="10" class="regime-band"/>
-    <text class="label" x="18" y="228">volatile</text>
-    <text class="small" x="18" y="248">volatility, sentiment weighted up</text>
-  </g>
-
-  <!-- Bottom annotation row -->
-  <g transform="translate(40, 540)">
-    <rect width="960" height="42" rx="10" class="layer-accent"/>
-    <text class="label" x="20" y="26">CPCV retrain · 03:00 daily · PBO &lt; 0.5 gate</text>
-    <text class="small" x="490" y="26">$100 simulated balance · Binance Testnet · never connected to real money</text>
-  </g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 640" width="100%" height="auto" font-family="Geist Mono, ui-monospace, monospace">
+<defs>
+  <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0 L0 0 0 20" stroke="#2a2d33" stroke-width="0.5" fill="none" opacity="0.3"></path></pattern>
+  <radialGradient id="seaglow" cx="78%" cy="22%" r="55%"><stop offset="0%" stop-color="#5cd6c4" stop-opacity="0.10"></stop><stop offset="60%" stop-color="#7aa7ff" stop-opacity="0.04"></stop><stop offset="100%" stop-color="#16181c" stop-opacity="0"></stop></radialGradient>
+  <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#5cd6c4"></path></marker>
+  <marker id="arrowMuted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#8a8f99"></path></marker>
+</defs>
+<rect width="100%" height="100%" fill="#16181c"></rect><rect width="100%" height="100%" fill="url(#grid)"></rect><rect width="100%" height="100%" fill="url(#seaglow)"></rect><text x="40" y="44" fill="#8a8f99" font-size="11" letter-spacing="0.2em">TRADING BOT V4 · 9-LAYER SIGNAL ENGINE · 24/7 ON RPI 5</text>
+<text x="40" y="76" fill="#ece8df" font-size="22" font-family="Fraunces, Georgia, serif">Nine signal layers, 46 features, no fabrication.</text>
+<text x="40" y="116" fill="#8a8f99" font-size="11" letter-spacing="0.1em">signal layers · weighted vote</text>
+<g><text x="60" y="144" fill="#5cd6c4" font-size="11">L1</text><text x="100" y="144" fill="#ece8df" font-size="13">Trend</text><text x="240" y="144" fill="#8a8f99" font-size="11">EMA 12/26 + ADX strength</text><rect x="500" y="135" width="120" height="14" rx="2" fill="#1f6b62" opacity="0.5"></rect><rect x="500" y="135" width="120" height="14" rx="2" fill="#5cd6c4" opacity="0.6"></rect><text x="628" y="145" fill="#c7c4bd" font-size="11">15%</text><line x1="40" y1="160" x2="660" y2="160" stroke="#2a2d33" stroke-width="0.5"></line></g><g><text x="60" y="182" fill="#5cd6c4" font-size="11">L2</text><text x="100" y="182" fill="#ece8df" font-size="13">Momentum</text><text x="240" y="182" fill="#8a8f99" font-size="11">RSI + MACD + Stochastic</text><rect x="500" y="173" width="120" height="14" rx="2" fill="#1f6b62" opacity="0.5"></rect><rect x="500" y="173" width="120" height="14" rx="2" fill="#5cd6c4" opacity="0.6"></rect><text x="628" y="183" fill="#c7c4bd" font-size="11">15%</text><line x1="40" y1="198" x2="660" y2="198" stroke="#2a2d33" stroke-width="0.5"></line></g><g><text x="60" y="220" fill="#5cd6c4" font-size="11">L3</text><text x="100" y="220" fill="#ece8df" font-size="13">Volatility</text><text x="240" y="220" fill="#8a8f99" font-size="11">BB + ATR + EWMA + VolCone</text><rect x="500" y="211" width="80" height="14" rx="2" fill="#1f6b62" opacity="0.5"></rect><rect x="500" y="211" width="80" height="14" rx="2" fill="#5cd6c4" opacity="0.6"></rect><text x="588" y="221" fill="#c7c4bd" font-size="11">10%</text><line x1="40" y1="236" x2="660" y2="236" stroke="#2a2d33" stroke-width="0.5"></line></g><g><text x="60" y="258" fill="#5cd6c4" font-size="11">L4</text><text x="100" y="258" fill="#ece8df" font-size="13">Volume</text><text x="240" y="258" fill="#8a8f99" font-size="11">OBV + spike + CMF</text><rect x="500" y="249" width="64" height="14" rx="2" fill="#1f6b62" opacity="0.5"></rect><rect x="500" y="249" width="64" height="14" rx="2" fill="#5cd6c4" opacity="0.6"></rect><text x="572" y="259" fill="#c7c4bd" font-size="11">8%</text><line x1="40" y1="274" x2="660" y2="274" stroke="#2a2d33" stroke-width="0.5"></line></g><g><text x="60" y="296" fill="#5cd6c4" font-size="11">L5</text><text x="100" y="296" fill="#ece8df" font-size="13">Sentiment</text><text x="240" y="296" fill="#8a8f99" font-size="11">Fear &amp; Greed Index</text><rect x="500" y="287" width="80" height="14" rx="2" fill="#1f6b62" opacity="0.5"></rect><rect x="500" y="287" width="80" height="14" rx="2" fill="#5cd6c4" opacity="0.6"></rect><text x="588" y="297" fill="#c7c4bd" font-size="11">10%</text><line x1="40" y1="312" x2="660" y2="312" stroke="#2a2d33" stroke-width="0.5"></line></g><g><text x="60" y="334" fill="#5cd6c4" font-size="11">L6</text><text x="100" y="334" fill="#ece8df" font-size="13">ML Ensemble</text><text x="240" y="334" fill="#8a8f99" font-size="11">Stacked v3 + CNN-LSTM + GRU</text><rect x="500" y="325" width="144" height="14" rx="2" fill="#1f6b62" opacity="0.5"></rect><rect x="500" y="325" width="144" height="14" rx="2" fill="#5cd6c4" opacity="0.6"></rect><text x="652" y="335" fill="#c7c4bd" font-size="11">18%</text><line x1="40" y1="350" x2="660" y2="350" stroke="#2a2d33" stroke-width="0.5"></line></g><g><text x="60" y="372" fill="#5cd6c4" font-size="11">L7</text><text x="100" y="372" fill="#ece8df" font-size="13">Ichimoku</text><text x="240" y="372" fill="#8a8f99" font-size="11">Cloud + Tenkan/Kijun cross</text><rect x="500" y="363" width="80" height="14" rx="2" fill="#1f6b62" opacity="0.5"></rect><rect x="500" y="363" width="80" height="14" rx="2" fill="#5cd6c4" opacity="0.6"></rect><text x="588" y="373" fill="#c7c4bd" font-size="11">10%</text><line x1="40" y1="388" x2="660" y2="388" stroke="#2a2d33" stroke-width="0.5"></line></g><g><text x="60" y="410" fill="#5cd6c4" font-size="11">L8</text><text x="100" y="410" fill="#ece8df" font-size="13">Patterns</text><text x="240" y="410" fill="#8a8f99" font-size="11">15 candlestick + confluence</text><rect x="500" y="401" width="56" height="14" rx="2" fill="#1f6b62" opacity="0.5"></rect><rect x="500" y="401" width="56" height="14" rx="2" fill="#5cd6c4" opacity="0.6"></rect><text x="564" y="411" fill="#c7c4bd" font-size="11">7%</text><line x1="40" y1="426" x2="660" y2="426" stroke="#2a2d33" stroke-width="0.5"></line></g><g><text x="60" y="448" fill="#5cd6c4" font-size="11">L9</text><text x="100" y="448" fill="#ece8df" font-size="13">Statistical</text><text x="240" y="448" fill="#8a8f99" font-size="11">Hurst + Z-Score</text><rect x="500" y="439" width="56" height="14" rx="2" fill="#1f6b62" opacity="0.5"></rect><rect x="500" y="439" width="56" height="14" rx="2" fill="#5cd6c4" opacity="0.6"></rect><text x="564" y="449" fill="#c7c4bd" font-size="11">7%</text><line x1="40" y1="464" x2="660" y2="464" stroke="#2a2d33" stroke-width="0.5"></line></g>
+<text x="740" y="116" fill="#8a8f99" font-size="11" letter-spacing="0.1em">pipeline</text>
+<g><rect x="720" y="130" width="440" height="64" rx="10" fill="#16181c" stroke="#353941" stroke-width="1"></rect><text x="736" y="154" fill="#ece8df" font-size="13" font-weight="500">Market data</text><text x="736" y="174" fill="#6c707a" font-size="11">Binance Testnet · 7 coins · ~5s tick</text></g>
+<g><rect x="720" y="206" width="440" height="64" rx="10" fill="#16181c" stroke="#353941" stroke-width="1"></rect><text x="736" y="230" fill="#5cd6c4" font-size="13" font-weight="500">Feature pipeline · 46 features</text><text x="736" y="250" fill="#6c707a" font-size="11">25 v3 + 8 advanced + 5 stats + 3 patterns + 5 vol</text></g>
+<g><rect x="720" y="282" width="440" height="64" rx="10" fill="#16181c" stroke="#353941" stroke-width="1"></rect><text x="736" y="306" fill="#ece8df" font-size="13" font-weight="500">Boruta selection · CPCV</text><text x="736" y="326" fill="#6c707a" font-size="11">15-20 of 46 selected · purge + embargo</text></g>
+<g><rect x="720" y="358" width="440" height="64" rx="10" fill="#16181c" stroke="#353941" stroke-width="1"></rect><text x="736" y="382" fill="#ece8df" font-size="13" font-weight="500">Stacked ensemble</text><text x="736" y="402" fill="#6c707a" font-size="11">LightGBM + XGBoost + RF + ExtraTrees + CNN-LSTM</text></g>
+<g><rect x="720" y="434" width="440" height="64" rx="10" fill="#16181c" stroke="#353941" stroke-width="1"></rect><text x="736" y="458" fill="#5cd6c4" font-size="13" font-weight="500">Risk + execution</text><text x="736" y="478" fill="#6c707a" font-size="11">Kelly · trailing ATR · TWAP/VWAP · slippage</text></g>
+<path d="M940 194 L940 206" stroke="#8a8f99" stroke-width="1" marker-end="url(#arrowMuted)" fill="none"></path>
+<path d="M940 270 L940 282" stroke="#8a8f99" stroke-width="1" marker-end="url(#arrowMuted)" fill="none"></path>
+<path d="M940 346 L940 358" stroke="#8a8f99" stroke-width="1" marker-end="url(#arrowMuted)" fill="none"></path>
+<path d="M940 422 L940 434" stroke="#5cd6c4" stroke-width="1.25" marker-end="url(#arrow)" fill="none"></path>
+<g><rect x="720" y="516" width="440" height="48" rx="10" fill="#16181c" stroke="#353941" stroke-width="1"></rect><text x="736" y="540" fill="#ece8df" font-size="13" font-weight="500">Daily CPCV retrain · 03:00</text><text x="736" y="560" fill="#6c707a" font-size="11">PBO &lt; 0.5 gate · only deploy if it passes</text></g>
+<text x="40" y="600" fill="#6c707a" font-size="10" letter-spacing="0.15em">DE PRADO 2018 · NISON 1991 · CHAN 2008 · ALMGREN-CHRISS 2001 · KELLY 1956</text></svg>
