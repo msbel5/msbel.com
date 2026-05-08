@@ -27,6 +27,12 @@ const { Content } = await post.render();
     <div class="container">
       <a href="/writing" class="back-link mono">← all writing</a>
 
+      {post.data.heroImage && (
+        <figure class="post-hero-banner">
+          <img src={post.data.heroImage} alt={post.data.title} loading="eager" />
+        </figure>
+      )}
+
       <header class="post-header">
         <time class="post-date mono">
           {post.data.pubDate.toLocaleDateString('en-US', {
@@ -67,6 +73,23 @@ const { Content } = await post.render();
   }
 
   .back-link:hover { color: var(--accent); }
+
+  .post-hero-banner {
+    margin: 0 0 3rem;
+    padding: 0;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    background: var(--bg-surface);
+  }
+
+  .post-hero-banner img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 360px;
+    object-fit: cover;
+  }
 
   .post-header {
     margin-bottom: 4rem;

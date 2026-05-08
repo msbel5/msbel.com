@@ -3,6 +3,7 @@ title: 'Launching the fleet'
 description: 'Why msbel.com exists, and how a senior test automation engineer ended up running a Pi 5 in his apartment around the clock.'
 pubDate: '2026-04-27'
 tags: ['notes', 'meta']
+heroImage: '/banner-launching-the-fleet.svg'
 ---
 
 Welcome to msbel.com.

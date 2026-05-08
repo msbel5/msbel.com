@@ -150,6 +150,15 @@ const stack = {
     </div>
   </section>
 
+  <!-- Timeline -->
+  <section class="timeline-section">
+    <div class="container">
+      <figure class="about-timeline">
+        <img src="/about-timeline.svg" alt="Career timeline 2010 to present: mechanical engineering, telecom QA at scale, AI agent infrastructure and side projects." loading="lazy" />
+      </figure>
+    </div>
+  </section>
+
   <!-- Experience -->
   <section class="experience-section">
     <div class="container">
@@ -261,6 +270,24 @@ const stack = {
     font-family: var(--font-display);
     font-style: italic;
     color: var(--text-primary);
+  }
+
+  .timeline-section {
+    padding-block: 1rem 1.5rem;
+  }
+
+  .about-timeline {
+    margin: 0;
+    padding: 1.25rem;
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+  }
+
+  .about-timeline img {
+    display: block;
+    width: 100%;
+    height: auto;
   }
 
   .bio-text p {

@@ -28,6 +28,8 @@ export const projects: Project[] = [
       'A persistent AI built on top of OpenClaw. Lives on the Pi, runs around the clock, picks up threads I have forgotten, drafts replies before I open the laptop. Telegram in and out. A paid model when it is awake on a real task; local Qwen on Ollama for the heartbeat. The Thalamus plugin (next entry) is the routing layer that keeps the context budget under control.',
     longDescription:
       'Five collaborating roles for orchestration, building, review, conversation, and memory. The interesting part of running an LLM continuously instead of on demand is what shows up between explicit requests: the agent reads its own past sessions, follows up on dangling threads, and pings me when a PR review lands at 4am. Source repos for the agent, the plugin set, and the heartbeat scripts are private until each piece is stable enough to publish.',
+    heroImage: '/alcyone-diagram.svg',
+    heroImageAlt: 'Alcyone five-role hub around an OpenClaw gateway on a Pi 5, with Telegram I/O and a 30-minute local-Qwen heartbeat.',
     year: '2026',
     status: 'live',
     tags: ['openclaw', 'multi-agent', 'pi 5', 'ollama', 'telegram'],
@@ -61,6 +63,8 @@ export const projects: Project[] = [
       'A 9-layer signal engine: trend, momentum, volatility, volume, sentiment, an ML ensemble, Ichimoku, candlestick patterns, and statistical models. Forty-six features pass through Boruta selection and CPCV validation before the stacked ensemble (LightGBM, XGBoost, RF, ExtraTrees with a Ridge meta) makes a call. $100 simulated balance on Binance Testnet. Never connected to real money.',
     longDescription:
       'The dashboard runs on the Pi: candle chart, regime indicator, per-coin signal breakdown. Every metric on the dashboard traces back to a verified data source, or it gets a "—". Daily CPCV retrain at 03:00 with a PBO gate; the new model deploys only if PBO drops under 0.5. The repo is named alcyone-trading-bot because the bot was the first thing I shipped to the Pi I had named Alcyone; the AI on the Pi is the project listed above.',
+    heroImage: '/trading-bot-diagram.svg',
+    heroImageAlt: 'Nine-layer signal stack with regime detection bands and a daily CPCV retrain gated by PBO under 0.5.',
     year: '2026',
     status: 'live',
     tags: ['python', 'pytorch', 'binance api', 'pi 5', 'cnn-lstm', 'ml-ops'],
@@ -77,6 +81,8 @@ export const projects: Project[] = [
       'Production-ready Selenium and Gauge specs generated from a small locator JSON. Snapshot-based discovery, locator auto-extraction, a step catalog DSL any QA engineer can extend. Tested against a real consumer-facing booking flow; the happy path runs end to end in under two minutes, with full step snapshots as an audit trail.',
     longDescription:
       'Three loops. Discover snapshots the page, extracts elements, deduplicates. Compose builds a Gauge spec from the step catalog ("Click X", "Enter Y into Z", "Dump page snapshot"). Verify runs the spec, checks the result, iterates. Locator strategy is data-testid and id only; no fragile XPaths. The locator JSON is the single source of truth, and the same JSON yields more than a dozen derived test cases without manual scripting.',
+    heroImage: '/qa-automation-diagram.svg',
+    heroImageAlt: 'Three loops Discover, Compose, Verify, all anchored to a single locator JSON source of truth.',
     year: '2026',
     status: 'wip',
     tags: ['selenium', 'gauge', 'java', 'claude api', 'qa automation'],
@@ -92,6 +98,8 @@ export const projects: Project[] = [
       'After AI-assisted prototypes proved unplayable, this is the deliberate version. Top-down perspective, deep RPG simulation, written from scratch in Unity. A long-game labour of love.',
     longDescription:
       'The first prototype was AI-scaffolded and unplayable. This one is built by hand, system by system, with each mechanic earned. Top-down perspective for clarity, deep RPG systems in the Morrowind tradition, faction simulation in the Dwarf Fortress and RimWorld vein. Slow and intentional.',
+    heroImage: '/ember-diagram.svg',
+    heroImageAlt: 'Top-down 12 by 8 grid with three NPC pawns from two factions plus a neutral, alongside a faction-relations triangle.',
     year: '2026',
     status: 'wip',
     tags: ['unity', 'c#', 'game design', 'rpg', 'simulation'],
