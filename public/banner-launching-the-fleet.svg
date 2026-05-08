@@ -1,38 +1,67 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 320" width="1200" height="320" role="img" aria-label="Launching the fleet — five stacked rectangles representing the bench.">
-  <rect width="1200" height="320" fill="#0d0e10"></rect>
-  <g transform="translate(56,108)">
-    <text y="0" font-family="&#39;Geist Mono&#39;,&#39;Courier New&#39;,monospace" font-size="14" fill="#6c707a" letter-spacing="0.84">2026.04.27 / WRITING</text>
-    <text y="58" font-family="&#39;msbel Hybrid&#39;,Georgia,serif" font-weight="400" font-size="44" fill="#ece8df" letter-spacing="-0.88">Launching the fleet</text>
-    <text y="110" font-family="&#39;Geist Mono&#39;,&#39;Courier New&#39;,monospace" font-size="14" fill="#6c707a" letter-spacing="0.84">a Pi 5 in Istanbul, five things on the bench</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 320" width="1200" height="320" role="img" aria-label="Launching the fleet — five things on the bench: Alcyone, Thalamus, Trading bot, QA Automation, Ember.">
+  <defs>
+    <radialGradient id="lf-glow" cx="78%" cy="22%" r="55%">
+      <stop offset="0%" stop-color="#5cd6c4" stop-opacity="0.10"/>
+      <stop offset="60%" stop-color="#7aa7ff" stop-opacity="0.04"/>
+      <stop offset="100%" stop-color="#0d0e10" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1200" height="320" fill="#0d0e10"/>
+  <rect width="1200" height="320" fill="url(#lf-glow)"/>
+
+  <!-- Star-map decorative dots (faint, far left) -->
+  <g fill="#2a2d33">
+    <circle cx="36" cy="60" r="1.2"/>
+    <circle cx="96" cy="40" r="0.9"/>
+    <circle cx="120" cy="88" r="1.4"/>
+    <circle cx="58" cy="180" r="0.8"/>
+    <circle cx="44" cy="240" r="1.1"/>
+    <circle cx="116" cy="244" r="0.7"/>
   </g>
-  <g transform="translate(720,52)">
-    <rect width="424" height="216" rx="12" fill="#16181c" stroke="#2a2d33" stroke-width="1.5"></rect>
-    <g transform="translate(20,18)" font-family="&#39;Geist Mono&#39;,&#39;Courier New&#39;,monospace">
-      <g>
-        <rect width="384" height="32" rx="6" fill="none" stroke="#7aa7ff" stroke-width="1.5"></rect>
-        <text x="14" y="20" font-size="13" fill="#ece8df" letter-spacing="0.52">Alcyone</text>
-        <text x="282" y="20" font-size="11" fill="#6c707a" letter-spacing="0.66">self-hosted AI / Pi 5</text>
-      </g>
-      <g transform="translate(0,38)">
-        <rect width="384" height="32" rx="6" fill="none" stroke="#7aa7ff" stroke-width="1.5"></rect>
-        <text x="14" y="20" font-size="13" fill="#ece8df" letter-spacing="0.52">Thalamus</text>
-        <text x="262" y="20" font-size="11" fill="#6c707a" letter-spacing="0.66">OpenClaw plugin / npm</text>
-      </g>
-      <g transform="translate(0,76)">
-        <rect width="384" height="32" rx="6" fill="none" stroke="#2a2d33" stroke-width="1.5"></rect>
-        <text x="14" y="20" font-size="13" fill="#ece8df" letter-spacing="0.52">Trading bot</text>
-        <text x="240" y="20" font-size="11" fill="#6c707a" letter-spacing="0.66">9 layers / Binance Testnet</text>
-      </g>
-      <g transform="translate(0,114)">
-        <rect width="384" height="32" rx="6" fill="none" stroke="#2a2d33" stroke-width="1.5"></rect>
-        <text x="14" y="20" font-size="13" fill="#ece8df" letter-spacing="0.52">QA Automation</text>
-        <text x="244" y="20" font-size="11" fill="#6c707a" letter-spacing="0.66">Selenium / Gauge / Java</text>
-      </g>
-      <g transform="translate(0,152)">
-        <rect width="384" height="32" rx="6" fill="none" stroke="#2a2d33" stroke-width="1.5"></rect>
-        <text x="14" y="20" font-size="13" fill="#ece8df" letter-spacing="0.52">Ember</text>
-        <text x="270" y="20" font-size="11" fill="#6c707a" letter-spacing="0.66">an RPG, by hand / Unity</text>
-      </g>
+  <g fill="#7aa7ff" opacity="0.55">
+    <circle cx="80" cy="120" r="1.5"/>
+    <circle cx="100" cy="200" r="1.2"/>
+  </g>
+
+  <!-- Left column: title + dek -->
+  <g font-family="Geist Mono, ui-monospace, monospace">
+    <text x="56" y="108" font-size="13" fill="#8a8f99" letter-spacing="2">2026.04.27 · WRITING</text>
+    <text x="56" y="170" font-family="msbel Hybrid, Fraunces, Georgia, serif" font-weight="400" font-size="46" fill="#ece8df" letter-spacing="-1">Launching the fleet</text>
+    <text x="56" y="218" font-size="13" fill="#8a8f99" letter-spacing="0.4">a Pi 5 in Istanbul, five things on the bench</text>
+  </g>
+
+  <!-- Right column: 5 stacked rows -->
+  <g transform="translate(640,42)" font-family="Geist Mono, ui-monospace, monospace">
+    <!-- Row 1: Alcyone -->
+    <g transform="translate(0,0)">
+      <rect width="500" height="36" rx="6" fill="#16181c" stroke="#7aa7ff" stroke-width="1.5"/>
+      <text x="16" y="23" font-size="13" fill="#ece8df" letter-spacing="0.5">Alcyone</text>
+      <text x="490" y="23" text-anchor="end" font-size="11" fill="#8a8f99">self-hosted AI · Pi 5</text>
+    </g>
+    <!-- Row 2: Thalamus -->
+    <g transform="translate(0,46)">
+      <rect width="500" height="36" rx="6" fill="#16181c" stroke="#5cd6c4" stroke-width="1.5"/>
+      <text x="16" y="23" font-size="13" fill="#ece8df" letter-spacing="0.5">Thalamus</text>
+      <text x="490" y="23" text-anchor="end" font-size="11" fill="#8a8f99">OpenClaw plugin · MIT · npm</text>
+    </g>
+    <!-- Row 3: Trading bot -->
+    <g transform="translate(0,92)">
+      <rect width="500" height="36" rx="6" fill="#16181c" stroke="#2a2d33" stroke-width="1.5"/>
+      <text x="16" y="23" font-size="13" fill="#ece8df" letter-spacing="0.5">Trading bot</text>
+      <text x="490" y="23" text-anchor="end" font-size="11" fill="#8a8f99">9 layers · Binance Testnet · 24/7</text>
+    </g>
+    <!-- Row 4: QA Automation -->
+    <g transform="translate(0,138)">
+      <rect width="500" height="36" rx="6" fill="#16181c" stroke="#2a2d33" stroke-width="1.5"/>
+      <text x="16" y="23" font-size="13" fill="#ece8df" letter-spacing="0.5">QA Automation</text>
+      <text x="490" y="23" text-anchor="end" font-size="11" fill="#8a8f99">Selenium · Gauge · Java</text>
+    </g>
+    <!-- Row 5: Ember -->
+    <g transform="translate(0,184)">
+      <rect width="500" height="36" rx="6" fill="#16181c" stroke="#2a2d33" stroke-width="1.5"/>
+      <text x="16" y="23" font-size="13" fill="#ece8df" letter-spacing="0.5">Ember</text>
+      <text x="490" y="23" text-anchor="end" font-size="11" fill="#8a8f99">an RPG, by hand · Unity</text>
     </g>
   </g>
 </svg>
