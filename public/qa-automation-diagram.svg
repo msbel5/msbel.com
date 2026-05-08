@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 540" width="1200" height="540" role="img" aria-label="QA Automation: three loops Discover, Compose, Verify, all anchored to a single locator JSON source of truth.">
+  <defs>
+    <style>
+      .title { font-family: 'Fraunces', Georgia, serif; font-style: italic; font-size: 28px; fill: #ece8df; }
+      .heading { font-family: 'Fraunces', Georgia, serif; font-style: italic; font-size: 20px; fill: #ece8df; }
+      .label { font-family: 'Geist Mono', ui-monospace, monospace; font-size: 13px; fill: #c7c4bd; }
+      .step { font-family: 'Geist Mono', ui-monospace, monospace; font-size: 12px; fill: #ece8df; }
+      .small { font-family: 'Geist Mono', ui-monospace, monospace; font-size: 12px; fill: #6c707a; }
+      .accent { fill: #7aa7ff; }
+      .box { fill: #16181c; stroke: #2a2d33; stroke-width: 1.5; }
+      .box-accent { fill: #16181c; stroke: #7aa7ff; stroke-width: 1.5; }
+      .arrow { stroke: #6c707a; stroke-width: 1.5; fill: none; }
+      .spine { stroke: #7aa7ff; stroke-width: 2; fill: none; stroke-dasharray: 4 4; }
+    </style>
+    <marker id="ar" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto">
+      <path d="M 0 0 L 9 4.5 L 0 9 z" fill="#6c707a"/>
+    </marker>
+  </defs>
+
+  <g transform="translate(40, 50)">
+    <text class="title">QA Automation</text>
+    <text class="small" y="26">three loops, one locator JSON, no fragile XPaths</text>
+  </g>
+
+  <!-- Spine: locator JSON -->
+  <line x1="120" y1="130" x2="120" y2="490" class="spine"/>
+  <g transform="translate(40, 260)">
+    <rect x="0" y="-30" width="160" height="60" rx="10" class="box-accent"/>
+    <text class="label accent" text-anchor="middle" x="80" y="-6">locator JSON</text>
+    <text class="small" text-anchor="middle" x="80" y="14">single source of truth</text>
+  </g>
+
+  <!-- Loop 1: Discover -->
+  <g transform="translate(220, 130)">
+    <text class="heading">discover</text>
+    <rect x="0" y="20" width="900" height="70" rx="10" class="box"/>
+    <g transform="translate(20, 60)">
+      <text class="step" y="0">snapshot the page</text>
+      <text class="small" x="0" y="18">Selenium WebDriver → DOM</text>
+    </g>
+    <g transform="translate(280, 60)">
+      <text class="step" y="0">extract elements</text>
+      <text class="small" x="0" y="18">data-testid · id · stable selectors</text>
+    </g>
+    <g transform="translate(580, 60)">
+      <text class="step" y="0">deduplicate</text>
+      <text class="small" x="0" y="18">canonical names → locator JSON</text>
+    </g>
+    <line x1="200" y1="55" x2="270" y2="55" class="arrow" marker-end="url(#ar)"/>
+    <line x1="500" y1="55" x2="570" y2="55" class="arrow" marker-end="url(#ar)"/>
+  </g>
+
+  <!-- Loop 2: Compose -->
+  <g transform="translate(220, 250)">
+    <text class="heading">compose</text>
+    <rect x="0" y="20" width="900" height="70" rx="10" class="box"/>
+    <g transform="translate(20, 60)">
+      <text class="step" y="0">read step catalog</text>
+      <text class="small" x="0" y="18">Click X · Enter Y into Z · Dump page snapshot</text>
+    </g>
+    <g transform="translate(360, 60)">
+      <text class="step" y="0">build Gauge spec</text>
+      <text class="small" x="0" y="18">spec, scenario, steps · plain text</text>
+    </g>
+    <g transform="translate(640, 60)">
+      <text class="step" y="0">link to JSON locators</text>
+      <text class="small" x="0" y="18">named selectors only · no XPaths</text>
+    </g>
+    <line x1="280" y1="55" x2="350" y2="55" class="arrow" marker-end="url(#ar)"/>
+    <line x1="560" y1="55" x2="630" y2="55" class="arrow" marker-end="url(#ar)"/>
+  </g>
+
+  <!-- Loop 3: Verify -->
+  <g transform="translate(220, 370)">
+    <text class="heading">verify</text>
+    <rect x="0" y="20" width="900" height="70" rx="10" class="box"/>
+    <g transform="translate(20, 60)">
+      <text class="step" y="0">run the spec</text>
+      <text class="small" x="0" y="18">Gauge runner · headless or local</text>
+    </g>
+    <g transform="translate(280, 60)">
+      <text class="step" y="0">check the result</text>
+      <text class="small" x="0" y="18">step snapshots → audit trail</text>
+    </g>
+    <g transform="translate(580, 60)">
+      <text class="step" y="0">iterate</text>
+      <text class="small" x="0" y="18">flaky? add data-testid, refine catalog</text>
+    </g>
+    <line x1="200" y1="55" x2="270" y2="55" class="arrow" marker-end="url(#ar)"/>
+    <line x1="450" y1="55" x2="570" y2="55" class="arrow" marker-end="url(#ar)"/>
+  </g>
+
+  <!-- Loop arrows from each loop back to spine -->
+  <line x1="220" y1="170" x2="170" y2="200" class="arrow"/>
+  <line x1="220" y1="290" x2="170" y2="290" class="arrow"/>
+  <line x1="220" y1="410" x2="170" y2="380" class="arrow"/>
+
+  <!-- Footer -->
+  <g transform="translate(40, 510)">
+    <text class="small">happy path runs end to end in under two minutes · same JSON yields more than a dozen derived test cases</text>
+  </g>
+</svg>

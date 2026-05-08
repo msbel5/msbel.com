@@ -3,6 +3,7 @@ title: 'Nine years on GitHub, in one afternoon'
 description: 'I cloned every repo I have ever pushed and looked at them in chronological order. The shape of a self-taught engineer learning to ship, in 42 commits-per-month bursts.'
 pubDate: '2026-04-28'
 tags: ['notes', 'meta', 'archive']
+heroImage: '/banner-nine-years-on-github.svg'
 ---
 
 I cloned every repo on `github.com/msbel5` to a single archive directory
@@ -140,4 +141,3 @@ Reading nine years in one afternoon, the things that surprised me:
    to make graphs look green. If a repo is archived, it's archived
    honestly.
 
-The fleet sails on.

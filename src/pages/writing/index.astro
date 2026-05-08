@@ -9,8 +9,8 @@ const posts = (await getCollection('writing', ({ data }) => !data.draft)).sort(
 ---
 
 <Base
-  title="Writing — M.S. Bel"
-  description="Notes on building, testing, and shipping. ML, QA, hardware, and the occasional philosophical aside."
+  title="Writing — msbel"
+  description="Notes on building, testing, and shipping. ML, QA, hardware, the trading bot, the agent stack."
 >
   <Header current="writing" />
 
@@ -33,17 +33,24 @@ const posts = (await getCollection('writing', ({ data }) => !data.draft)).sort(
         <ul class="posts-list">
           {posts.map((post) => (
             <li class="post-item">
-              <a href={`/writing/${post.slug}`}>
-                <time class="post-date mono">
-                  {post.data.pubDate.toISOString().split('T')[0]}
-                </time>
-                <h2 class="post-title">{post.data.title}</h2>
-                <p class="post-description">{post.data.description}</p>
-                {post.data.tags.length > 0 && (
-                  <div class="post-tags mono">
-                    {post.data.tags.map((tag) => <span>{tag}</span>)}
+              <a href={`/writing/${post.slug}`} class="post-card">
+                {post.data.heroImage && (
+                  <div class="post-thumb">
+                    <img src={post.data.heroImage} alt="" loading="lazy" />
                   </div>
                 )}
+                <div class="post-body">
+                  <time class="post-date mono">
+                    {post.data.pubDate.toISOString().split('T')[0]}
+                  </time>
+                  <h2 class="post-title">{post.data.title}</h2>
+                  <p class="post-description">{post.data.description}</p>
+                  {post.data.tags.length > 0 && (
+                    <div class="post-tags mono">
+                      {post.data.tags.map((tag) => <span>{tag}</span>)}
+                    </div>
+                  )}
+                </div>
               </a>
             </li>
           ))}
@@ -92,11 +99,45 @@ const posts = (await getCollection('writing', ({ data }) => !data.draft)).sort(
   }
 
   .post-item a {
-    display: block;
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 2rem;
+    align-items: start;
     padding: 2rem 0;
     color: var(--text-primary);
     text-decoration: none;
     transition: padding-left var(--duration-base) var(--ease-out);
+  }
+
+  .post-item a:not(:has(.post-thumb)) {
+    grid-template-columns: 1fr;
+  }
+
+  @media (max-width: 760px) {
+    .post-card {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+  }
+
+  .post-thumb {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    background: var(--bg-surface);
+    transition: border-color var(--duration-fast) var(--ease-out);
+  }
+
+  .post-thumb img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1200 / 320;
+    object-fit: cover;
+  }
+
+  .post-item a:hover .post-thumb {
+    border-color: var(--accent);
   }
 
   .post-item a:hover {

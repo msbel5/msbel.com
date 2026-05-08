@@ -4,7 +4,7 @@ import Header from '../components/Header.astro';
 
 const experience = [
   {
-    role: 'Senior Test Automation Specialist',
+    role: 'Senior Test Automation Engineer',
     company: 'Test automation services firm',
     period: '2023 — present',
     notes: [
@@ -62,7 +62,7 @@ const stack = {
 ---
 
 <Base
-  title="About — M.S. Bel"
+  title="About — msbel"
   description="Engineer of two crafts. Mechanical by training, software by obsession."
 >
   <Header current="about" />
@@ -74,8 +74,9 @@ const stack = {
       <h1 class="page-title">Engineer of two crafts.</h1>
       <p class="page-sub">
         Born 1991 in Diyarbakır. Trained as a mechanical engineer.
-        Working as a senior test automation specialist. Building an AI
-        suite called <em>Alcyone</em> after hours.
+        Working as a senior test automation engineer. Building a
+        self-hosted AI called <em>Alcyone</em> on a Raspberry Pi 5
+        after hours.
       </p>
     </div>
   </section>
@@ -131,22 +132,30 @@ const stack = {
           up.
         </p>
         <p>
-          The fleet now is three projects.
-          <a href="/projects/alcyone" class="subtle">Alcyone</a> is a
-          nine-layer trading bot that lives on a Raspberry Pi 5 and
-          runs twenty-four hours a day.
-          <a href="/projects/pegasus" class="subtle">Pegasus</a> is the
-          QA agent — a working version wrote a complete production
-          spec for an airline booking flow in two hours, end to end.
-          <a href="/projects/ember" class="subtle">Ember</a> is the
-          counter-experiment: an RPG written by hand in Unity, after
-          the AI-generated prototype proved unplayable. Underneath all
-          of it is the same thread you can read from 2017 onwards:
-          ship the artefact, write down the lesson, keep going. An
-          Estonian e-Residency is in the post; a one-person umbrella
-          for the fleet follows when it arrives.
+          What is on the bench right now: a self-hosted AI on a Pi
+          called <a href="/projects/alcyone" class="subtle">Alcyone</a>;
+          <a href="/projects/thalamus" class="subtle">Thalamus</a>, a
+          community plugin for it; a 9-layer
+          <a href="/projects/trading-bot" class="subtle">testnet trading bot</a>
+          that runs continuously on the same Pi; an
+          <a href="/projects/qa-automation" class="subtle">AI QA agent</a>
+          that writes its own end-to-end specs; and
+          <a href="/projects/ember" class="subtle">Ember</a>, an RPG
+          built by hand in Unity after the AI-scaffolded prototype
+          proved unplayable. Underneath them is the thread you can
+          read from 2017 onwards: ship the artefact, keep going. An
+          Estonian e-Residency application is in flight.
         </p>
       </div>
+    </div>
+  </section>
+
+  <!-- Timeline -->
+  <section class="timeline-section">
+    <div class="container">
+      <figure class="about-timeline">
+        <img src="/about-timeline.svg" alt="Career timeline 2010 to present: mechanical engineering, telecom QA at scale, AI agent infrastructure and side projects." loading="lazy" />
+      </figure>
     </div>
   </section>
 
@@ -261,6 +270,24 @@ const stack = {
     font-family: var(--font-display);
     font-style: italic;
     color: var(--text-primary);
+  }
+
+  .timeline-section {
+    padding-block: 1rem 1.5rem;
+  }
+
+  .about-timeline {
+    margin: 0;
+    padding: 1.25rem;
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+  }
+
+  .about-timeline img {
+    display: block;
+    width: 100%;
+    height: auto;
   }
 
   .bio-text p {

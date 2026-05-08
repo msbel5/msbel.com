@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" width="1200" height="600" role="img" aria-label="Trading bot 9-layer signal stack with regime detection bands and a daily CPCV retrain gated by PBO under 0.5.">
+  <defs>
+    <style>
+      .title { font-family: 'Fraunces', Georgia, serif; font-style: italic; font-size: 28px; fill: #ece8df; }
+      .label { font-family: 'Geist Mono', ui-monospace, monospace; font-size: 14px; fill: #ece8df; }
+      .label-muted { font-family: 'Geist Mono', ui-monospace, monospace; font-size: 13px; fill: #c7c4bd; }
+      .small { font-family: 'Geist Mono', ui-monospace, monospace; font-size: 12px; fill: #6c707a; }
+      .heading { font-family: 'Fraunces', Georgia, serif; font-style: italic; font-size: 18px; fill: #ece8df; }
+      .accent { fill: #7aa7ff; }
+      .layer { fill: #16181c; stroke: #2a2d33; stroke-width: 1.2; }
+      .layer-accent { fill: #16181c; stroke: #7aa7ff; stroke-width: 1.2; }
+      .regime-band { fill: #16181c; stroke: #2a2d33; stroke-width: 1; }
+    </style>
+  </defs>
+
+  <g transform="translate(40, 50)">
+    <text class="title">Trading Bot</text>
+    <text class="small" y="26">nine-layer signal stack · regime-aware · CPCV-gated daily retrain</text>
+  </g>
+
+  <!-- Stack heading -->
+  <g transform="translate(40, 130)">
+    <text class="heading">signal layers</text>
+    <text class="small" y="20">each layer carries a learned weight; the stacked ensemble combines them</text>
+  </g>
+
+  <!-- 9 horizontal layer bars -->
+  <g transform="translate(40, 175)" font-family="Geist Mono">
+    <!-- 1 trend -->
+    <rect width="600" height="30" rx="6" class="layer-accent"/>
+    <text class="label" x="14" y="20">01 · trend</text>
+    <text class="small" x="500" y="20">EMA · MACD · ADX</text>
+    <!-- 2 momentum -->
+    <rect y="38" width="600" height="30" rx="6" class="layer"/>
+    <text class="label" x="14" y="58">02 · momentum</text>
+    <text class="small" x="500" y="58">RSI · ROC · Williams</text>
+    <!-- 3 volatility -->
+    <rect y="76" width="600" height="30" rx="6" class="layer"/>
+    <text class="label" x="14" y="96">03 · volatility</text>
+    <text class="small" x="500" y="96">ATR · Bollinger · Keltner</text>
+    <!-- 4 volume -->
+    <rect y="114" width="600" height="30" rx="6" class="layer"/>
+    <text class="label" x="14" y="134">04 · volume</text>
+    <text class="small" x="500" y="134">OBV · CMF · MFI</text>
+    <!-- 5 sentiment -->
+    <rect y="152" width="600" height="30" rx="6" class="layer"/>
+    <text class="label" x="14" y="172">05 · sentiment</text>
+    <text class="small" x="500" y="172">funding rate · long/short</text>
+    <!-- 6 ML ensemble -->
+    <rect y="190" width="600" height="30" rx="6" class="layer-accent"/>
+    <text class="label" x="14" y="210">06 · ML ensemble</text>
+    <text class="small" x="500" y="210">LGBM · XGB · RF · ET → Ridge</text>
+    <!-- 7 ichimoku -->
+    <rect y="228" width="600" height="30" rx="6" class="layer"/>
+    <text class="label" x="14" y="248">07 · Ichimoku</text>
+    <text class="small" x="500" y="248">cloud breakouts · TK cross</text>
+    <!-- 8 candlesticks -->
+    <rect y="266" width="600" height="30" rx="6" class="layer"/>
+    <text class="label" x="14" y="286">08 · candlesticks</text>
+    <text class="small" x="500" y="286">engulfing · pin bar · doji</text>
+    <!-- 9 stat models -->
+    <rect y="304" width="600" height="30" rx="6" class="layer"/>
+    <text class="label" x="14" y="324">09 · statistical models</text>
+    <text class="small" x="500" y="324">z-score · OU mean reversion</text>
+  </g>
+
+  <!-- Right column: regime bands -->
+  <g transform="translate(720, 130)">
+    <text class="heading">regime detector</text>
+    <text class="small" y="20">re-weights layers per market state</text>
+
+    <rect y="50" width="280" height="64" rx="10" class="regime-band"/>
+    <text class="label" x="18" y="80">trending</text>
+    <text class="small" x="18" y="100">trend, momentum, ML weighted up</text>
+
+    <rect y="124" width="280" height="64" rx="10" class="regime-band"/>
+    <text class="label" x="18" y="154">sideways</text>
+    <text class="small" x="18" y="174">stat-models, Ichimoku weighted up</text>
+
+    <rect y="198" width="280" height="64" rx="10" class="regime-band"/>
+    <text class="label" x="18" y="228">volatile</text>
+    <text class="small" x="18" y="248">volatility, sentiment weighted up</text>
+  </g>
+
+  <!-- Bottom annotation row -->
+  <g transform="translate(40, 540)">
+    <rect width="960" height="42" rx="10" class="layer-accent"/>
+    <text class="label" x="20" y="26">CPCV retrain · 03:00 daily · PBO &lt; 0.5 gate</text>
+    <text class="small" x="490" y="26">$100 simulated balance · Binance Testnet · never connected to real money</text>
+  </g>
+</svg>

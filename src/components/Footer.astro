@@ -1,34 +1,18 @@
 ---
 const year = new Date().getFullYear();
-const path = Astro.url.pathname;
-const showQuote = path === '/' || path === '/about' || path === '/about/';
 ---
 
-<footer class={`site-footer${showQuote ? '' : ' compact'}`}>
+<footer class="site-footer">
   <div class="container">
-    <div class={`footer-grid${showQuote ? '' : ' no-quote'}`}>
-      {showQuote && (
-        <div class="footer-brand">
-          <p class="quote">
-            "There's a bluebird in my heart that<br />
-            wants to get out."
-          </p>
-          <p class="quote-attr">— Charles Bukowski</p>
-        </div>
-      )}
-
+    <div class="footer-grid">
       <div class="footer-meta">
         <div class="footer-line">
           <span class="dim">built on</span>
-          <a href="https://github.com/msbel5/alcyone-trading-bot" class="subtle">a Raspberry Pi 5 named Alcyone</a>
-        </div>
-        <div class="footer-line">
-          <span class="dim">last deployed</span>
-          <span class="mono">{new Date().toISOString().split('T')[0]}</span>
+          <a href="/projects/alcyone" class="subtle">a Raspberry Pi 5 named Alcyone</a>
         </div>
         <div class="footer-line">
           <span class="dim">© {year}</span>
-          <span>M.S. Bel · Istanbul, TR</span>
+          <span>msbel · Istanbul, TR</span>
         </div>
       </div>
 
@@ -53,37 +37,16 @@ const showQuote = path === '/' || path === '/about' || path === '/about/';
 
   .footer-grid {
     display: grid;
-    grid-template-columns: 1.2fr 1fr 0.8fr;
+    grid-template-columns: 1fr 0.8fr;
     gap: 3rem;
     align-items: start;
   }
 
-  .footer-grid.no-quote {
-    grid-template-columns: 1fr 0.8fr;
-  }
-
   @media (max-width: 768px) {
-    .footer-grid,
-    .footer-grid.no-quote {
+    .footer-grid {
       grid-template-columns: 1fr;
       gap: 2rem;
     }
-  }
-
-  .quote {
-    font-family: var(--font-display);
-    font-size: 1.125rem;
-    font-style: italic;
-    color: var(--text-secondary);
-    line-height: 1.4;
-    margin-bottom: 0.5rem;
-    max-width: 100%;
-  }
-
-  .quote-attr {
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    color: var(--text-muted);
   }
 
   .footer-meta {

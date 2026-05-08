@@ -5,6 +5,8 @@ export interface Project {
   tagline: string;
   description: string;
   longDescription?: string;
+  heroImage?: string;
+  heroImageAlt?: string;
   year: string;
   status: 'live' | 'idle' | 'offline' | 'wip' | 'archived';
   tags: string[];
@@ -15,48 +17,89 @@ export interface Project {
 }
 
 export const projects: Project[] = [
-  // ─── 2026 — current fleet ───────────────────────────────────────
+  // ─── 2026 — current bench ───────────────────────────────────────
 
   {
     slug: 'alcyone',
     number: '01',
-    title: 'Alcyone — Crypto Trading Bot',
-    tagline: '24/7 ML-driven trading on a Raspberry Pi 5',
+    title: 'Alcyone',
+    tagline: 'A self-hosted AI that lives on a Raspberry Pi 5',
     description:
-      '9-layer signal engine. 46 ML features. CNN-LSTM + a stacked ensemble (LightGBM + XGBoost + RF + ExtraTrees → RidgeClassifier meta). CPCV validation, Boruta feature selection, regime detection. Lives on a Pi 5 with $100 testnet balance, 24/7.',
+      'A persistent AI built on top of OpenClaw. Lives on the Pi, runs around the clock, picks up threads I have forgotten, drafts replies before I open the laptop. Telegram in and out. A paid model when it is awake on a real task; local Qwen on Ollama for the heartbeat. The Thalamus plugin (next entry) is the routing layer that keeps the context budget under control.',
     longDescription:
-      'A scientific trading bot built on first principles. Nine weighted signal layers (trend, momentum, volatility, volume, sentiment, ML, Ichimoku, candlestick patterns, statistical models). Forty-six features pass through Boruta selection and CPCV validation before the stacked ensemble makes a call. The Pi 5 hosts the live dashboard via Cloudflare Tunnel — TradingView-style candle chart, regime indicator, real-time per-coin signal breakdown. Anti-fabrication built in: every metric on the dashboard must trace back to verified data, or it gets a "—".',
+      'Five collaborating roles for orchestration, building, review, conversation, and memory. The interesting part of running an LLM continuously instead of on demand is what shows up between explicit requests: the agent reads its own past sessions, follows up on dangling threads, and pings me when a PR review lands at 4am. Source repos for the agent, the plugin set, and the heartbeat scripts are private until each piece is stable enough to publish.',
+    heroImage: '/alcyone-diagram.svg',
+    heroImageAlt: 'Alcyone five-role hub around an OpenClaw gateway on a Pi 5, with Telegram I/O and a 30-minute local-Qwen heartbeat.',
+    year: '2026',
+    status: 'live',
+    tags: ['openclaw', 'multi-agent', 'pi 5', 'ollama', 'telegram'],
+    notesUrl: '/projects/alcyone',
+    featured: true,
+  },
+  {
+    slug: 'thalamus',
+    number: '02',
+    title: 'Thalamus',
+    tagline: 'Packet-handoff layer for multi-agent crews',
+    description:
+      'A community plugin for OpenClaw. Replaces "paste the whole transcript when you spawn a sub-agent" with a 3-field reference: packet_id, resolver_key, inline_vector. The receiver resolves only the atoms it needs from a local vector store. Qwen3-Embedding-0.6B runs on Pi 5 CPU via llama.cpp. A FAISS RaBitQ codebook compresses 1024-dim vectors to 128 bytes. MIT licensed. Distributed on ClawHub and npm.',
+    longDescription:
+      'The honest measurements come from live telemetry on the Pi. The protocol-level token compression cuts spawn context from 68 tokens to 55 across the sample runs in run_telemetry.jsonl, a 19.1 percent reduction directly visible in the data. Higher combined figures appear in earlier drafts of the README; those compare against a hypothetical naive transcript paste baseline I did not run side by side, so I treat them as a single-machine direction signal, not a benchmark. Hailo HEFs are wired for the Whisper and CLIP encoders on the AI HAT; Qwen3 stays on CPU because LLM and embedding GGUFs do not run on Hailo10H.',
+    heroImage: '/thalamus-diagram.svg',
+    heroImageAlt: 'Thalamus packet handoff: Captain emits a 3-field reference (packet_id, resolver_key, inline_vector) which the receiver resolves against a 9-namespace local vector store backed by Qwen3-0.6B on CPU and a FAISS RaBitQ codebook.',
+    year: '2026',
+    status: 'live',
+    tags: ['openclaw', 'mcp', 'plugin', 'rag', 'faiss', 'qwen3', 'pi 5'],
+    notesUrl: '/projects/thalamus',
+    repoUrl: 'https://github.com/msbel5/openclaw-thalamus',
+    featured: true,
+  },
+  {
+    slug: 'trading-bot',
+    number: '03',
+    title: 'Trading Bot',
+    tagline: '24/7 testnet trading on a Raspberry Pi 5',
+    description:
+      'A 9-layer signal engine: trend, momentum, volatility, volume, sentiment, an ML ensemble, Ichimoku, candlestick patterns, and statistical models. Forty-six features pass through Boruta selection and CPCV validation before the stacked ensemble (LightGBM, XGBoost, RF, ExtraTrees with a Ridge meta) makes a call. $100 simulated balance on Binance Testnet. Never connected to real money.',
+    longDescription:
+      'The dashboard runs on the Pi: candle chart, regime indicator, per-coin signal breakdown. Every metric on the dashboard traces back to a verified data source, or it gets a "—". Daily CPCV retrain at 03:00 with a PBO gate; the new model deploys only if PBO drops under 0.5. The repo is named alcyone-trading-bot because the bot was the first thing I shipped to the Pi I had named Alcyone; the AI on the Pi is the project listed above.',
+    heroImage: '/trading-bot-diagram.svg',
+    heroImageAlt: 'Nine-layer signal stack with regime detection bands and a daily CPCV retrain gated by PBO under 0.5.',
     year: '2026',
     status: 'live',
     tags: ['python', 'pytorch', 'binance api', 'pi 5', 'cnn-lstm', 'ml-ops'],
-    notesUrl: '/projects/alcyone',
+    notesUrl: '/projects/trading-bot',
     repoUrl: 'https://github.com/msbel5/alcyone-trading-bot',
     featured: true,
   },
   {
-    slug: 'pegasus',
-    number: '02',
-    title: 'Pegasus — AI Test Generation Agent',
-    tagline: 'E2E tests authored by an LLM that watches the screen',
+    slug: 'qa-automation',
+    number: '04',
+    title: 'QA Automation',
+    tagline: 'AI test generation for Selenium and Gauge',
     description:
-      'Production-ready Selenium/Gauge specs generated from a 28-locator JSON in two hours. Snapshot-based discovery, locator auto-extraction, a step catalog DSL any QA engineer can extend. Demonstrated against a major airline\'s booking flow — reached /payment with a real reservation number in 1m41s.',
+      'Production-ready Selenium and Gauge specs generated from a small locator JSON. Snapshot-based discovery, locator auto-extraction, a step catalog DSL any QA engineer can extend. Tested against a real consumer-facing booking flow; the happy path runs end to end in under two minutes, with full step snapshots as an audit trail.',
     longDescription:
-      'The agent operates in three loops. <em>Discover</em>: snapshot the page, extract elements, deduplicate. <em>Compose</em>: build a Gauge spec from the step catalog ("Click X", "Enter Y into Z", "Dump page snapshot to W"). <em>Verify</em>: run, check, iterate. No fragile XPaths — only data-testid and id selectors. The airline demo produced a happy path that runs in 1 minute 41 seconds, with 7 step snapshots as audit trail. Same locator JSON yields 14+ derived test cases.',
+      'Three loops. Discover snapshots the page, extracts elements, deduplicates. Compose builds a Gauge spec from the step catalog ("Click X", "Enter Y into Z", "Dump page snapshot"). Verify runs the spec, checks the result, iterates. Locator strategy is data-testid and id only; no fragile XPaths. The locator JSON is the single source of truth, and the same JSON yields more than a dozen derived test cases without manual scripting.',
+    heroImage: '/qa-automation-diagram.svg',
+    heroImageAlt: 'Three loops Discover, Compose, Verify, all anchored to a single locator JSON source of truth.',
     year: '2026',
     status: 'wip',
     tags: ['selenium', 'gauge', 'java', 'claude api', 'qa automation'],
-    notesUrl: '/projects/pegasus',
+    notesUrl: '/projects/qa-automation',
     featured: true,
   },
   {
     slug: 'ember',
-    number: '03',
+    number: '05',
     title: 'Ember — RPG, by hand',
     tagline: 'Morrowind in spirit, RimWorld in scope, hand-crafted in Unity',
     description:
       'After AI-assisted prototypes proved unplayable, this is the deliberate version. Top-down perspective, deep RPG simulation, written from scratch in Unity. A long-game labour of love.',
     longDescription:
-      'The lesson from the AI-generated prototype was clear: large language models can scaffold a codebase in a day, but they cannot author <em>game feel</em>. Ember is the answer — built by hand, system by system, with each mechanic earned. Top-down perspective for clarity, deep RPG systems in the Morrowind tradition, faction simulation in the Dwarf Fortress / RimWorld vein. Slow, intentional, designed to be played.',
+      'The <em>first prototype was AI-scaffolded</em> and unplayable. This one is built by hand, system by system, with each mechanic earned. Top-down perspective for clarity, deep RPG systems in the Morrowind tradition, faction simulation in the Dwarf Fortress and RimWorld vein. Slow and intentional.',
+    heroImage: '/ember-diagram.svg',
+    heroImageAlt: 'Top-down 12 by 8 grid with three NPC pawns from two factions plus a neutral, alongside a faction-relations triangle.',
     year: '2026',
     status: 'wip',
     tags: ['unity', 'c#', 'game design', 'rpg', 'simulation'],
@@ -66,7 +109,7 @@ export const projects: Project[] = [
   },
   {
     slug: 'pixel-agents',
-    number: '04',
+    number: '06',
     title: 'Pixel Agents',
     tagline: 'A pixel-art office full of AI agents',
     description:
@@ -81,7 +124,7 @@ export const projects: Project[] = [
 
   {
     slug: 'pi-tablet-bridge',
-    number: '05',
+    number: '07',
     title: 'Pi-Tablet Bridge',
     tagline: 'Raspberry Pi as an I/O peripheral for an Android tablet',
     description:
@@ -93,7 +136,7 @@ export const projects: Project[] = [
   },
   {
     slug: 'dnd-ai',
-    number: '06',
+    number: '08',
     title: 'DnD AI — Telegram Dungeon Master',
     tagline: 'Local LLM + Claude orchestration, playable D&D',
     description:
@@ -108,7 +151,7 @@ export const projects: Project[] = [
 
   {
     slug: 'master-automation',
-    number: '07',
+    number: '09',
     title: 'masterAutomation',
     tagline: 'A unified Selenium / Appium harness for web, Android, iOS',
     description:
@@ -123,13 +166,13 @@ export const projects: Project[] = [
 
   {
     slug: 'dailog',
-    number: '08',
+    number: '10',
     title: 'dAIlog — Multi-agent framework, Jan 2024',
     tagline: 'GPT-3.5 was new. Claude Code did not exist. OpenClaw did not exist. I had seven agents talking to each other.',
     description:
       'A C# / Python hybrid: ASP.NET API on top of an AutoGen-based Python service running seven agents — Coder, Data_analyst, Engineer, Scientist, Planner, Critic, Executor — coordinated by a ModifiedUserProxyAgent. Built and posted publicly in January 2024, when the word "agentic" was still mostly papers.',
     longDescription:
-      'The Python service spun up a real GroupChat: a user prompt would trigger Planner → Engineer (writes code) → Scientist (no code, classifies/reads) → Critic (doublechecks claims and source URLs) → Executor (runs the code) → loop until termination. Each agent had a real system prompt; the whole thing ran on gpt-3.5-turbo and gpt-4 with autogen.config_list_from_json. The C# layer handled auth, history persistence, and the chat UI. I proposed it as an internal product. It went nowhere internally. Six months later the same primitive was the entire industry.',
+      'The Python service spun up a real GroupChat: a user prompt would trigger Planner → Engineer (writes code) → Scientist (no code, classifies/reads) → Critic (doublechecks claims and source URLs) → Executor (runs the code) → loop until termination. Each agent had a real system prompt; the whole thing ran on gpt-3.5-turbo and gpt-4 with autogen.config_list_from_json. The C# layer handled auth, history persistence, and the chat UI. I proposed it as an internal product. It went nowhere internally. Six months later the same primitive was everywhere.',
     year: '2024',
     status: 'archived',
     tags: ['c#', 'python', 'autogen', 'multi-agent', 'gpt-3.5', 'gpt-4', 'asp.net'],
@@ -220,7 +263,7 @@ export const projects: Project[] = [
     title: 'MvE — Mahzenler ve Evrenler',
     tagline: 'A direct Turkish translation of "Dungeons and Dragons". 2019. Six years before the movie.',
     description:
-      '"Mahzenler ve Evrenler" is the most literal Turkish translation of "Dungeons & Dragons" you can write. A multi-project C# solution (BLL, DAL, UI, UnitTests, Tester). The architecture is naive in retrospect, but the ambition is the same one Ember now carries — a real RPG, faithful to the source, built in Turkish first. Every RPG I have tried to build since has been an answer to a question this codebase asked. (And six years later they made the movie. The opportunity for a faithful Turkish-language D&D project shipped in 2019; I did not have the channel to ship it widely. Lesson logged.)',
+      '"Mahzenler ve Evrenler" is the most literal Turkish translation of "Dungeons & Dragons" you can write. A multi-project C# solution (BLL, DAL, UI, UnitTests, Tester). The architecture is naive in retrospect, but the ambition is the same one Ember now carries: a real RPG, faithful to the source, built in Turkish first. Every RPG I have tried to build since has been an answer to a question this codebase asked. Six years later they made the movie. I had not figured out how to ship things widely yet.',
     year: '2019',
     status: 'archived',
     tags: ['c#', 'rpg', 'd&d', 'first attempt', 'turkish'],
