@@ -29,7 +29,7 @@ const { Content } = await post.render();
 
       {post.data.heroImage && (
         <figure class="post-hero-banner">
-          <img src={post.data.heroImage} alt={post.data.title} loading="eager" />
+          <img src={post.data.heroImage} alt={post.data.title} loading="eager" fetchpriority="high" />
         </figure>
       )}
 

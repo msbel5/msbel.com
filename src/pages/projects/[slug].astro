@@ -71,7 +71,7 @@ const statusDotClass: Record<string, string> = {
 
       {project.heroImage && (
         <figure class="hero-figure">
-          <img src={project.heroImage} alt={project.heroImageAlt ?? project.tagline} loading="lazy" />
+          <img src={project.heroImage} alt={project.heroImageAlt ?? project.tagline} loading="eager" fetchpriority="high" />
         </figure>
       )}
 

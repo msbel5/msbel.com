@@ -97,7 +97,7 @@ export const projects: Project[] = [
     description:
       'After AI-assisted prototypes proved unplayable, this is the deliberate version. Top-down perspective, deep RPG simulation, written from scratch in Unity. A long-game labour of love.',
     longDescription:
-      'The first prototype was AI-scaffolded and unplayable. This one is built by hand, system by system, with each mechanic earned. Top-down perspective for clarity, deep RPG systems in the Morrowind tradition, faction simulation in the Dwarf Fortress and RimWorld vein. Slow and intentional.',
+      'The <em>first prototype was AI-scaffolded</em> and unplayable. This one is built by hand, system by system, with each mechanic earned. Top-down perspective for clarity, deep RPG systems in the Morrowind tradition, faction simulation in the Dwarf Fortress and RimWorld vein. Slow and intentional.',
     heroImage: '/ember-diagram.svg',
     heroImageAlt: 'Top-down 12 by 8 grid with three NPC pawns from two factions plus a neutral, alongside a faction-relations triangle.',
     year: '2026',
