@@ -3,7 +3,7 @@ title: 'The tesseract demo'
 description: 'A fifteen-second screen recording from January 2024, when the word "agentic" was still mostly papers, of a side project I built and proposed and watched go nowhere.'
 pubDate: '2026-04-28'
 tags: ['notes', 'agents', 'archive']
-heroImage: '/gifs/tesseract_landscape.gif'
+heroImage: '/banner-tesseract-demo.svg'
 ---
 
 In January 2024 I built a side project called **dAIlog**. It was a
