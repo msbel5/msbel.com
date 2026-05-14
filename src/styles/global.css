@@ -1,29 +1,30 @@
 /* ════════════════════════════════════════════════════════════════
-   msbel.com — Design System
-   Aesthetic: yakushimaruetsuko x brittanychiang x Pi engineer
-   Modern CSS only — View Transitions, scroll-driven animations
+   msbel.com - Design System
+   Aesthetic: dark editorial x observatory map x Pi engineer
+   Modern CSS only - View Transitions, scroll-driven animations
    ════════════════════════════════════════════════════════════════ */
 
 /* ── Variables ──────────────────────────────────────────────── */
 
 :root {
-  /* Background scale — warm off-black */
+  /* Background scale - warm off-black */
   --bg-base: #0d0e10;
   --bg-surface: #15171a;
   --bg-elevated: #1a1d21;
   --bg-overlay: rgba(13, 14, 16, 0.85);
 
-  /* Text scale — cream replaces white */
+  /* Text scale - cream replaces white */
   --text-primary: #ebe5d8;
   --text-secondary: #b8b3a8;
   --text-muted: #8a8478;
   --text-faint: #5a564e;
 
-  /* Accent — Bluebird / Alcyone star */
+  /* Accent - Alcyone star */
   --accent: #5b9eff;
   --accent-hover: #7ab1ff;
   --accent-muted: #2c4a7a;
   --accent-glow: rgba(91, 158, 255, 0.15);
+  --accent-soft: rgba(91, 158, 255, 0.08);
 
   /* Status colors */
   --status-live: #4ade80;
@@ -77,6 +78,11 @@ body {
   font-size: 16px;
   font-feature-settings: 'cv11', 'ss01', 'ss03';
   overflow-x: hidden;
+  background:
+    linear-gradient(90deg, rgba(235, 229, 216, 0.018) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(235, 229, 216, 0.014) 1px, transparent 1px),
+    var(--bg-base);
+  background-size: 96px 96px;
 }
 
 /* ── Typography ─────────────────────────────────────────────── */
@@ -85,7 +91,7 @@ h1, h2, h3, h4 {
   font-family: var(--font-display);
   font-weight: 400;
   line-height: 1.1;
-  letter-spacing: -0.02em;
+  letter-spacing: 0;
   text-wrap: balance;
 }
 
@@ -168,6 +174,19 @@ section + section {
   border-top: 1px solid var(--border);
 }
 
+.page-hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.page-hero::after {
+  content: '';
+  position: absolute;
+  inset: auto 0 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border-bright), transparent);
+}
+
 /* ── Section heading ────────────────────────────────────────── */
 
 .section-eyebrow {
@@ -223,12 +242,9 @@ section + section {
 
 /* ── Entrance animation (uses @starting-style for native CSS) ── */
 
-@supports (animation-timeline: scroll()) {
-  .reveal {
-    animation: reveal-up linear both;
-    animation-timeline: view();
-    animation-range: entry 0% cover 30%;
-  }
+.reveal {
+  opacity: 1;
+  transform: none;
 }
 
 @keyframes reveal-up {

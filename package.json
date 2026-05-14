@@ -3,7 +3,7 @@
   "type": "module",
   "version": "0.1.0",
   "private": true,
-  "description": "Personal portfolio of Muhammet Sıddık Bel — engineer, builder, bluebird captain",
+  "description": "Portfolio and build log for M.S. Bel - QA Engineer and automation builder",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",

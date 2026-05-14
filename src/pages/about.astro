@@ -4,24 +4,24 @@ import Header from '../components/Header.astro';
 
 const experience = [
   {
-    role: 'Senior Test Automation Specialist',
+    role: 'Senior Test Automation Engineer',
     company: 'Test automation services firm',
-    period: '2023 — present',
+    period: '2023 - present',
     notes: [
-      'Authoring a Python end-to-end test framework from scratch — Gauge-style DSL, parallel execution, screenshot-diff regression.',
-      'Designing test infrastructure for a global fintech client, in production.',
-      'Building an in-house AI agent that authors Selenium / Gauge specs from screen snapshots.',
-      'Mentoring mid-level QA engineers; running weekly automation-craft sessions.',
+      'Building banking automation across FX trading, arbitrage, transfers, joint accounts, authorization flows, e-Branch, and back-office SSO.',
+      'Maintaining Python automation infrastructure on pytest, Selenium, Appium, Allure, Slack notifications, OCR verification, async DB tests, and parallel execution.',
+      'Shipping .NET 8 health-monitor tooling that converts OpenAPI documents into automated probes, assertions, and alert workflows.',
+      'Building AI-assisted test generation that turns locator snapshots into Selenium and Gauge coverage.',
     ],
   },
   {
     role: 'Test Automation Engineer',
     company: 'Global telecom equipment company',
-    period: '2018 — 2023',
+    period: '2018 - 2023',
     notes: [
-      'Five years on telecom-grade systems — performance, integration, and regression at scale.',
+      'Five years on telecom-grade systems - performance, integration, and regression at scale.',
       'Internal test tooling adopted across multiple teams.',
-      'Comfortable with Linux, embedded, cloud — whatever the stack demanded.',
+      'Comfortable with Linux, embedded, cloud - whatever the stack demanded.',
       'Automation pipelines running nightly across hundreds of test devices.',
     ],
   },
@@ -31,16 +31,16 @@ const education = [
   {
     degree: 'M.Sc. Mechatronics Engineering',
     school: 'Marmara University',
-    period: '2018 — present',
+    period: '2018 - present',
     note:
-      'Thesis: "Predictive Maintenance for Electrical Motors by Using Machine Learning." Coursework done, manuscript on the desk, defense pending. A second master\'s project — image-processing-based defect detection — reached 98.3% test accuracy on a 40,000-image cement-surface dataset using VGG16 transfer learning.',
+      'Thesis: "Predictive Maintenance for Electrical Motors by Using Machine Learning." Coursework done, manuscript on the desk, defense pending. A second master\'s project - image-processing-based defect detection - reached 98.3% test accuracy on a 40,000-image cement-surface dataset using VGG16 transfer learning.',
   },
   {
     degree: 'B.Sc. Mechanical Engineering',
     school: 'Istanbul University',
-    period: '2010 — 2016',
+    period: '2010 - 2016',
     note:
-      'Thesis on the position control of linear motors — LabVIEW driving an NI PCI-6289 DAQ, Arduino producing the PWM signals. Six years of CAD, control theory, and the slow physics-first habit of mind that has stayed with me since.',
+      'Thesis on the position control of linear motors - LabVIEW driving an NI PCI-6289 DAQ, Arduino producing the PWM signals. Six years of CAD, control theory, and the slow physics-first habit of mind that has stayed with me since.',
   },
 ];
 
@@ -48,8 +48,8 @@ const stack = {
   Languages: ['Python', 'Java', 'C#', 'TypeScript', 'C++'],
   'Test automation': ['Selenium', 'Appium', 'Gauge', 'pytest', 'Playwright'],
   'AI / ML': [
-    'PyTorch', 'scikit-learn', 'LightGBM', 'XGBoost',
-    'AutoGen (multi-agent, since 2024)', 'Claude API', 'OpenAI API',
+    'LangGraph', 'CrewAI', 'Agno', 'AutoGen', 'PyTorch',
+    'scikit-learn', 'LightGBM', 'XGBoost', 'Claude API', 'OpenAI API',
   ],
   Backend: ['FastAPI', 'ASP.NET Core', 'Node.js', 'PostgreSQL', 'Redis'],
   Infrastructure: [
@@ -58,12 +58,13 @@ const stack = {
   ],
   Hardware: ['Arduino', 'LabVIEW', 'NI PCI-6289', 'GPIO / serial'],
   'Game / engine': ['Unity', 'Godot', 'GameMaker (childhood)'],
+  'Taste archive': ['RPG systems', 'tactics', 'simulation', 'classic cinema'],
 };
 ---
 
 <Base
-  title="About — M.S. Bel"
-  description="Engineer of two crafts. Mechanical by training, software by obsession."
+  title="About - M.S. Bel"
+  description="M.S. Bel, QA Engineer in Istanbul. Mechanical by training, automation engineer by practice."
 >
   <Header current="about" />
 
@@ -71,11 +72,11 @@ const stack = {
   <section class="page-hero">
     <div class="container">
       <p class="section-eyebrow">about</p>
-      <h1 class="page-title">Engineer of two crafts.</h1>
+      <h1 class="page-title">M.S. Bel.</h1>
       <p class="page-sub">
-        Born 1991 in Diyarbakır. Trained as a mechanical engineer.
-        Working as a senior test automation specialist. Building an AI
-        suite called <em>Alcyone</em> after hours.
+        QA Engineer in Istanbul. Mechanical by training, automation
+        engineer by practice. The work spans banking and telecom test
+        systems, AI agents, Pi-hosted tooling, and hand-built RPG systems.
       </p>
     </div>
   </section>
@@ -86,65 +87,42 @@ const stack = {
       <p class="section-eyebrow">story</p>
       <div class="bio-text">
         <p>
-          I was seven when I watched <em>Back to the Future</em> and
-          decided I would build things. The idea stayed. Two years later
-          we had an Atari clone — NES-class hardware that arrived in
-          our part of the world a decade after it was current. A few
-          years after that we had a real computer with no Windows on
-          it, and for a few months I lived in DOS, typing commands into
-          a black screen and watching something happen. That was where
-          I switched ambitions: physical-world science felt finished;
-          the digital frontier was still empty. From that DOS prompt
-          forward I wanted to be a computer engineer.
+          The engineering instinct started early: <em>Back to the Future</em>,
+          an Atari clone, then a DOS machine with no Windows and a black
+          screen where every command produced visible cause and effect.
+          Mechanical systems came first, but software became the place
+          where the frontier still felt open.
         </p>
         <p>
-          I failed the university entrance exam the first year and
-          didn't place into computer engineering; tried it again the
-          next year and placed into mechanical engineering at Istanbul
-          University.
-          The bachelor's took six years instead of four; the thesis was
-          on the position control of linear motors — LabVIEW driving a
-          National Instruments DAQ card, an Arduino generating the PWM
-          signals, a stepper-style control loop wrapping it all. The
-          mechatronics master's at Marmara that followed made software
-          inevitable. Coursework took me through MEMS, ergonomics,
-          control theory, and a long run of machine-learning projects.
-          One of them — a CNN built on VGG16 transfer learning — hit
-          98.3% test accuracy on a 40,000-image cement-surface defect
-          dataset. The thesis itself is on motor predictive maintenance
-          and is still waiting for its defense date.
+          The formal route went through Mechanical Engineering at Istanbul
+          University and Mechatronics Engineering at Marmara University.
+          The bachelor's thesis used LabVIEW, a National Instruments DAQ,
+          Arduino PWM generation, and a control loop for linear motors.
+          Later coursework moved through MEMS, ergonomics, control theory,
+          and machine-learning projects, including VGG16 transfer learning
+          on a 40,000-image defect-detection dataset with 98.3 percent test
+          accuracy. The master's thesis is on motor predictive maintenance.
         </p>
         <p>
-          The software career began earlier than the diploma. The first
-          repo on my GitHub is from September 2017, and there are
-          forty-something more behind it — some graveyards, some
-          foundations, none deleted. Five years on telecom-grade
-          systems taught me how to ship at scale; the last two years
-          on test automation taught me how to ship cleanly. In January
-          2024, well before the word <em>agentic</em> was the entire
-          industry, I built dAIlog: a multi-agent framework on top of
-          AutoGen. A single sentence to the system would route through
-          seven agents — a Planner, an Engineer who wrote Python, an
-          Executor who ran it, a Critic who checked the work — and
-          something would come out the other end. I proposed it
-          internally. It went nowhere. Six months later everyone caught
-          up.
+          The software record starts on GitHub in 2017. Five years on
+          telecom-grade systems built the habit of testing at scale; the
+          current banking and fintech automation work sharpened the habit
+          of making tests readable, repeatable, and useful under production
+          constraints. In January 2024, dAIlog brought seven AutoGen agents
+          into one loop: planner, engineer, executor, critic, and supporting
+          roles coordinating from a single prompt.
         </p>
         <p>
-          The fleet now is three projects.
-          <a href="/projects/alcyone" class="subtle">Alcyone</a> is a
-          nine-layer trading bot that lives on a Raspberry Pi 5 and
-          runs twenty-four hours a day.
-          <a href="/projects/pegasus" class="subtle">Pegasus</a> is the
-          QA agent — a working version wrote a complete production
-          spec for an airline booking flow in two hours, end to end.
-          <a href="/projects/ember" class="subtle">Ember</a> is the
-          counter-experiment: an RPG written by hand in Unity, after
-          the AI-generated prototype proved unplayable. Underneath all
-          of it is the same thread you can read from 2017 onwards:
-          ship the artefact, write down the lesson, keep going. An
-          Estonian e-Residency is in the post; a one-person umbrella
-          for the fleet follows when it arrives.
+          The current bench includes
+          <a href="/projects/alcyone" class="subtle">Alcyone</a>, a
+          Pi-hosted trading system;
+          <a href="/projects/thalamus" class="subtle">Thalamus</a>, an
+          OpenClaw packet-handoff plugin;
+          <a href="/projects/pegasus" class="subtle">Pegasus</a>, a QA
+          automation agent; and
+          <a href="/projects/ember" class="subtle">Ember</a>, a hand-built
+          RPG in Unity. The thread is consistent from 2017 onward: ship the
+          artifact, keep the evidence, write down the lesson.
         </p>
       </div>
     </div>
@@ -219,19 +197,23 @@ const stack = {
       <ul class="asides">
         <li>
           <span class="aside-mono mono">2010-2018</span>
-          <span>Eight years of theatre — high-school and university stages. Same discipline as engineering, just different costumes.</span>
+          <span>Eight years of theatre - high-school and university stages. Same discipline as engineering, just different costumes.</span>
         </li>
         <li>
           <span class="aside-mono mono">17,180 h</span>
-          <span>Lifetime gaming hours per the GOG Galaxy export. Mostly RPGs — Pathfinder, the Baldur's Gate trilogy, Witcher, Pillars, RimWorld, the Fallouts. The reading list of the RPG I am trying to build.</span>
+          <span>Lifetime gaming hours per the GOG Galaxy export. Most of the time sits in RPGs, tactics, shooters, simulation, and strategy: Fallout, UnderRail, Pathfinder, RimWorld, Baldur's Gate, Dyson Sphere Program, Witcher, Civilization.</span>
         </li>
         <li>
-          <span class="aside-mono mono">42 repos</span>
-          <span><a href="https://github.com/msbel5" class="subtle" target="_blank" rel="noopener">github.com/msbel5</a> — chronological archive going back to 2017.</span>
+          <span class="aside-mono mono">324 films</span>
+          <span>IMDb archive leans toward drama, thriller, science fiction, crime, war, and systems under pressure: Apocalypse Now, The Godfather, 12 Angry Men, Inception, Seven Samurai, Fight Club.</span>
+        </li>
+        <li>
+          <span class="aside-mono mono">56 repos</span>
+          <span><a href="https://github.com/msbel5" class="subtle" target="_blank" rel="noopener">github.com/msbel5</a> - chronological archive going back to 2017.</span>
         </li>
         <li>
           <span class="aside-mono mono">native</span>
-          <span>Turkish (TR) — fluent English (EN).</span>
+          <span>Turkish (TR) - fluent English (EN).</span>
         </li>
       </ul>
     </div>

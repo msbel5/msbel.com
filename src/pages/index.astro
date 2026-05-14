@@ -1,74 +1,111 @@
 ---
+import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
 import Header from '../components/Header.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 import { projects } from '../data/projects.ts';
 
 const visible = projects.slice(0, 6);
+const latestPosts = (await getCollection('writing', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 2);
+const liveCount = visible.filter((project) => project.status === 'live').length;
+
+const snapshot = [
+  { label: 'experience', value: '8+ years', tone: 'live' },
+  { label: 'archive', value: '56 repos', tone: 'idle' },
+  { label: 'systems', value: 'Pi active', tone: 'live' },
+];
+
+const orbitNodes = [
+  { label: 'automation', className: 'node-qa' },
+  { label: 'pi', className: 'node-pi' },
+  { label: 'agents', className: 'node-agents' },
+  { label: 'systems', className: 'node-rpg' },
+  { label: 'archive', className: 'node-archive' },
+];
 ---
 
 <Base>
   <Header current="home" />
 
-  <!-- Hero -->
   <section class="hero">
-    <div class="container">
-      <p class="hero-eyebrow mono">
-        <span class="hero-star">★</span>
-        <span class="visually-hidden">Muhammet Sıddık Bel — </span>
-        m.s. bel · istanbul, tr
-      </p>
-      <h1 class="hero-title">
-        Engineer building quiet, durable systems.
-        A trading bot, a QA agent, a hand-crafted RPG.
-      </h1>
-      <p class="visually-hidden">
-        Muhammet Sıddık Bel (M.S. Bel) — senior test automation
-        specialist based in Istanbul, Turkey. Mechanical engineer
-        trained at Istanbul University; mechatronics master's at
-        Marmara University. Builds Alcyone (24/7 ML trading bot on
-        Raspberry Pi 5), Pegasus (AI test generation agent), and
-        Ember (hand-crafted RPG in Unity). GitHub: msbel5.
-      </p>
-      <p class="hero-sub">
-        Senior test automation specialist by day. Builder of an AI suite
-        called <a href="/projects/alcyone" class="subtle">Alcyone</a> by
-        night, hosted on a Raspberry Pi 5 named after the brightest star
-        in the Pleiades.
-      </p>
-      <div class="hero-meta mono">
-        {(() => {
-          const liveCount = visible.filter(p => p.status === 'live').length;
-          return (
-            <>
-              <span><span class="status-dot live"></span>Pi up</span>
-              <span class="dim">·</span>
-              <span>{liveCount} {liveCount === 1 ? 'project' : 'projects'} live</span>
-              <span class="dim">·</span>
-              <span>last deploy {new Date().toISOString().split('T')[0]}</span>
-            </>
-          );
-        })()}
+    <div class="container-wide hero-grid">
+      <div class="hero-copy">
+        <p class="hero-eyebrow mono">
+          <span class="hero-star">★</span>
+          M.S. Bel / QA Engineer / Istanbul
+        </p>
+        <h1 class="hero-title">QA Engineer building reliable automation.</h1>
+        <p class="visually-hidden">
+          M.S. Bel is a QA Engineer and automation builder in Istanbul.
+          The portfolio spans test automation, agent workflows, Pi-hosted
+          tooling, trading experiments, and hand-built RPG systems.
+        </p>
+        <p class="hero-sub">
+          Eight years of software and test automation work across fintech,
+          telecom, AI agents, Pi-hosted tooling, trading systems, and
+          simulation-heavy side projects.
+        </p>
+        <div class="hero-actions">
+          <a class="hero-link primary" href="/projects">see the archive</a>
+          <a class="hero-link" href="/writing">read field notes</a>
+        </div>
+        <div class="hero-meta mono">
+          <span><span class="status-dot live"></span>Pi reachable</span>
+          <span class="dim">/</span>
+          <span>{liveCount} live projects</span>
+          <span class="dim">/</span>
+          <span>last deploy {new Date().toISOString().split('T')[0]}</span>
+        </div>
       </div>
+
+      <aside class="observatory" aria-label="Current work map">
+        <svg class="observatory-lines" viewBox="0 0 520 420" aria-hidden="true">
+          <path d="M92 284L205 129L330 212L436 86" />
+          <path d="M205 129L250 328L330 212" />
+          <path d="M92 284L250 328L436 86" />
+          <path d="M205 129L436 86" />
+        </svg>
+        {orbitNodes.map((node) => (
+          <div class={`orbit-node ${node.className}`}>
+            <span class="node-dot"></span>
+            <span class="node-label mono">{node.label}</span>
+          </div>
+        ))}
+        <div class="observatory-core">
+          <span class="core-mark">★</span>
+          <span class="core-text mono">M.S. Bel</span>
+        </div>
+      </aside>
     </div>
   </section>
 
-  <!-- Now -->
-  <section class="now">
-    <div class="container">
-      <p class="section-eyebrow">currently</p>
-      <p class="now-text">
-        Running the v4 trading bot 24/7 on testnet. Nine signal layers,
-        46 ML features, no fabrication. Drafting <em>Pegasus</em>, a QA
-        agent that writes its own end-to-end tests by watching the page.
-        E-Residency to Estonia is in flight; an OÜ follows once the card
-        lands. In the queue: rewriting <em>Ember</em> by hand in Unity,
-        because AI-generated games can't be played.
-      </p>
+  <section class="signal">
+    <div class="container-wide signal-grid">
+      <div>
+        <p class="section-eyebrow">current signal</p>
+        <p class="now-text">
+          This portfolio is built as an engineering record: shipped code,
+          tested systems, live Pi services, and the long-running archive
+          behind them. The tone is professional first, personal where the
+          work explains the person.
+        </p>
+      </div>
+      <dl class="snapshot">
+        {snapshot.map((item) => (
+          <div class="snapshot-item">
+            <dt class="mono">
+              <span class={`snapshot-dot ${item.tone}`}></span>
+              {item.label}
+            </dt>
+            <dd>{item.value}</dd>
+          </div>
+        ))}
+      </dl>
     </div>
   </section>
 
-  <!-- Projects -->
   <section class="projects">
     <div class="container">
       <p class="section-eyebrow">selected work</p>
@@ -91,20 +128,35 @@ const visible = projects.slice(0, 6);
       </div>
 
       <div class="projects-footer">
-        <a href="/projects" class="subtle">see all projects →</a>
+        <a href="/projects" class="subtle">see all projects</a>
       </div>
     </div>
   </section>
 
-  <!-- Connect -->
+  <section class="writing-preview">
+    <div class="container">
+      <p class="section-eyebrow">field notes</p>
+      <h2 class="writing-heading">The build log stays public.</h2>
+      <div class="writing-list">
+        {latestPosts.map((post) => (
+          <a class="writing-item" href={`/writing/${post.slug}`}>
+            <time class="mono">{post.data.pubDate.toISOString().split('T')[0]}</time>
+            <h3>{post.data.title}</h3>
+            <p>{post.data.description}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
   <section class="connect">
     <div class="container">
-      <p class="section-eyebrow">connect</p>
-      <h2 class="connect-heading"><em>Reach out.</em></h2>
+      <p class="section-eyebrow">contact</p>
+      <h2 class="connect-heading">Useful work, clean tests, reliable systems.</h2>
       <p class="connect-text">
-        I'm open to collaborating on AI agent systems, contracting for
-        test automation infrastructure, or trading notes on what's
-        actually working in production. Estonia OÜ from late 2026 onwards.
+        Available for QA automation work, agent-system collaboration, and
+        technical conversations about software that has to survive real
+        production constraints.
       </p>
       <div class="connect-links mono">
         <a href="mailto:msbel5@gmail.com">msbel5@gmail.com</a>
@@ -116,73 +168,100 @@ const visible = projects.slice(0, 6);
 </Base>
 
 <style>
-  /* ── Hero ─────────────────────────────────────────────── */
-
   .hero {
-    padding-top: 12rem;
+    min-height: min(820px, 100svh);
+    display: flex;
+    align-items: center;
+    padding-top: 9rem;
     padding-bottom: 6rem;
     border-top: none !important;
     position: relative;
     overflow: hidden;
+    background:
+      linear-gradient(180deg, rgba(13, 14, 16, 0.72), rgba(13, 14, 16, 1)),
+      linear-gradient(120deg, rgba(91, 158, 255, 0.08), transparent 34%);
   }
 
   .hero::before {
     content: '';
     position: absolute;
-    top: 20%;
-    right: -10%;
-    width: 600px;
-    height: 600px;
-    background: radial-gradient(circle, var(--accent-glow), transparent 70%);
-    pointer-events: none;
-    z-index: -1;
-    filter: blur(80px);
+    inset: 4rem 0 auto;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border-bright), transparent);
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.96fr) minmax(320px, 0.78fr);
+    gap: clamp(3rem, 8vw, 7rem);
+    align-items: center;
+  }
+
+  .hero-copy {
+    position: relative;
+    z-index: 2;
   }
 
   .hero-eyebrow {
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
-    font-size: 0.8125rem;
+    gap: 0.55rem;
     color: var(--text-muted);
-    text-transform: lowercase;
+    font-size: 0.8125rem;
     letter-spacing: 0.05em;
-    margin-bottom: 2rem;
-    padding: 0.375rem 0.875rem;
-    border: 1px solid var(--border);
-    border-radius: 999px;
+    margin-bottom: 1.75rem;
+    text-transform: lowercase;
   }
 
   .hero-star {
     color: var(--accent);
-    animation: twinkle 4s ease-in-out infinite;
-  }
-
-  @keyframes twinkle {
-    0%, 100% { opacity: 0.7; transform: scale(1); }
-    50% { opacity: 1; transform: scale(1.2); }
   }
 
   .hero-title {
-    font-size: clamp(2.5rem, 6.5vw, 4.5rem);
-    line-height: 1.05;
-    letter-spacing: -0.025em;
-    margin-bottom: 2rem;
-    max-width: 18ch;
-  }
-
-  .hero-title em {
-    font-style: italic;
-    color: var(--accent);
-    font-variation-settings: 'opsz' 144, 'SOFT' 80;
+    font-size: clamp(3.2rem, 8vw, 6.6rem);
+    line-height: 0.92;
+    max-width: 9.6ch;
+    margin-bottom: 1.75rem;
   }
 
   .hero-sub {
-    font-size: 1.125rem;
+    font-size: clamp(1.0625rem, 1.5vw, 1.25rem);
     color: var(--text-secondary);
-    line-height: 1.6;
-    max-width: 56ch;
-    margin-bottom: 2.5rem;
+    line-height: 1.65;
+    max-width: 48ch;
+    margin-bottom: 2rem;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 2.25rem;
+  }
+
+  .hero-link {
+    min-height: 2.5rem;
+    display: inline-flex;
+    align-items: center;
+    border-bottom: 1px solid var(--border-bright);
+    color: var(--text-primary);
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    transition:
+      color var(--duration-fast) var(--ease-out),
+      border-color var(--duration-fast) var(--ease-out),
+      transform var(--duration-fast) var(--ease-out);
+  }
+
+  .hero-link:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+    transform: translateX(2px);
+  }
+
+  .hero-link.primary {
+    color: var(--accent);
+    border-color: var(--accent-muted);
   }
 
   .hero-meta {
@@ -190,33 +269,141 @@ const visible = projects.slice(0, 6);
     gap: 0.75rem;
     align-items: center;
     flex-wrap: wrap;
-    font-size: 0.8125rem;
     color: var(--text-muted);
+    font-size: 0.8125rem;
   }
 
-  .hero-meta .dim { color: var(--text-faint); }
+  .hero-meta .dim {
+    color: var(--text-faint);
+  }
 
-  /* ── Now ─────────────────────────────────────────────── */
+  .observatory {
+    min-height: 420px;
+    position: relative;
+    border-left: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    background:
+      linear-gradient(90deg, rgba(91, 158, 255, 0.08) 1px, transparent 1px),
+      linear-gradient(180deg, rgba(235, 229, 216, 0.035) 1px, transparent 1px);
+    background-size: 64px 64px;
+  }
+
+  .observatory-lines {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .observatory-lines path {
+    fill: none;
+    stroke: var(--border-bright);
+    stroke-width: 1;
+    vector-effect: non-scaling-stroke;
+  }
+
+  .orbit-node {
+    position: absolute;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+  }
+
+  .node-dot {
+    width: 0.65rem;
+    height: 0.65rem;
+    border-radius: 50%;
+    border: 1px solid var(--accent);
+    background: var(--bg-base);
+    box-shadow: 0 0 0 4px rgba(91, 158, 255, 0.08);
+  }
+
+  .node-qa { left: 14%; top: 66%; }
+  .node-pi { left: 36%; top: 27%; }
+  .node-agents { left: 62%; top: 47%; }
+  .node-rpg { right: 8%; top: 17%; }
+  .node-archive { left: 46%; bottom: 17%; }
+
+  .observatory-core {
+    position: absolute;
+    right: 7%;
+    bottom: 9%;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-secondary);
+  }
+
+  .core-mark {
+    color: var(--accent);
+  }
+
+  .core-text {
+    letter-spacing: 0.08em;
+  }
+
+  .signal-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(260px, 0.42fr);
+    gap: clamp(2.5rem, 7vw, 6rem);
+    align-items: start;
+  }
 
   .now-text {
     font-family: var(--font-display);
-    font-size: clamp(1.25rem, 2.2vw, 1.5rem);
-    line-height: 1.55;
+    font-size: clamp(1.25rem, 2.2vw, 1.65rem);
+    line-height: 1.5;
     color: var(--text-secondary);
-    max-width: 40ch;
+    max-width: 44ch;
   }
 
-  .now-text em {
-    font-style: italic;
+  .snapshot {
+    border-top: 1px solid var(--border);
+  }
+
+  .snapshot-item {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .snapshot dt {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+  }
+
+  .snapshot dd {
     color: var(--text-primary);
+    font-family: var(--font-display);
+    font-size: 1.25rem;
   }
 
-  /* ── Projects ──────────────────────────────────────── */
+  .snapshot-dot {
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    display: inline-block;
+  }
 
-  .projects-heading {
+  .snapshot-dot.live { background: var(--status-live); }
+  .snapshot-dot.idle { background: var(--status-idle); }
+
+  .projects-heading,
+  .writing-heading,
+  .connect-heading {
     margin-bottom: 3rem;
-    font-style: italic;
-    color: var(--text-primary);
+    max-width: 13ch;
   }
 
   .projects-list {
@@ -224,9 +411,9 @@ const visible = projects.slice(0, 6);
   }
 
   .projects-footer {
-    text-align: center;
     padding-top: 2rem;
     border-top: 1px solid var(--border);
+    text-align: center;
   }
 
   .projects-footer a {
@@ -234,23 +421,55 @@ const visible = projects.slice(0, 6);
     font-size: 0.875rem;
   }
 
-  /* ── Connect ───────────────────────────────────────── */
-
-  .connect-heading {
-    margin-bottom: 1.5rem;
+  .writing-list {
+    display: grid;
+    gap: 1.5rem;
   }
 
-  .connect-heading em {
-    font-style: italic;
+  .writing-item {
+    display: block;
+    padding: 1.5rem 0;
+    border-top: 1px solid var(--border);
+    color: var(--text-primary);
+  }
+
+  .writing-item:last-child {
+    border-bottom: 1px solid var(--border);
+  }
+
+  .writing-item time {
+    display: block;
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .writing-item h3 {
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+  }
+
+  .writing-item p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    max-width: 60ch;
+  }
+
+  .writing-item:hover h3 {
     color: var(--accent);
   }
 
+  .connect-heading {
+    max-width: 16ch;
+  }
+
   .connect-text {
-    font-size: 1rem;
     color: var(--text-secondary);
     line-height: 1.65;
     max-width: 56ch;
-    margin-bottom: 2.5rem;
+    margin-bottom: 2.25rem;
   }
 
   .connect-links {
@@ -265,11 +484,60 @@ const visible = projects.slice(0, 6);
     padding-bottom: 0.125rem;
     width: max-content;
     font-size: 0.9375rem;
-    transition: all var(--duration-fast) var(--ease-out);
   }
 
   .connect-links a:hover {
-    border-bottom-color: var(--accent);
     color: var(--accent);
+    border-bottom-color: var(--accent);
+  }
+
+  @media (max-width: 860px) {
+    .hero {
+      min-height: auto;
+      padding-top: 8rem;
+    }
+
+    .hero-grid,
+    .signal-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .observatory {
+      min-height: 320px;
+      order: -1;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .hero {
+      padding-bottom: 4rem;
+    }
+
+    .hero-title {
+      font-size: clamp(3rem, 15vw, 4.2rem);
+      max-width: 9ch;
+    }
+
+    .hero-actions {
+      gap: 0.75rem;
+    }
+
+    .observatory {
+      min-height: 260px;
+      background-size: 48px 48px;
+    }
+
+    .node-label {
+      font-size: 0.65rem;
+    }
+
+    .node-agents {
+      left: 56%;
+    }
+
+    .snapshot-item {
+      grid-template-columns: 1fr;
+      gap: 0.25rem;
+    }
   }
 </style>

@@ -85,9 +85,26 @@ const statusDotClass = {
 
 <style>
   .project {
+    position: relative;
     padding-block: 2.5rem;
+    padding-left: 1.25rem;
     border-bottom: 1px solid var(--border);
-    transition: background var(--duration-base) var(--ease-out);
+    transition: border-color var(--duration-base) var(--ease-out);
+  }
+
+  .project::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 2.7rem;
+    bottom: 2.7rem;
+    width: 1px;
+    background: var(--border-bright);
+    transform-origin: top;
+    transform: scaleY(0.42);
+    transition:
+      transform var(--duration-base) var(--ease-out),
+      background var(--duration-base) var(--ease-out);
   }
 
   .project:last-child {
@@ -95,7 +112,12 @@ const statusDotClass = {
   }
 
   .project:hover {
-    background: linear-gradient(to right, var(--bg-surface) 0%, transparent 60%);
+    border-color: var(--border-bright);
+  }
+
+  .project:hover::before {
+    background: var(--accent);
+    transform: scaleY(1);
   }
 
   .project-header {
