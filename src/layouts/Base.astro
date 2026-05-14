@@ -122,10 +122,13 @@ const websiteSchema = {
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
-    <!-- Fonts: msbel Hybrid (self-host) + Geist Sans + Geist Mono + Fraunces (fallback) via global.css -->
+    <!-- Fonts: Fraunces (display) + Geist Sans + Geist Mono via global.css.
+         msbel-hybrid preload removed during mobile font emergency fix —
+         that font rendered every heading as illegible tally-mark glyphs
+         on iOS Safari. The .otf file remains in /public/fonts/ but is no
+         longer referenced; re-introduce intentionally if needed later. -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preload" href="/fonts/msbel-hybrid.otf" as="font" type="font/otf" crossorigin />
 
     <!-- Theme color -->
     <meta name="theme-color" content="#0d0e10" />

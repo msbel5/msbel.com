@@ -6,6 +6,14 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Geist:wght@300..700&family=Geist+Mono:wght@400..600&family=Fraunces:opsz,wght@9..144,300..700&display=swap');
 
+/* msbel-hybrid was a custom decorative font intentionally rendered as
+   tally-mark/glitched glyphs by design. On iOS Safari at h1/h2/h3 sizes
+   it became illegible — every heading site-wide read as broken Unicode.
+   Removed from the --font-display chain (see :root below). Keeping the
+   .otf in /public/fonts/ and this commented @font-face block so the
+   font can be re-introduced behind a media query or a single .stylized
+   class later if Mami wants it back for desktop only.
+
 @font-face {
   font-family: 'msbel Hybrid';
   src: url('/fonts/msbel-hybrid.otf') format('opentype');
@@ -13,6 +21,7 @@
   font-style: normal;
   font-display: swap;
 }
+*/
 
 /* ── Variables ──────────────────────────────────────────────── */
 
@@ -57,9 +66,12 @@
   --border:         #2a2d33;
   --border-bright:  #353941;
 
-  /* Type families */
+  /* Type families — msbel-hybrid pulled from the chain after mobile audit
+     showed iOS Safari rendered every heading as illegible tally-mark
+     glyphs. Fraunces is the canonical display face; if msbel-hybrid is
+     re-introduced it must sit behind a media query or a single class. */
   --font-sans:      'Geist', 'Inter', system-ui, -apple-system, sans-serif;
-  --font-display:   'msbel Hybrid', 'Fraunces', 'Iowan Old Style', Georgia, serif;
+  --font-display:   'Fraunces', 'Iowan Old Style', Georgia, serif;
   --font-mono:      'Geist Mono', 'JetBrains Mono', 'Fira Code', monospace;
 
   /* Spacing scale */
